@@ -3,7 +3,7 @@
 
 package common
 
-import "github.com/ava-labs/avalanchego/ids"
+import "github.com/tenderly/net-flare/avalanchego/ids"
 
 // Send a query composed partially of push queries and partially of pull queries.
 // The validators in [vdrs] will be queried.

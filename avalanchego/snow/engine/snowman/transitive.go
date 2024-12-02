@@ -9,17 +9,17 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/cache"
-	"github.com/ava-labs/avalanchego/cache/metercacher"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman/poll"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/events"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/tenderly/net-flare/avalanchego/cache"
+	"github.com/tenderly/net-flare/avalanchego/cache/metercacher"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/snow/choices"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/snowman"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/snowman/poll"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	"github.com/tenderly/net-flare/avalanchego/snow/events"
+	"github.com/tenderly/net-flare/avalanchego/utils/wrappers"
+	"github.com/tenderly/net-flare/avalanchego/version"
 )
 
 const nonVerifiedCacheSize = 128

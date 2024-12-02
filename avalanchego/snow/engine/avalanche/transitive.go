@@ -9,17 +9,17 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/consensus/avalanche"
-	"github.com/ava-labs/avalanchego/snow/consensus/avalanche/poll"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/snow/engine/avalanche/vertex"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/events"
-	"github.com/ava-labs/avalanchego/utils/sampler"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/avalanche"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/avalanche/poll"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/snowstorm"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/avalanche/vertex"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	"github.com/tenderly/net-flare/avalanchego/snow/events"
+	"github.com/tenderly/net-flare/avalanchego/utils/sampler"
+	"github.com/tenderly/net-flare/avalanchego/utils/wrappers"
+	"github.com/tenderly/net-flare/avalanchego/version"
 )
 
 var _ Engine = &Transitive{}

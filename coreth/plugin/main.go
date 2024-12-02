@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/ulimit"
-	"github.com/ava-labs/avalanchego/vms/rpcchainvm"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/utils/ulimit"
+	"github.com/tenderly/net-flare/avalanchego/vms/rpcchainvm"
 
-	"github.com/ava-labs/coreth/plugin/evm"
+	"github.com/tenderly/net-flare/coreth/plugin/evm"
 )
 
 func main() {

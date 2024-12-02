@@ -7,12 +7,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ava-labs/coreth/params"
+	"github.com/tenderly/net-flare/coreth/params"
 
-	"github.com/ava-labs/avalanchego/snow"
-	commonEng "github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/utils/timer"
-	"github.com/ava-labs/coreth/core"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	commonEng "github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	"github.com/tenderly/net-flare/avalanchego/utils/timer"
+	"github.com/tenderly/net-flare/coreth/core"
 	"github.com/ethereum/go-ethereum/log"
 )
 

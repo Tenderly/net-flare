@@ -1,6 +1,6 @@
 package version
 
-import "github.com/ava-labs/avalanchego/utils/constants"
+import "github.com/tenderly/net-flare/avalanchego/utils/constants"
 
 var applicationPrefix = "avalanche"
 

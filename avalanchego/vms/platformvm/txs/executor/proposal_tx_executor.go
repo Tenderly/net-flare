@@ -8,16 +8,16 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/math"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/platformvm/reward"
-	"github.com/ava-labs/avalanchego/vms/platformvm/state"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs"
-	"github.com/ava-labs/avalanchego/vms/platformvm/utxo"
+	"github.com/tenderly/net-flare/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/math"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/avax"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/verify"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/reward"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/state"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/txs"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/utxo"
 )
 
 const (

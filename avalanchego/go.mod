@@ -1,4 +1,4 @@
-module github.com/ava-labs/avalanchego
+module github.com/tenderly/net-flare/avalanchego
 
 // Changes to the minimum golang version must also be replicated in
 // scripts/build_avalanche.sh
@@ -8,13 +8,13 @@ module github.com/ava-labs/avalanchego
 // go.mod (here, only major.minor can be specified)
 go 1.21
 
-replace github.com/ava-labs/coreth => ../coreth
+replace github.com/tenderly/net-flare/coreth => ../coreth
 
 require (
 	github.com/Microsoft/go-winio v0.5.2
 	github.com/NYTimes/gziphandler v1.1.1
 	github.com/ava-labs/avalanche-network-runner-sdk v0.2.0
-	github.com/ava-labs/coreth v0.11.0-rc.4
+	github.com/tenderly/net-flare/coreth v0.11.0-rc.4
 	github.com/decred/dcrd/dcrec/secp256k1/v3 v3.0.0-20200627015759-01fd2de07837
 	github.com/golang-jwt/jwt v3.2.1+incompatible
 	github.com/golang/mock v1.6.0

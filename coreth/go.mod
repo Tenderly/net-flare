@@ -1,12 +1,12 @@
-module github.com/ava-labs/coreth
+module github.com/tenderly/net-flare/coreth
 
 go 1.21
 
-replace github.com/ava-labs/avalanchego => ../avalanchego
+replace github.com/tenderly/net-flare/avalanchego => ../avalanchego
 
 require (
 	github.com/VictoriaMetrics/fastcache v1.10.0
-	github.com/ava-labs/avalanchego v0.0.0
+	github.com/tenderly/net-flare/avalanchego v0.0.0
 	github.com/cespare/cp v0.1.0
 	github.com/davecgh/go-spew v1.1.1
 	github.com/deckarep/golang-set v1.8.0

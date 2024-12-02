@@ -36,15 +36,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ava-labs/coreth/consensus/dummy"
-	"github.com/ava-labs/coreth/core/state"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/metrics"
-	"github.com/ava-labs/coreth/params"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/prque"
 	"github.com/ethereum/go-ethereum/event"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/tenderly/net-flare/coreth/consensus/dummy"
+	"github.com/tenderly/net-flare/coreth/core/state"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/metrics"
+	"github.com/tenderly/net-flare/coreth/params"
 )
 
 const (
@@ -1502,7 +1502,7 @@ func (pool *TxPool) truncatePending() {
 
 	pendingBeforeCap := pending
 	// Assemble a spam order to penalize large transactors first
-	spammers := prque.New(nil)
+	spammers := prque.New[int64, common.Address](nil)
 	for addr, list := range pool.pending {
 		// Only evict transactions from high rollers
 		if !pool.locals.contains(addr) && uint64(list.Len()) > pool.config.AccountSlots {
@@ -1514,12 +1514,12 @@ func (pool *TxPool) truncatePending() {
 	for pending > pool.config.GlobalSlots && !spammers.Empty() {
 		// Retrieve the next offender if not local address
 		offender, _ := spammers.Pop()
-		offenders = append(offenders, offender.(common.Address))
+		offenders = append(offenders, offender)
 
 		// Equalize balances until all the same or below threshold
 		if len(offenders) > 1 {
 			// Calculate the equalization threshold for all current offenders
-			threshold := pool.pending[offender.(common.Address)].Len()
+			threshold := pool.pending[offender].Len()
 
 			// Iteratively reduce all offenders until below limit or threshold reached
 			for pending > pool.config.GlobalSlots && pool.pending[offenders[len(offenders)-2]].Len() > threshold {

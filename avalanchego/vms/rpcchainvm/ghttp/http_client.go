@@ -9,11 +9,11 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/ava-labs/avalanchego/vms/rpcchainvm/ghttp/gresponsewriter"
-	"github.com/ava-labs/avalanchego/vms/rpcchainvm/grpcutils"
+	"github.com/tenderly/net-flare/avalanchego/vms/rpcchainvm/ghttp/gresponsewriter"
+	"github.com/tenderly/net-flare/avalanchego/vms/rpcchainvm/grpcutils"
 
-	httppb "github.com/ava-labs/avalanchego/proto/pb/http"
-	responsewriterpb "github.com/ava-labs/avalanchego/proto/pb/http/responsewriter"
+	httppb "github.com/tenderly/net-flare/avalanchego/proto/pb/http"
+	responsewriterpb "github.com/tenderly/net-flare/avalanchego/proto/pb/http/responsewriter"
 )
 
 var _ http.Handler = &Client{}

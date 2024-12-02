@@ -3,10 +3,10 @@ package executor
 import (
 	"time"
 
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/units"
-	"github.com/ava-labs/avalanchego/vms/platformvm/config"
+	"github.com/tenderly/net-flare/avalanchego/utils"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/units"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/config"
 )
 
 var inflationSettingsVariants = utils.NewNetworkValue(getDefaultInflationSettings).

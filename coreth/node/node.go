@@ -27,8 +27,8 @@
 package node
 
 import (
-	"github.com/ava-labs/coreth/accounts"
-	"github.com/ava-labs/coreth/rpc"
+	"github.com/tenderly/net-flare/coreth/accounts"
+	"github.com/tenderly/net-flare/coreth/rpc"
 )
 
 // Node is a container on which services can be registered.

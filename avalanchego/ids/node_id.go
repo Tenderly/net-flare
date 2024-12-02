@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/ava-labs/avalanchego/utils/hashing"
+	"github.com/tenderly/net-flare/avalanchego/utils/hashing"
 )
 
 const NodeIDPrefix = "NodeID-"

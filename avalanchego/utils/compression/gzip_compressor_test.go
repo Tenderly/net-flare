@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/tenderly/net-flare/avalanchego/utils/units"
 )
 
 func TestGzipCompressDecompress(t *testing.T) {

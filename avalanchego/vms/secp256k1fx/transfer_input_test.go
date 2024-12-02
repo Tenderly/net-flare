@@ -8,9 +8,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/codec/linearcodec"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
+	"github.com/tenderly/net-flare/avalanchego/codec"
+	"github.com/tenderly/net-flare/avalanchego/codec/linearcodec"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/verify"
 )
 
 func TestTransferInputAmount(t *testing.T) {

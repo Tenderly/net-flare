@@ -9,7 +9,7 @@ import (
 	"math"
 	"testing"
 
-	safemath "github.com/ava-labs/avalanchego/utils/math"
+	safemath "github.com/tenderly/net-flare/avalanchego/utils/math"
 )
 
 // BenchmarkAllWeightedSampling

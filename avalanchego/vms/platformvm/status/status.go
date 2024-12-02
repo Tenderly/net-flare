@@ -8,7 +8,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/vms/components/verify"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/verify"
 )
 
 // List of possible status values:

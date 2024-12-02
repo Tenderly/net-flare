@@ -4,9 +4,9 @@
 package avalanche
 
 import (
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
+	"github.com/tenderly/net-flare/avalanchego/snow/choices"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/snowstorm"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/verify"
 )
 
 // Vertex is a collection of multiple transactions tied to other vertices

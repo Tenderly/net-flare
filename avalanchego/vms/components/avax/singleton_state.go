@@ -4,7 +4,7 @@
 package avax
 
 import (
-	"github.com/ava-labs/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/database"
 )
 
 const (

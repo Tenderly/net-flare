@@ -8,12 +8,12 @@ import (
 	reflect "reflect"
 	time "time"
 
-	manager "github.com/ava-labs/avalanchego/database/manager"
-	ids "github.com/ava-labs/avalanchego/ids"
-	snow "github.com/ava-labs/avalanchego/snow"
-	snowman "github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	common "github.com/ava-labs/avalanchego/snow/engine/common"
-	version "github.com/ava-labs/avalanchego/version"
+	manager "github.com/tenderly/net-flare/avalanchego/database/manager"
+	ids "github.com/tenderly/net-flare/avalanchego/ids"
+	snow "github.com/tenderly/net-flare/avalanchego/snow"
+	snowman "github.com/tenderly/net-flare/avalanchego/snow/consensus/snowman"
+	common "github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	version "github.com/tenderly/net-flare/avalanchego/version"
 	gomock "github.com/golang/mock/gomock"
 )
 

@@ -6,9 +6,9 @@ package info
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/rpc"
-	"github.com/ava-labs/avalanchego/vms/platformvm/signer"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils/rpc"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/signer"
 )
 
 var _ Client = &client{}

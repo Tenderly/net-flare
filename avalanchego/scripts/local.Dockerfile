@@ -17,7 +17,7 @@ WORKDIR $GOPATH/src/github.com/ava-labs
 COPY avalanchego avalanchego
 COPY coreth coreth
 
-WORKDIR $GOPATH/src/github.com/ava-labs/avalanchego
+WORKDIR $GOPATH/src/github.com/tenderly/net-flare/avalanchego
 RUN ./scripts/build_avalanche.sh
 RUN ./scripts/build_coreth.sh ../coreth $PWD/build/plugins/evm
 

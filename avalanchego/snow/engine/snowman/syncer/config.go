@@ -4,10 +4,10 @@
 package syncer
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
-	"github.com/ava-labs/avalanchego/snow/validators"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/snowman/block"
+	"github.com/tenderly/net-flare/avalanchego/snow/validators"
 )
 
 type Config struct {

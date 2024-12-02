@@ -6,9 +6,9 @@ package avalanche
 import (
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/snow/engine/avalanche/vertex"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/snowstorm"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/avalanche/vertex"
 )
 
 // Voter records chits received from [vdr] once its dependencies are met.

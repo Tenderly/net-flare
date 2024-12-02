@@ -15,18 +15,18 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/message"
-	"github.com/ava-labs/avalanchego/snow/networking/benchlist"
-	"github.com/ava-labs/avalanchego/snow/networking/handler"
-	"github.com/ava-labs/avalanchego/snow/networking/timeout"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/ava-labs/avalanchego/utils/linkedhashmap"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/timer/mockable"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/message"
+	"github.com/tenderly/net-flare/avalanchego/snow/networking/benchlist"
+	"github.com/tenderly/net-flare/avalanchego/snow/networking/handler"
+	"github.com/tenderly/net-flare/avalanchego/snow/networking/timeout"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/hashing"
+	"github.com/tenderly/net-flare/avalanchego/utils/linkedhashmap"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/utils/timer/mockable"
+	"github.com/tenderly/net-flare/avalanchego/utils/wrappers"
+	"github.com/tenderly/net-flare/avalanchego/version"
 )
 
 var (

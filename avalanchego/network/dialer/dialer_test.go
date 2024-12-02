@@ -14,8 +14,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/utils/ips"
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/utils/ips"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
 )
 
 // Test that canceling a context passed into Dial results

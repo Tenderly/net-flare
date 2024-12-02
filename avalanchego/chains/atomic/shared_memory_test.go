@@ -6,9 +6,9 @@ package atomic
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/database/prefixdb"
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/database/memdb"
+	"github.com/tenderly/net-flare/avalanchego/database/prefixdb"
+	"github.com/tenderly/net-flare/avalanchego/ids"
 )
 
 func TestSharedMemory(t *testing.T) {

@@ -11,11 +11,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
+	"github.com/tenderly/net-flare/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/database/memdb"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/common"
 )
 
 // Magic value that comes from the size in bytes of a serialized key-value bootstrap checkpoint in a database +

@@ -7,16 +7,16 @@ import (
 	"math/big"
 	"math/rand"
 
-	"github.com/ava-labs/avalanchego/utils"
+	"github.com/tenderly/net-flare/avalanchego/utils"
 
-	"github.com/ava-labs/avalanchego/chains/atomic"
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/codec/linearcodec"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/coreth/core/state"
-	"github.com/ava-labs/coreth/params"
+	"github.com/tenderly/net-flare/avalanchego/chains/atomic"
+	"github.com/tenderly/net-flare/avalanchego/codec"
+	"github.com/tenderly/net-flare/avalanchego/codec/linearcodec"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/utils/wrappers"
+	"github.com/tenderly/net-flare/coreth/core/state"
+	"github.com/tenderly/net-flare/coreth/params"
 )
 
 type TestUnsignedTx struct {

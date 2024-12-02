@@ -4,7 +4,7 @@
 package genesis
 
 import (
-	"github.com/ava-labs/avalanchego/utils/sampler"
+	"github.com/tenderly/net-flare/avalanchego/utils/sampler"
 )
 
 // getIPs returns the beacon IPs for each network

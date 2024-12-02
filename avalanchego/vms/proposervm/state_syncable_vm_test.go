@@ -12,20 +12,20 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/manager"
-	"github.com/ava-labs/avalanchego/database/prefixdb"
-	"github.com/ava-labs/avalanchego/database/versiondb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
-	"github.com/ava-labs/avalanchego/version"
-	"github.com/ava-labs/avalanchego/vms/proposervm/state"
+	"github.com/tenderly/net-flare/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/database/manager"
+	"github.com/tenderly/net-flare/avalanchego/database/prefixdb"
+	"github.com/tenderly/net-flare/avalanchego/database/versiondb"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/snow/choices"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/snowman"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/snowman/block"
+	"github.com/tenderly/net-flare/avalanchego/version"
+	"github.com/tenderly/net-flare/avalanchego/vms/proposervm/state"
 
-	statelessblock "github.com/ava-labs/avalanchego/vms/proposervm/block"
+	statelessblock "github.com/tenderly/net-flare/avalanchego/vms/proposervm/block"
 )
 
 func stopHeightReindexing(t *testing.T, coreVM *fullVM, dbMan manager.Manager) {

@@ -6,14 +6,14 @@ package state
 import (
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/cache"
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/engine/avalanche/vertex"
-	"github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/tenderly/net-flare/avalanchego/cache"
+	"github.com/tenderly/net-flare/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow/choices"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/avalanche/vertex"
+	"github.com/tenderly/net-flare/avalanchego/utils/hashing"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/utils/wrappers"
 )
 
 type state struct {

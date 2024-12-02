@@ -9,13 +9,13 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/app"
-	"github.com/ava-labs/avalanchego/nat"
-	"github.com/ava-labs/avalanchego/node"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/perms"
-	"github.com/ava-labs/avalanchego/utils/ulimit"
+	"github.com/tenderly/net-flare/avalanchego/app"
+	"github.com/tenderly/net-flare/avalanchego/nat"
+	"github.com/tenderly/net-flare/avalanchego/node"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/utils/perms"
+	"github.com/tenderly/net-flare/avalanchego/utils/ulimit"
 )
 
 const (

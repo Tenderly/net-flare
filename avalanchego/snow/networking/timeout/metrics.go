@@ -12,11 +12,11 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/message"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/utils/metric"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/message"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/utils/metric"
+	"github.com/tenderly/net-flare/avalanchego/utils/wrappers"
 )
 
 const (

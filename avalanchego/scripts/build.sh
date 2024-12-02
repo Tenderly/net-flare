@@ -18,8 +18,8 @@ go mod download -modcacherw
 
 echo "Syncing with sources at GOPATH: $GOPATH"
 
-rsync -ar --delete $AVALANCHE_PATH/* $GOPATH/pkg/mod/github.com/ava-labs/avalanchego@$avalanche_version
-rsync -ar --delete $CORETH_PATH/* $GOPATH/pkg/mod/github.com/ava-labs/coreth@$coreth_version
+rsync -ar --delete $AVALANCHE_PATH/* $GOPATH/pkg/mod/github.com/tenderly/net-flare/avalanchego@$avalanche_version
+rsync -ar --delete $CORETH_PATH/* $GOPATH/pkg/mod/github.com/tenderly/net-flare/coreth@$coreth_version
 
 # Build avalanchego
 "$AVALANCHE_PATH"/scripts/build_avalanche.sh

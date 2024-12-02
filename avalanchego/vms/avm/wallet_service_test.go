@@ -7,11 +7,11 @@ import (
 	"container/list"
 	"testing"
 
-	"github.com/ava-labs/avalanchego/api"
-	"github.com/ava-labs/avalanchego/chains/atomic"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/vms/avm/txs"
-	"github.com/ava-labs/avalanchego/vms/components/keystore"
+	"github.com/tenderly/net-flare/avalanchego/api"
+	"github.com/tenderly/net-flare/avalanchego/chains/atomic"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/vms/avm/txs"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/keystore"
 )
 
 // Returns:

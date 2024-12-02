@@ -10,9 +10,9 @@ import (
 
 	"github.com/spf13/pflag"
 
-	"github.com/ava-labs/avalanchego/app/runner"
-	"github.com/ava-labs/avalanchego/config"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/tenderly/net-flare/avalanchego/app/runner"
+	"github.com/tenderly/net-flare/avalanchego/config"
+	"github.com/tenderly/net-flare/avalanchego/version"
 )
 
 func main() {

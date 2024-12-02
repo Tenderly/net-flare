@@ -30,7 +30,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/ava-labs/coreth/ethdb"
+	"github.com/tenderly/net-flare/coreth/ethdb"
 )
 
 func TestTableDatabase(t *testing.T)            { testTableDatabase(t, "prefix") }

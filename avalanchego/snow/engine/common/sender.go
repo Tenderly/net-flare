@@ -4,8 +4,8 @@
 package common
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow"
 )
 
 // Sender defines how a consensus engine sends messages and requests to other

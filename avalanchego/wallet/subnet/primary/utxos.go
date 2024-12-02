@@ -7,11 +7,11 @@ import (
 	"context"
 	"sync"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/wallet/chain/p"
-	"github.com/ava-labs/avalanchego/wallet/chain/x"
+	"github.com/tenderly/net-flare/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/avax"
+	"github.com/tenderly/net-flare/avalanchego/wallet/chain/p"
+	"github.com/tenderly/net-flare/avalanchego/wallet/chain/x"
 )
 
 var (

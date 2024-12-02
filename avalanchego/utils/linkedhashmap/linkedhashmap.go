@@ -7,7 +7,7 @@ import (
 	"container/list"
 	"sync"
 
-	"github.com/ava-labs/avalanchego/utils"
+	"github.com/tenderly/net-flare/avalanchego/utils"
 )
 
 var _ LinkedHashmap[int, struct{}] = &linkedHashmap[int, struct{}]{}

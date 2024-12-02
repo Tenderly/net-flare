@@ -6,7 +6,7 @@ package api
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/utils/rpc"
+	"github.com/tenderly/net-flare/avalanchego/utils/rpc"
 )
 
 var _ StaticClient = &staticClient{}

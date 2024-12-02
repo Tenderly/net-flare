@@ -4,7 +4,7 @@
 package common
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/ids"
 )
 
 // SubnetTracker describes the interface for checking if a node is tracking a

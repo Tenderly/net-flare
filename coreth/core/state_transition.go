@@ -422,7 +422,7 @@ func (st *StateTransition) TransitionDb() (*ExecutionResult, error) {
 	}
 
 	// Call the daemon if there is no vm error
-	if vmerr == nil && (isSongbird || isFlare) {
+	if !msg.IsFake() && vmerr == nil && (isSongbird || isFlare) {
 		log := log.Root()
 		atomicDaemonAndMint(st, log)
 	}

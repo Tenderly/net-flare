@@ -29,7 +29,7 @@ package trie
 import (
 	"fmt"
 
-	"github.com/ava-labs/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/rlp"

@@ -11,19 +11,19 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/message"
-	"github.com/ava-labs/avalanchego/network/throttling"
-	"github.com/ava-labs/avalanchego/snow/networking/router"
-	"github.com/ava-labs/avalanchego/snow/networking/tracker"
-	"github.com/ava-labs/avalanchego/snow/validators"
-	"github.com/ava-labs/avalanchego/staking"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/ips"
-	"github.com/ava-labs/avalanchego/utils/logging"
-	"github.com/ava-labs/avalanchego/utils/math/meter"
-	"github.com/ava-labs/avalanchego/utils/resource"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/message"
+	"github.com/tenderly/net-flare/avalanchego/network/throttling"
+	"github.com/tenderly/net-flare/avalanchego/snow/networking/router"
+	"github.com/tenderly/net-flare/avalanchego/snow/networking/tracker"
+	"github.com/tenderly/net-flare/avalanchego/snow/validators"
+	"github.com/tenderly/net-flare/avalanchego/staking"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/ips"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/utils/math/meter"
+	"github.com/tenderly/net-flare/avalanchego/utils/resource"
+	"github.com/tenderly/net-flare/avalanchego/version"
 )
 
 const maxMessageToSend = 1024

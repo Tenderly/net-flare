@@ -12,7 +12,7 @@ import (
 	"math"
 	"sync"
 
-	"github.com/ava-labs/avalanchego/utils"
+	"github.com/tenderly/net-flare/avalanchego/utils"
 )
 
 var (

@@ -6,8 +6,8 @@ package secp256k1fx
 import (
 	"errors"
 
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/utils/math"
+	"github.com/tenderly/net-flare/avalanchego/utils"
+	"github.com/tenderly/net-flare/avalanchego/utils/math"
 )
 
 const (

@@ -31,8 +31,8 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/ethdb"
+	"github.com/tenderly/net-flare/coreth/core/rawdb"
+	"github.com/tenderly/net-flare/coreth/ethdb"
 	"github.com/ethereum/go-ethereum/common"
 )
 

@@ -4,14 +4,14 @@
 package executor
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	"github.com/ava-labs/avalanchego/utils/window"
-	"github.com/ava-labs/avalanchego/vms/platformvm/blocks"
-	"github.com/ava-labs/avalanchego/vms/platformvm/metrics"
-	"github.com/ava-labs/avalanchego/vms/platformvm/state"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs/executor"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs/mempool"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/snowman"
+	"github.com/tenderly/net-flare/avalanchego/utils/window"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/blocks"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/metrics"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/state"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/txs/executor"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/txs/mempool"
 )
 
 var _ Manager = &manager{}

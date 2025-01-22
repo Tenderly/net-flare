@@ -8,7 +8,7 @@ import (
 	"errors"
 	"io"
 
-	writerpb "github.com/ava-labs/avalanchego/proto/pb/io/writer"
+	writerpb "github.com/tenderly/net-flare/avalanchego/proto/pb/io/writer"
 )
 
 var _ io.Writer = &Client{}

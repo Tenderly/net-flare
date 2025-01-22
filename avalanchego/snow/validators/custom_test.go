@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ava-labs/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
 	"github.com/stretchr/testify/require"
 )
 

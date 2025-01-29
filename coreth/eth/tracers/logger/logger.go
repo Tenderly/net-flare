@@ -26,13 +26,13 @@ import (
 	"sync/atomic"
 	"time"
 
+	math "github.com/ava-labs/coreth/common/legacymath"
 	"github.com/ava-labs/coreth/core/types"
 	"github.com/ava-labs/coreth/core/vm"
 	"github.com/ava-labs/coreth/params"
 	"github.com/ava-labs/coreth/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/holiman/uint256"
 )
 

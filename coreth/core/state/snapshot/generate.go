@@ -30,6 +30,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
+	"github.com/ava-labs/coreth/common/legacymath"
 	"math/big"
 	"time"
 
@@ -38,7 +39,6 @@ import (
 	"github.com/ava-labs/coreth/ethdb"
 	"github.com/ava-labs/coreth/trie"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/rlp"
@@ -67,13 +67,13 @@ type generatorStats struct {
 // Info creates an contextual info-level log with the given message and the context pulled
 // from the internally maintained statistics.
 func (gs *generatorStats) Info(msg string, root common.Hash, marker []byte) {
-	gs.log(log.LevelInfo, msg, root, marker)
+	gs.log(slog.LevelInfo, msg, root, marker)
 }
 
 // Debug creates an contextual debug-level log with the given message and the context pulled
 // from the internally maintained statistics.
 func (gs *generatorStats) Debug(msg string, root common.Hash, marker []byte) {
-	gs.log(log.LevelDebug, msg, root, marker)
+	gs.log(slog.LevelDebug, msg, root, marker)
 }
 
 // log creates an contextual log with the given message and the context pulled
@@ -103,7 +103,7 @@ func (gs *generatorStats) log(level slog.Level, msg string, root common.Hash, ma
 	// Calculate the estimated indexing time based on current stats
 	if len(marker) > 0 {
 		if done := binary.BigEndian.Uint64(marker[:8]) - gs.origin; done > 0 {
-			left := math.MaxUint64 - binary.BigEndian.Uint64(marker[:8])
+			left := legacymath.MaxUint64 - binary.BigEndian.Uint64(marker[:8])
 
 			speed := done/uint64(time.Since(gs.start)/time.Millisecond+1) + 1 // +1s to avoid division by zero
 			ctx = append(ctx, []interface{}{
@@ -111,23 +111,7 @@ func (gs *generatorStats) log(level slog.Level, msg string, root common.Hash, ma
 			}...)
 		}
 	}
-
-	switch level {
-	case log.LevelTrace:
-		log.Trace(msg, ctx...)
-	case log.LevelDebug:
-		log.Debug(msg, ctx...)
-	case log.LevelInfo:
-		log.Info(msg, ctx...)
-	case log.LevelWarn:
-		log.Warn(msg, ctx...)
-	case log.LevelError:
-		log.Error(msg, ctx...)
-	case log.LevelCrit:
-		log.Crit(msg, ctx...)
-	default:
-		log.Error(fmt.Sprintf("log with invalid log level %s: %s", level, msg), ctx...)
-	}
+	log.Info(msg, ctx...)
 }
 
 // generateSnapshot regenerates a brand new snapshot based on an existing state

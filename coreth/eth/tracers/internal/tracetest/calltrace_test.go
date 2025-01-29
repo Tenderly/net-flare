@@ -36,6 +36,7 @@ import (
 	"testing"
 	"unicode"
 
+	math "github.com/ava-labs/coreth/common/legacymath"
 	"github.com/ava-labs/coreth/core"
 	"github.com/ava-labs/coreth/core/rawdb"
 	"github.com/ava-labs/coreth/core/types"
@@ -45,7 +46,6 @@ import (
 	"github.com/ava-labs/coreth/tests"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/rlp"
 

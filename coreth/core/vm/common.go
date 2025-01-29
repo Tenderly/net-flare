@@ -27,8 +27,8 @@
 package vm
 
 import (
+	math "github.com/ava-labs/coreth/common/legacymath"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/holiman/uint256"
 )
 

@@ -33,12 +33,12 @@ import (
 	"fmt"
 	"math/big"
 
+	math "github.com/ava-labs/coreth/common/legacymath"
 	"github.com/ava-labs/coreth/constants"
 	"github.com/ava-labs/coreth/params"
 	"github.com/ava-labs/coreth/precompile"
 	"github.com/ava-labs/coreth/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/crypto/blake2b"
 	"github.com/ethereum/go-ethereum/crypto/bn256"

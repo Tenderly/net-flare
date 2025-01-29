@@ -7,17 +7,17 @@ import (
 	"context"
 	"time"
 
-	"github.com/ava-labs/avalanchego/api"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/utils/formatting"
-	"github.com/ava-labs/avalanchego/utils/formatting/address"
-	"github.com/ava-labs/avalanchego/utils/json"
-	"github.com/ava-labs/avalanchego/utils/rpc"
-	"github.com/ava-labs/avalanchego/vms/platformvm/status"
+	"github.com/tenderly/net-flare/avalanchego/api"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/crypto"
+	"github.com/tenderly/net-flare/avalanchego/utils/formatting"
+	"github.com/tenderly/net-flare/avalanchego/utils/formatting/address"
+	"github.com/tenderly/net-flare/avalanchego/utils/json"
+	"github.com/tenderly/net-flare/avalanchego/utils/rpc"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/status"
 
-	platformapi "github.com/ava-labs/avalanchego/vms/platformvm/api"
+	platformapi "github.com/tenderly/net-flare/avalanchego/vms/platformvm/api"
 )
 
 var _ Client = &client{}

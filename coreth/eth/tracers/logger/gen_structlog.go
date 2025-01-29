@@ -5,10 +5,10 @@ package logger
 import (
 	"encoding/json"
 
-	"github.com/ava-labs/coreth/core/vm"
+	"github.com/tenderly/net-flare/coreth/core/vm"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	math "github.com/ava-labs/coreth/common/legacymath"
+	math "github.com/tenderly/net-flare/coreth/common/legacymath"
 	"github.com/holiman/uint256"
 )
 

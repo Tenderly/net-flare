@@ -29,8 +29,8 @@ package vm
 import (
 	"hash"
 
-	math "github.com/ava-labs/coreth/common/legacymath"
-	"github.com/ava-labs/coreth/vmerrs"
+	math "github.com/tenderly/net-flare/coreth/common/legacymath"
+	"github.com/tenderly/net-flare/coreth/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
 )

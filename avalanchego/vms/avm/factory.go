@@ -6,8 +6,8 @@ package avm
 import (
 	"time"
 
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/vms"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/vms"
 )
 
 var _ vms.Factory = &Factory{}

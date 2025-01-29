@@ -7,7 +7,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ava-labs/avalanchego/snow/consensus/avalanche"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/avalanche"
 )
 
 var (

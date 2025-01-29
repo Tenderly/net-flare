@@ -31,10 +31,10 @@ import (
 	"testing"
 	"time"
 
-	math "github.com/ava-labs/coreth/common/legacymath"
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/state"
-	"github.com/ava-labs/coreth/params"
+	math "github.com/tenderly/net-flare/coreth/common/legacymath"
+	"github.com/tenderly/net-flare/coreth/core/rawdb"
+	"github.com/tenderly/net-flare/coreth/core/state"
+	"github.com/tenderly/net-flare/coreth/params"
 	"github.com/ethereum/go-ethereum/common"
 )
 

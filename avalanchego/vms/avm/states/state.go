@@ -6,10 +6,10 @@ package states
 import (
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/prefixdb"
-	"github.com/ava-labs/avalanchego/vms/avm/txs"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
+	"github.com/tenderly/net-flare/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/database/prefixdb"
+	"github.com/tenderly/net-flare/avalanchego/vms/avm/txs"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/avax"
 )
 
 var (

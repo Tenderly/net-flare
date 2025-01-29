@@ -4,7 +4,7 @@
 package block
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/ids"
 )
 
 // StateSummary represents all the information needed to download, verify, and

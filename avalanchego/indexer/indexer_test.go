@@ -13,22 +13,22 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/api/server"
-	"github.com/ava-labs/avalanchego/database/memdb"
-	"github.com/ava-labs/avalanchego/database/versiondb"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/choices"
-	"github.com/ava-labs/avalanchego/snow/consensus/avalanche"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowstorm"
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/api/server"
+	"github.com/tenderly/net-flare/avalanchego/database/memdb"
+	"github.com/tenderly/net-flare/avalanchego/database/versiondb"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/snow/choices"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/avalanche"
+	"github.com/tenderly/net-flare/avalanchego/snow/consensus/snowstorm"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	"github.com/tenderly/net-flare/avalanchego/utils"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
 
-	avengmocks "github.com/ava-labs/avalanchego/snow/engine/avalanche/mocks"
-	avvtxmocks "github.com/ava-labs/avalanchego/snow/engine/avalanche/vertex/mocks"
-	smblockmocks "github.com/ava-labs/avalanchego/snow/engine/snowman/block/mocks"
-	smengmocks "github.com/ava-labs/avalanchego/snow/engine/snowman/mocks"
+	avengmocks "github.com/tenderly/net-flare/avalanchego/snow/engine/avalanche/mocks"
+	avvtxmocks "github.com/tenderly/net-flare/avalanchego/snow/engine/avalanche/vertex/mocks"
+	smblockmocks "github.com/tenderly/net-flare/avalanchego/snow/engine/snowman/block/mocks"
+	smengmocks "github.com/tenderly/net-flare/avalanchego/snow/engine/snowman/mocks"
 )
 
 var _ server.PathAdder = &apiServerMock{}

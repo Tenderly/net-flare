@@ -6,8 +6,8 @@ package propertyfx
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/verify"
+	"github.com/tenderly/net-flare/avalanchego/vms/secp256k1fx"
 )
 
 func TestBurnOperationInvalid(t *testing.T) {

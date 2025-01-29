@@ -6,9 +6,9 @@ package platformvm
 import (
 	"encoding/json"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/formatting/address"
-	"github.com/ava-labs/avalanchego/vms/platformvm/api"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils/formatting/address"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/api"
 )
 
 // ClientStaker is the representation of a staker sent via client.

@@ -33,8 +33,8 @@ import (
 	"reflect"
 	"testing"
 
-	math "github.com/ava-labs/coreth/common/legacymath"
-	"github.com/ava-labs/coreth/params"
+	math "github.com/tenderly/net-flare/coreth/common/legacymath"
+	"github.com/tenderly/net-flare/coreth/params"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/rlp"

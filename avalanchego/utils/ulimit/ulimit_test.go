@@ -6,7 +6,7 @@ package ulimit
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
 )
 
 // Test_SetDefault performs sanity checks for the os default.

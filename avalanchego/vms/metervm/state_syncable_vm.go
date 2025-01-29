@@ -4,7 +4,7 @@
 package metervm
 
 import (
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/snowman/block"
 )
 
 func (vm *blockVM) StateSyncEnabled() (bool, error) {

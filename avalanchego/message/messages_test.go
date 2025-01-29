@@ -16,12 +16,12 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/staking"
-	"github.com/ava-labs/avalanchego/utils/ips"
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/staking"
+	"github.com/tenderly/net-flare/avalanchego/utils/ips"
+	"github.com/tenderly/net-flare/avalanchego/utils/units"
 
-	p2ppb "github.com/ava-labs/avalanchego/proto/pb/p2p"
+	p2ppb "github.com/tenderly/net-flare/avalanchego/proto/pb/p2p"
 )
 
 // Ensures the message size with proto not blow up compared to packer.

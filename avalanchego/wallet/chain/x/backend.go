@@ -8,9 +8,9 @@ import (
 
 	stdcontext "context"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/vms/avm/txs"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/vms/avm/txs"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/avax"
 )
 
 var _ Backend = &backend{}

@@ -10,10 +10,10 @@ import (
 	sync "sync"
 	time "time"
 
-	ids "github.com/ava-labs/avalanchego/ids"
-	snow "github.com/ava-labs/avalanchego/snow"
-	common "github.com/ava-labs/avalanchego/snow/engine/common"
-	logging "github.com/ava-labs/avalanchego/utils/logging"
+	ids "github.com/tenderly/net-flare/avalanchego/ids"
+	snow "github.com/tenderly/net-flare/avalanchego/snow"
+	common "github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	logging "github.com/tenderly/net-flare/avalanchego/utils/logging"
 	gomock "github.com/golang/mock/gomock"
 )
 

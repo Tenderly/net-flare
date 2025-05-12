@@ -9,10 +9,10 @@ import (
 	"math/big"
 
 	"github.com/ava-labs/avalanchego/utils/wrappers"
+	math "github.com/ava-labs/coreth/common/legacymath"
 	"github.com/ava-labs/coreth/core/types"
 	"github.com/ava-labs/coreth/params"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
 )
 
 var (

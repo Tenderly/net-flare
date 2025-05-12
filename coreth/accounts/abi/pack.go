@@ -32,8 +32,8 @@ import (
 	"math/big"
 	"reflect"
 
+	math "github.com/ava-labs/coreth/common/legacymath"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
 )
 
 // packBytesSlice packs the given bytes as [L, V] as the canonical representation

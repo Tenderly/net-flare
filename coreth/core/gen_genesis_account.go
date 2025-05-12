@@ -9,7 +9,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
+	math "github.com/ava-labs/coreth/common/legacymath"
 )
 
 var _ = (*genesisAccountMarshaling)(nil)

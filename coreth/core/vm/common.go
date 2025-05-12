@@ -28,7 +28,6 @@ package vm
 
 import (
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/holiman/uint256"
 )
 
@@ -75,8 +74,8 @@ func getData(data []byte, start uint64, size uint64) []byte {
 
 // toWordSize returns the ceiled word size required for memory expansion.
 func toWordSize(size uint64) uint64 {
-	if size > math.MaxUint64-31 {
-		return math.MaxUint64/32 + 1
+	if size > maxUint64-31 {
+		return maxUint64/32 + 1
 	}
 
 	return (size + 31) / 32
@@ -90,3 +89,5 @@ func allZero(b []byte) bool {
 	}
 	return true
 }
+
+const maxUint64 = ^uint64(0)

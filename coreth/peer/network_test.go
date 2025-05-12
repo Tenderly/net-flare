@@ -12,18 +12,18 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ava-labs/avalanchego/snow/engine/common"
-	"github.com/ava-labs/avalanchego/utils/set"
+	"github.com/tenderly/net-flare/avalanchego/snow/engine/common"
+	"github.com/tenderly/net-flare/avalanchego/utils/set"
 	ethcommon "github.com/ethereum/go-ethereum/common"
 
-	"github.com/ava-labs/coreth/plugin/evm/message"
+	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/codec/linearcodec"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/version"
+	"github.com/tenderly/net-flare/avalanchego/codec"
+	"github.com/tenderly/net-flare/avalanchego/codec/linearcodec"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/version"
 )
 
 var (

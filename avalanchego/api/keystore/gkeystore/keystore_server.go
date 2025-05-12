@@ -6,13 +6,13 @@ package gkeystore
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/api/keystore"
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/database/rpcdb"
-	"github.com/ava-labs/avalanchego/vms/rpcchainvm/grpcutils"
+	"github.com/tenderly/net-flare/avalanchego/api/keystore"
+	"github.com/tenderly/net-flare/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/database/rpcdb"
+	"github.com/tenderly/net-flare/avalanchego/vms/rpcchainvm/grpcutils"
 
-	keystorepb "github.com/ava-labs/avalanchego/proto/pb/keystore"
-	rpcdbpb "github.com/ava-labs/avalanchego/proto/pb/rpcdb"
+	keystorepb "github.com/tenderly/net-flare/avalanchego/proto/pb/keystore"
+	rpcdbpb "github.com/tenderly/net-flare/avalanchego/proto/pb/rpcdb"
 )
 
 var _ keystorepb.KeystoreServer = (*Server)(nil)

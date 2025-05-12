@@ -1,4 +1,4 @@
-module github.com/ava-labs/avalanchego
+module github.com/tenderly/net-flare/avalanchego
 
 // Changes to the minimum golang version must also be replicated in
 // scripts/build_avalanche.sh

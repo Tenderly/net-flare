@@ -9,7 +9,7 @@ import (
 
 	"golang.org/x/exp/maps"
 
-	"github.com/ava-labs/avalanchego/utils/set"
+	"github.com/tenderly/net-flare/avalanchego/utils/set"
 )
 
 // Maps a key to a bitset.

@@ -6,14 +6,14 @@ package handlers
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/coreth/core/state/snapshot"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/ethdb"
-	"github.com/ava-labs/coreth/plugin/evm/message"
-	"github.com/ava-labs/coreth/sync/handlers/stats"
-	"github.com/ava-labs/coreth/trie"
+	"github.com/tenderly/net-flare/avalanchego/codec"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/coreth/core/state/snapshot"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/ethdb"
+	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
+	"github.com/tenderly/net-flare/coreth/sync/handlers/stats"
+	"github.com/tenderly/net-flare/coreth/trie"
 	"github.com/ethereum/go-ethereum/common"
 )
 

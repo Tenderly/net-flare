@@ -4,8 +4,8 @@
 package beacon
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/ips"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils/ips"
 )
 
 var _ Beacon = (*beacon)(nil)

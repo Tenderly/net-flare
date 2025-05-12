@@ -7,8 +7,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/ava-labs/avalanchego/utils/compression"
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/tenderly/net-flare/avalanchego/utils/compression"
+	"github.com/tenderly/net-flare/avalanchego/utils/units"
 )
 
 // Const variables to be exported

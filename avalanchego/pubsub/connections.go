@@ -6,7 +6,7 @@ package pubsub
 import (
 	"sync"
 
-	"github.com/ava-labs/avalanchego/utils/set"
+	"github.com/tenderly/net-flare/avalanchego/utils/set"
 )
 
 type connections struct {

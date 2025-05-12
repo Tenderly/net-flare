@@ -7,14 +7,14 @@ import (
 	"context"
 	"testing"
 
-	"github.com/ava-labs/coreth/params"
+	"github.com/tenderly/net-flare/coreth/params"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils"
-	"github.com/ava-labs/avalanchego/utils/crypto/secp256k1"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/components/chain"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils"
+	"github.com/tenderly/net-flare/avalanchego/utils/crypto/secp256k1"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/avax"
+	"github.com/tenderly/net-flare/avalanchego/vms/components/chain"
+	"github.com/tenderly/net-flare/avalanchego/vms/secp256k1fx"
 
 	"github.com/stretchr/testify/assert"
 )

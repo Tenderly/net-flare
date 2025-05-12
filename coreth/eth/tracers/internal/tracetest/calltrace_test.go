@@ -36,22 +36,22 @@ import (
 	"testing"
 	"unicode"
 
-	math "github.com/ava-labs/coreth/common/legacymath"
-	"github.com/ava-labs/coreth/core"
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/core/vm"
-	"github.com/ava-labs/coreth/eth/tracers"
-	"github.com/ava-labs/coreth/params"
-	"github.com/ava-labs/coreth/tests"
+	math "github.com/tenderly/net-flare/coreth/common/legacymath"
+	"github.com/tenderly/net-flare/coreth/core"
+	"github.com/tenderly/net-flare/coreth/core/rawdb"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/core/vm"
+	"github.com/tenderly/net-flare/coreth/eth/tracers"
+	"github.com/tenderly/net-flare/coreth/params"
+	"github.com/tenderly/net-flare/coreth/tests"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/rlp"
 
 	// Force-load native and js packages to trigger registration
-	_ "github.com/ava-labs/coreth/eth/tracers/js"
-	_ "github.com/ava-labs/coreth/eth/tracers/native"
+	_ "github.com/tenderly/net-flare/coreth/eth/tracers/js"
+	_ "github.com/tenderly/net-flare/coreth/eth/tracers/native"
 )
 
 // To generate a new callTracer test, copy paste the makeTest method below into

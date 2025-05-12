@@ -8,7 +8,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/ava-labs/avalanchego/utils/crypto/secp256k1"
+	"github.com/tenderly/net-flare/avalanchego/utils/crypto/secp256k1"
 )
 
 func TestLoadTestKeys(t *testing.T) {

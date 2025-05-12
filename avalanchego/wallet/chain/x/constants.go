@@ -6,11 +6,11 @@ package x
 import (
 	"time"
 
-	"github.com/ava-labs/avalanchego/vms/avm/blocks"
-	"github.com/ava-labs/avalanchego/vms/avm/fxs"
-	"github.com/ava-labs/avalanchego/vms/nftfx"
-	"github.com/ava-labs/avalanchego/vms/propertyfx"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/tenderly/net-flare/avalanchego/vms/avm/blocks"
+	"github.com/tenderly/net-flare/avalanchego/vms/avm/fxs"
+	"github.com/tenderly/net-flare/avalanchego/vms/nftfx"
+	"github.com/tenderly/net-flare/avalanchego/vms/propertyfx"
+	"github.com/tenderly/net-flare/avalanchego/vms/secp256k1fx"
 )
 
 const (

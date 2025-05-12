@@ -1,6 +1,6 @@
 # Release Notes
 
-## [v1.10.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
+## [v1.10.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.10.0)
 
 [This upgrade](https://medium.com/avalancheavax/cortina-x-chain-linearization-a1d9305553f6) linearizes the X-chain, introduces delegation batching to the P-chain, and increases the maximum block size on the C-chain.
 
@@ -12,66 +12,66 @@ The supported plugin version is `25`.
 
 ### What's Changed
 
-- Add CODEOWNERS for the x/ package by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1260
-- Feature Spec Template by @richardpringle in https://github.com/ava-labs/avalanchego/pull/1258
-- Standardize CI triggers by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1265
-- special case no sent/received message in network health check by @ceyonur in https://github.com/ava-labs/avalanchego/pull/1263
-- Fix bug template by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1268
-- Replace `flags` usage with `pflags` by @danlaine in https://github.com/ava-labs/avalanchego/pull/1270
-- Fixed grammatical errors in `README.md` by @krakxn in https://github.com/ava-labs/avalanchego/pull/1102
-- Add tests for race conditions in merkledb by @kyl27 in https://github.com/ava-labs/avalanchego/pull/1256
-- Add P-chain indexer API example by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1271
-- use `require` in `snow/choices` tests by @dhrubabasu in https://github.com/ava-labs/avalanchego/pull/1279
-- use `require` in `utils/wrappers` tests by @dhrubabasu in https://github.com/ava-labs/avalanchego/pull/1280
-- add support for tracking delegatee rewards to validator metadata by @dhrubabasu in https://github.com/ava-labs/avalanchego/pull/1273
-- defer delegatee rewards until end of validator staking period by @dhrubabasu in https://github.com/ava-labs/avalanchego/pull/1262
-- Initialize UptimeCalculator in TestPeer by @joshua-kim in https://github.com/ava-labs/avalanchego/pull/1283
-- Add Avalanche liveness health checks by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1287
-- Skip AMI generation with Fuji tags by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1288
-- Use `maps.Equal` in `set.Equals` by @danlaine in https://github.com/ava-labs/avalanchego/pull/1290
-- return accrued delegator rewards in `GetCurrentValidators` by @dhrubabasu in https://github.com/ava-labs/avalanchego/pull/1291
-- Add zstd compression by @danlaine in https://github.com/ava-labs/avalanchego/pull/1278
-- implement `txs.Visitor` in X chain wallet by @dhrubabasu in https://github.com/ava-labs/avalanchego/pull/1299
-- Parallelize gzip compression by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1293
-- Add zip bomb tests by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1300
-- Gossip Avalanche frontier after the linearization by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1303
-- Add fine grained metrics+logging for handling, processing, and grab l… by @aaronbuchwald in https://github.com/ava-labs/avalanchego/pull/1301
-- Persist stateless block in AVM state by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1305
-- Initialize FxID fields in GetBlock and GetBlockByHeight by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1306
-- Filterable Health Tags by @ceyonur in https://github.com/ava-labs/avalanchego/pull/1304
-- increase health await timeout by @ceyonur in https://github.com/ava-labs/avalanchego/pull/1317
-- Expose GetEngineManager from the chain Handler by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1316
-- Add BLS benchmarks by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1318
-- Encode codec version in merkledb by @danlaine in https://github.com/ava-labs/avalanchego/pull/1313
-- Expose consensus-app-concurrency by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1322
-- Adjust Logic In Merkle DB History by @dboehm-avalabs in https://github.com/ava-labs/avalanchego/pull/1310
-- Fix Concurrency Bug In CommitToParent by @dboehm-avalabs in https://github.com/ava-labs/avalanchego/pull/1320
-- Cleanup goroutines on health.Stop by @StephenButtolph in https://github.com/ava-labs/avalanchego/pull/1325
+- Add CODEOWNERS for the x/ package by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1260
+- Feature Spec Template by @richardpringle in https://github.com/tenderly/net-flare/avalanchego/pull/1258
+- Standardize CI triggers by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1265
+- special case no sent/received message in network health check by @ceyonur in https://github.com/tenderly/net-flare/avalanchego/pull/1263
+- Fix bug template by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1268
+- Replace `flags` usage with `pflags` by @danlaine in https://github.com/tenderly/net-flare/avalanchego/pull/1270
+- Fixed grammatical errors in `README.md` by @krakxn in https://github.com/tenderly/net-flare/avalanchego/pull/1102
+- Add tests for race conditions in merkledb by @kyl27 in https://github.com/tenderly/net-flare/avalanchego/pull/1256
+- Add P-chain indexer API example by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1271
+- use `require` in `snow/choices` tests by @dhrubabasu in https://github.com/tenderly/net-flare/avalanchego/pull/1279
+- use `require` in `utils/wrappers` tests by @dhrubabasu in https://github.com/tenderly/net-flare/avalanchego/pull/1280
+- add support for tracking delegatee rewards to validator metadata by @dhrubabasu in https://github.com/tenderly/net-flare/avalanchego/pull/1273
+- defer delegatee rewards until end of validator staking period by @dhrubabasu in https://github.com/tenderly/net-flare/avalanchego/pull/1262
+- Initialize UptimeCalculator in TestPeer by @joshua-kim in https://github.com/tenderly/net-flare/avalanchego/pull/1283
+- Add Avalanche liveness health checks by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1287
+- Skip AMI generation with Fuji tags by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1288
+- Use `maps.Equal` in `set.Equals` by @danlaine in https://github.com/tenderly/net-flare/avalanchego/pull/1290
+- return accrued delegator rewards in `GetCurrentValidators` by @dhrubabasu in https://github.com/tenderly/net-flare/avalanchego/pull/1291
+- Add zstd compression by @danlaine in https://github.com/tenderly/net-flare/avalanchego/pull/1278
+- implement `txs.Visitor` in X chain wallet by @dhrubabasu in https://github.com/tenderly/net-flare/avalanchego/pull/1299
+- Parallelize gzip compression by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1293
+- Add zip bomb tests by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1300
+- Gossip Avalanche frontier after the linearization by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1303
+- Add fine grained metrics+logging for handling, processing, and grab l… by @aaronbuchwald in https://github.com/tenderly/net-flare/avalanchego/pull/1301
+- Persist stateless block in AVM state by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1305
+- Initialize FxID fields in GetBlock and GetBlockByHeight by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1306
+- Filterable Health Tags by @ceyonur in https://github.com/tenderly/net-flare/avalanchego/pull/1304
+- increase health await timeout by @ceyonur in https://github.com/tenderly/net-flare/avalanchego/pull/1317
+- Expose GetEngineManager from the chain Handler by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1316
+- Add BLS benchmarks by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1318
+- Encode codec version in merkledb by @danlaine in https://github.com/tenderly/net-flare/avalanchego/pull/1313
+- Expose consensus-app-concurrency by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1322
+- Adjust Logic In Merkle DB History by @dboehm-avalabs in https://github.com/tenderly/net-flare/avalanchego/pull/1310
+- Fix Concurrency Bug In CommitToParent by @dboehm-avalabs in https://github.com/tenderly/net-flare/avalanchego/pull/1320
+- Cleanup goroutines on health.Stop by @StephenButtolph in https://github.com/tenderly/net-flare/avalanchego/pull/1325
 
 ### New Contributors
 
-- @richardpringle made their first contribution in https://github.com/ava-labs/avalanchego/pull/1258
-- @ceyonur made their first contribution in https://github.com/ava-labs/avalanchego/pull/1263
-- @krakxn made their first contribution in https://github.com/ava-labs/avalanchego/pull/1102
-- @kyl27 made their first contribution in https://github.com/ava-labs/avalanchego/pull/1256
-- @dhrubabasu made their first contribution in https://github.com/ava-labs/avalanchego/pull/1279
-- @joshua-kim made their first contribution in https://github.com/ava-labs/avalanchego/pull/1283
-- @dboehm-avalabs made their first contribution in https://github.com/ava-labs/avalanchego/pull/1310
+- @richardpringle made their first contribution in https://github.com/tenderly/net-flare/avalanchego/pull/1258
+- @ceyonur made their first contribution in https://github.com/tenderly/net-flare/avalanchego/pull/1263
+- @krakxn made their first contribution in https://github.com/tenderly/net-flare/avalanchego/pull/1102
+- @kyl27 made their first contribution in https://github.com/tenderly/net-flare/avalanchego/pull/1256
+- @dhrubabasu made their first contribution in https://github.com/tenderly/net-flare/avalanchego/pull/1279
+- @joshua-kim made their first contribution in https://github.com/tenderly/net-flare/avalanchego/pull/1283
+- @dboehm-avalabs made their first contribution in https://github.com/tenderly/net-flare/avalanchego/pull/1310
 
-**Full Changelog**: https://github.com/ava-labs/avalanchego/compare/v1.9.16...v1.10.0
+**Full Changelog**: https://github.com/tenderly/net-flare/avalanchego/compare/v1.9.16...v1.10.0
 
-## [v1.9.16](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.16)
+## [v1.9.16](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.16)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
 
 - Removed unnecessary repoll after rejecting vertices
 - Improved snowstorm lookup error handling
 - Removed rejected vertices from the Avalanche frontier more aggressively
 - Reduced default health check values for processing decisions
 
-## [v1.9.15](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.15)
+## [v1.9.15](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.15)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
 
 - Fixed `x/merkledb.ChangeProof#getLargestKey` to correctly handle no changes
 - Added test for `avm/txs/executor.SemanticVerifier#verifyFxUsage` with multiple valid fxs
@@ -80,17 +80,17 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Reduced the default value of `--snow-optimal-processing` from `50` to `10`
 - Updated the year in the license header
 
-## [v1.9.14](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.14)
+## [v1.9.14](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.14)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
 
-## [v1.9.13](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.13)
+## [v1.9.13](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.13)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
 
-## [v1.9.12](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.12)
+## [v1.9.12](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.12)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
 
 ### Networking
 
@@ -227,9 +227,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
   - `platform.getRewardUTXOs`
 - Deprecated the `stake` field in the `platform.getTotalStake` response in favor of `weight`
 
-## [v1.9.11](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.11)
+## [v1.9.11](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.11)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
 
 ### Plugins
 
@@ -247,9 +247,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Removed reliance on premature root calculations for `merkledb.trieView` validity tracking
 - Updated `x/merkledb/README.md`
 
-## [v1.9.10](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.10)
+## [v1.9.10](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.10)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `24`.
 
 ### MerkleDB
 
@@ -284,9 +284,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Replaced `snow.Context` in `Factory.New` with `logging.Logger`
 - Renamed `set.Bits#Len` to `BitLen` and `set.Bits#HammingWeight` to `Len` to align with `set.Bits64`
 
-## [v1.9.9](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.9)
+## [v1.9.9](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.9)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `23`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `23`.
 
 **Note: The `--whitelisted-subnets` flag was deprecated in `v1.9.6`. This is the last release in which it will be supported. Use `--track-subnets` instead.**
 
@@ -349,9 +349,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Simplified the `utxo.Spender` interface
 - Removed unused field `common.Config#Validators`
 
-## [v1.9.8](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.8)
+## [v1.9.8](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.8)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `22`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `22`.
 
 ### Networking
 
@@ -404,17 +404,17 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Converted cache implementations to use generics
 - Added optional cache eviction callback
 
-## [v1.9.7](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.7)
+## [v1.9.7](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.7)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `22`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `22`.
 
 ### Fixes
 
 - Fixed subnet validator lookup regression
 
-## [v1.9.6](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.6)
+## [v1.9.6](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.6)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `22`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `22`.
 
 ### Consensus
 
@@ -465,9 +465,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Added `SetLevel` to the `Logger` interface
 - Updated `auth` API to use the new `jwt` standard
 
-## [v1.9.5](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.5)
+## [v1.9.5](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.5)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `21`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `21`.
 
 ### Subnet Messaging
 
@@ -503,9 +503,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Moved bit sets from the `ids` package to the `set` package
 - Added more wallet examples
 
-## [v1.9.4](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.4)
+## [v1.9.4](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.4)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `20`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `20`.
 
 **This version modifies the db format. The db format is compatible with v1.9.3, but not v1.9.2 or earlier. After running a node with v1.9.4 attempting to run a node with a version earlier than v1.9.3 may report a fatal error on startup.**
 
@@ -576,9 +576,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Converted all sorting to utilize generics
 - Converted all set management to utilize generics
 
-## [v1.9.3](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.3)
+## [v1.9.3](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.3)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `19`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `19`.
 
 ### Tracing
 
@@ -651,9 +651,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Increased validator set cache size
 - Added `avax.UTXOIDFromString` helper for managing `UTXOID`s more easily
 
-## [v1.9.2](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.2)
+## [v1.9.2](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.2)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `19`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `19`.
 
 ### Coreth
 
@@ -688,9 +688,9 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Simplified the `validators.Set` implementation
 - Added a warning if synchronous consensus messages take too long
 
-## [v1.9.1](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.1)
+## [v1.9.1](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.1)
 
-This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `18`.
+This version is backwards compatible to [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0). It is optional, but encouraged. The supported plugin version is `18`.
 
 ### Features
 
@@ -726,7 +726,7 @@ This version is backwards compatible to [v1.9.0](https://github.com/ava-labs/ava
 - Converted empty struct usage to `nil` for interface compliance checks
 - Added CODEOWNERs to own first rounds of PR review
 
-## [v1.9.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0)
+## [v1.9.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.9.0)
 
 This upgrade adds support for creating Proof-of-Stake Subnets.
 
@@ -763,9 +763,9 @@ The supported plugin version is `17`.
 - Improved isolation and execution of the E2E tests
 - Updated the linked hashmap implementation to use generics
 
-## [v1.8.6](https://github.com/ava-labs/avalanchego/releases/tag/v1.8.6)
+## [v1.8.6](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.8.6)
 
-This version is backwards compatible to [v1.8.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0). It is optional, but encouraged. The supported plugin version is `16`.
+This version is backwards compatible to [v1.8.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.8.0). It is optional, but encouraged. The supported plugin version is `16`.
 
 ### BLS
 
@@ -795,7 +795,7 @@ The default value of `--staking-signer-key-file` is `~/.avalanchego/staking/sign
 
 - Added failure reason to bad block API
 
-## [v1.8.5](https://github.com/ava-labs/avalanchego/releases/tag/v1.8.5)
+## [v1.8.5](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.8.5)
 
 Please upgrade your node as soon as possible.
 
@@ -809,7 +809,7 @@ The supported plugin version is `16`.
 
 - Removed check for Apricot Phase6 incompatible fork to unblock nodes that did not upgrade ahead of the activation time
 
-## [v1.8.4](https://github.com/ava-labs/avalanchego/releases/tag/v1.8.4)
+## [v1.8.4](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.8.4)
 
 Please upgrade your node as soon as possible.
 
@@ -825,7 +825,7 @@ The supported plugin version is `16`.
 - Reduced the log level of `BAD BLOCK`s from `ERROR` to `DEBUG`
 - Deprecated Native Asset Call
 
-## [v1.8.2](https://github.com/ava-labs/avalanchego/releases/tag/v1.8.2)
+## [v1.8.2](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.8.2)
 
 Please upgrade your node as soon as possible.
 
@@ -839,7 +839,7 @@ The supported plugin version is `16`.
 - Increased the log level of `BAD BLOCK`s from `DEBUG` to `ERROR`
 - Fixed typo in Chain Config `String` function
 
-## [v1.8.1](https://github.com/ava-labs/avalanchego/releases/tag/v1.8.1)
+## [v1.8.1](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.8.1)
 
 Please upgrade your node as soon as possible.
 
@@ -856,7 +856,7 @@ The supported plugin version is `16`.
 - Reduced the log level of `BAD BLOCK`s from `ERROR` to `DEBUG`
 - Added Apricot Phase6 to Chain Config `String` function
 
-## [v1.8.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+## [v1.8.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.8.0)
 
 This is a mandatory security upgrade. Please upgrade your node **as soon as possible.**
 
@@ -954,9 +954,9 @@ The supported plugin version is `16`.
 - Migrated to go-ethereum v1.10.23
 - Added API to fetch Chain Config
 
-## [v1.7.18](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.18)
+## [v1.7.18](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.18)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged. The supported plugin version is `15`.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged. The supported plugin version is `15`.
 
 ### Fixes
 
@@ -992,9 +992,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Added retries to windows CI installations
 - Removed useless ID aliasing during chain creation
 
-## [v1.7.17](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.17)
+## [v1.7.17](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.17)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged. The supported plugin version is `15`.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged. The supported plugin version is `15`.
 
 ### VMs
 
@@ -1028,17 +1028,17 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Improved Snowman++ oracle block verification error messages
 - Removed deprecated or unused scripts
 
-## [v1.7.16](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.16)
+## [v1.7.16](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.16)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged. The supported plugin version is `15`.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged. The supported plugin version is `15`.
 
 ### LevelDB
 
 - Fix rapid disk growth by manually specifying the maximum manifest file size
 
-## [v1.7.15](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.15)
+## [v1.7.15](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.15)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged. The supported plugin version is `15`.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged. The supported plugin version is `15`.
 
 ### PlatformVM
 
@@ -1073,9 +1073,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Cleaned up various dead parameters
 - Improved various tests
 
-## [v1.7.14](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.14)
+## [v1.7.14](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.14)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### APIs
 
@@ -1117,9 +1117,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Improved various comments and documentation
 - Standardized primary network handling across subnet maps
 
-## [v1.7.13](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.13)
+## [v1.7.13](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.13)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### State Sync
 
@@ -1143,9 +1143,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Deprecated `--dynamic-update-duration` and `--dynamic-public-ip` CLI flags
 - Added `--public-ip-resolution-frequency` and `--public-ip-resolution-service` to replace `--dynamic-update-duration` and `--dynamic-public-ip`, respectively
 
-## [v1.7.12](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.12)
+## [v1.7.12](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.12)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### State Sync
 
@@ -1186,9 +1186,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Standardized json imports
 - Added vm factory interface checks
 
-## [v1.7.11](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.11)
+## [v1.7.11](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.11)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 **The first startup of the C-Chain will cause an increase in CPU and IO usage due to an index update. This index update runs in the background and does not impact restart time.**
 
@@ -1273,9 +1273,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Updated issue template
 - Documented additional `snowman.Block` invariants
 
-## [v1.7.10](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.10)
+## [v1.7.10](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.10)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### Networking
 
@@ -1326,9 +1326,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Simplified consensus engine `Shutdown` notification dispatching.
 - Removed `Sleep` call in the inbound connection throttler.
 
-## [v1.7.9](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.9)
+## [v1.7.9](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.9)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### Updates
 
@@ -1338,9 +1338,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Removed dead code from network packer.
 - Improved logging of invalid hash length errors.
 
-## [v1.7.8](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.8)
+## [v1.7.8](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.8)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### Networking
 
@@ -1369,9 +1369,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Optimized various queue removals for improved memory freeing.
 - Added a basic X-chain E2E usage test to the new testing framework.
 
-## [v1.7.7](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.7)
+## [v1.7.7](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.7)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### Networking
 
@@ -1418,9 +1418,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Resolved the default log directory on initialization to avoid additional error handling.
 - Added support to the chain state module to specify an arbitrary new accepted block.
 
-## [v1.7.6](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.6)
+## [v1.7.6](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.6)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### Consensus
 
@@ -1453,9 +1453,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Extended chain shutdown timeout.
 - Performed various cleanup passes.
 
-## [v1.7.5](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.5)
+## [v1.7.5](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.5)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### Consensus
 
@@ -1484,9 +1484,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Fixed bug in BLOCKHASH opcode during traceBlock.
 - Fixed bug in handling updated chain config on startup.
 
-## [v1.7.4](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.4)
+## [v1.7.4](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.4)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 **The first startup of the C-Chain will take a few minutes longer due to an index update.**
 
@@ -1538,9 +1538,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Separated health checks into `readiness`, `healthiness`, and `liveness` checks to support more fine-grained monitoring.
 - Refactored API client utilities to use a `Context` rather than an explicit timeout.
 
-## [v1.7.3](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.3)
+## [v1.7.3](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.3)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### Consensus
 
@@ -1568,9 +1568,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 - Fixed acceptance broadcasting over IPC.
 - Fixed 32-bit architecture builds for AvalancheGo (not Coreth).
 
-## [v1.7.2](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.2)
+## [v1.7.2](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.2)
 
-This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). It is optional, but encouraged.
 
 ### Coreth
 
@@ -1600,9 +1600,9 @@ This version is backwards compatible to [v1.7.0](https://github.com/ava-labs/ava
 
 - Fixed panic bug in logging library when importing from external projects.
 
-## [v1.7.1](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.1)
+## [v1.7.1](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.1)
 
-This update is backwards compatible with [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0). Please see the expected update times in the v1.7.0 release.
+This update is backwards compatible with [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0). Please see the expected update times in the v1.7.0 release.
 
 ### Coreth
 
@@ -1612,7 +1612,7 @@ This update is backwards compatible with [v1.7.0](https://github.com/ava-labs/av
 
 - Fixed vote bubbling for unverified block chits.
 
-## [v1.7.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0)
+## [v1.7.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.7.0)
 
 This upgrade adds support for issuing multiple atomic transactions into a single block and directly transferring assets between the P-chain and the C-chain.
 
@@ -1648,9 +1648,9 @@ The changes in the upgrade go into effect at 1 PM EST, December 2nd 2021 on Main
 
 - Removed `--snow-epoch-first-transition` and `snow-epoch-duration` as command line arguments.
 
-## [v1.6.5](https://github.com/ava-labs/avalanchego/releases/tag/v1.6.5)
+## [v1.6.5](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.6.5)
 
-This version is backwards compatible to [v1.6.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.6.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.6.0). It is optional, but encouraged.
 
 ### Bootstrapping
 
@@ -1671,9 +1671,9 @@ This version is backwards compatible to [v1.6.0](https://github.com/ava-labs/ava
 - Added reported uptime to pong messages to be able to better track a local node's uptime as viewed by the network.
 - Refactored request timeout registry to avoid a potential race condition.
 
-## [v1.6.4](https://github.com/ava-labs/avalanchego/releases/tag/v1.6.4)
+## [v1.6.4](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.6.4)
 
-This version is backwards compatible to [v1.6.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.6.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.6.0). It is optional, but encouraged.
 
 ### Config
 
@@ -1715,9 +1715,9 @@ This version is backwards compatible to [v1.6.0](https://github.com/ava-labs/ava
 
 ---
 
-## [v1.6.3](https://github.com/ava-labs/avalanchego/releases/tag/v1.6.3)
+## [v1.6.3](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.6.3)
 
-This version is backwards compatible to [v1.6.0](https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0). It is optional, but encouraged.
+This version is backwards compatible to [v1.6.0](https://github.com/tenderly/net-flare/avalanchego/releases/tag/v1.6.0). It is optional, but encouraged.
 
 ### Config Options
 

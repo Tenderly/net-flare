@@ -6,7 +6,7 @@ package propertyfx
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/utils/logging"
+	"github.com/tenderly/net-flare/avalanchego/utils/logging"
 )
 
 func TestFactory(t *testing.T) {

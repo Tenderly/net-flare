@@ -29,9 +29,9 @@ package vm
 import (
 	"errors"
 
-	math "github.com/ava-labs/coreth/common/legacymath"
-	"github.com/ava-labs/coreth/params"
-	"github.com/ava-labs/coreth/vmerrs"
+	math "github.com/tenderly/net-flare/coreth/common/legacymath"
+	"github.com/tenderly/net-flare/coreth/params"
+	"github.com/tenderly/net-flare/coreth/vmerrs"
 	"github.com/ethereum/go-ethereum/common"
 )
 

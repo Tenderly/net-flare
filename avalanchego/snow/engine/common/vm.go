@@ -6,10 +6,10 @@ package common
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/api/health"
-	"github.com/ava-labs/avalanchego/database/manager"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/snow/validators"
+	"github.com/tenderly/net-flare/avalanchego/api/health"
+	"github.com/tenderly/net-flare/avalanchego/database/manager"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/snow/validators"
 )
 
 // VM describes the interface that all consensus VMs must implement

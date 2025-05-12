@@ -6,7 +6,7 @@ package sampler
 import (
 	"math"
 
-	"github.com/ava-labs/avalanchego/utils/set"
+	"github.com/tenderly/net-flare/avalanchego/utils/set"
 )
 
 // uniformResample allows for sampling over a uniform distribution without

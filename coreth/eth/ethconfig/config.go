@@ -31,9 +31,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ava-labs/coreth/core"
-	"github.com/ava-labs/coreth/eth/gasprice"
-	"github.com/ava-labs/coreth/miner"
+	"github.com/tenderly/net-flare/coreth/core"
+	"github.com/tenderly/net-flare/coreth/eth/gasprice"
+	"github.com/tenderly/net-flare/coreth/miner"
 	"github.com/ethereum/go-ethereum/common"
 )
 

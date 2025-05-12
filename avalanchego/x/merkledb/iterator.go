@@ -3,7 +3,7 @@
 
 package merkledb
 
-import "github.com/ava-labs/avalanchego/database"
+import "github.com/tenderly/net-flare/avalanchego/database"
 
 var _ database.Iterator = &iterator{}
 

@@ -4,7 +4,7 @@
 package atomic
 
 import (
-	"github.com/ava-labs/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/database"
 )
 
 // WriteAll writes all of the batches to the underlying database of baseBatch.

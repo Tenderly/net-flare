@@ -10,7 +10,7 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/ava-labs/avalanchego/database"
+	"github.com/tenderly/net-flare/avalanchego/database"
 )
 
 const (

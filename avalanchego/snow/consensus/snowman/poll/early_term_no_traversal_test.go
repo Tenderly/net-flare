@@ -6,8 +6,8 @@ package poll
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/bag"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils/bag"
 )
 
 func TestEarlyTermNoTraversalResults(t *testing.T) {

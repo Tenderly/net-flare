@@ -47,8 +47,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/ava-labs/coreth/accounts"
-	math "github.com/ava-labs/coreth/common/legacymath"
+	"github.com/tenderly/net-flare/coreth/accounts"
+	math "github.com/tenderly/net-flare/coreth/common/legacymath"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/google/uuid"

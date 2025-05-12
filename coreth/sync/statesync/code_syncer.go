@@ -9,12 +9,12 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/set"
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/ethdb"
-	"github.com/ava-labs/coreth/params"
-	statesyncclient "github.com/ava-labs/coreth/sync/client"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils/set"
+	"github.com/tenderly/net-flare/coreth/core/rawdb"
+	"github.com/tenderly/net-flare/coreth/ethdb"
+	"github.com/tenderly/net-flare/coreth/params"
+	statesyncclient "github.com/tenderly/net-flare/coreth/sync/client"
 	"github.com/ethereum/go-ethereum/common"
 )
 

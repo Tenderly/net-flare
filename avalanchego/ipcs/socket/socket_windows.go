@@ -11,7 +11,7 @@ import (
 
 	"github.com/Microsoft/go-winio"
 
-	"github.com/ava-labs/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
 )
 
 // listen creates a net.Listen backed by a Windows named pipe

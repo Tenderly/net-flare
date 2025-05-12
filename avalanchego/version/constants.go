@@ -9,7 +9,7 @@ import (
 
 	_ "embed"
 
-	"github.com/ava-labs/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
 )
 
 // RPCChainVMProtocol should be bumped anytime changes are made which require

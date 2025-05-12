@@ -9,14 +9,14 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/database/versiondb"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/tenderly/net-flare/avalanchego/database/versiondb"
+	"github.com/tenderly/net-flare/avalanchego/utils/wrappers"
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/ava-labs/coreth/plugin/evm/message"
-	syncclient "github.com/ava-labs/coreth/sync/client"
-	"github.com/ava-labs/coreth/trie"
+	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
+	syncclient "github.com/tenderly/net-flare/coreth/sync/client"
+	"github.com/tenderly/net-flare/coreth/trie"
 )
 
 var (

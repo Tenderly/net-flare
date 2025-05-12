@@ -6,7 +6,7 @@ package common
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/trace"
+	"github.com/tenderly/net-flare/avalanchego/trace"
 )
 
 var _ StateSyncer = (*tracedStateSyncer)(nil)

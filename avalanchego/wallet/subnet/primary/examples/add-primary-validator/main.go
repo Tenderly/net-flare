@@ -8,14 +8,14 @@ import (
 	"log"
 	"time"
 
-	"github.com/ava-labs/avalanchego/api/info"
-	"github.com/ava-labs/avalanchego/genesis"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/units"
-	"github.com/ava-labs/avalanchego/vms/platformvm/reward"
-	"github.com/ava-labs/avalanchego/vms/platformvm/txs"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
-	"github.com/ava-labs/avalanchego/wallet/subnet/primary"
+	"github.com/tenderly/net-flare/avalanchego/api/info"
+	"github.com/tenderly/net-flare/avalanchego/genesis"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/utils/units"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/reward"
+	"github.com/tenderly/net-flare/avalanchego/vms/platformvm/txs"
+	"github.com/tenderly/net-flare/avalanchego/vms/secp256k1fx"
+	"github.com/tenderly/net-flare/avalanchego/wallet/subnet/primary"
 )
 
 func main() {

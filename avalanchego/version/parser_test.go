@@ -6,7 +6,7 @@ package version
 import (
 	"testing"
 
-	"github.com/ava-labs/avalanchego/utils/constants"
+	"github.com/tenderly/net-flare/avalanchego/utils/constants"
 	"github.com/stretchr/testify/require"
 )
 

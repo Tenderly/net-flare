@@ -35,9 +35,9 @@ import (
 
 	"github.com/dop251/goja"
 
-	"github.com/ava-labs/coreth/core/vm"
-	"github.com/ava-labs/coreth/eth/tracers"
-	jsassets "github.com/ava-labs/coreth/eth/tracers/js/internal/tracers"
+	"github.com/tenderly/net-flare/coreth/core/vm"
+	"github.com/tenderly/net-flare/coreth/eth/tracers"
+	jsassets "github.com/tenderly/net-flare/coreth/eth/tracers/js/internal/tracers"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"

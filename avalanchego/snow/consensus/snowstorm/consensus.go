@@ -7,13 +7,13 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/api/health"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/utils/bag"
-	"github.com/ava-labs/avalanchego/utils/set"
+	"github.com/tenderly/net-flare/avalanchego/api/health"
+	"github.com/tenderly/net-flare/avalanchego/ids"
+	"github.com/tenderly/net-flare/avalanchego/snow"
+	"github.com/tenderly/net-flare/avalanchego/utils/bag"
+	"github.com/tenderly/net-flare/avalanchego/utils/set"
 
-	sbcon "github.com/ava-labs/avalanchego/snow/consensus/snowball"
+	sbcon "github.com/tenderly/net-flare/avalanchego/snow/consensus/snowball"
 )
 
 // Consensus is a snowball instance deciding between an unbounded number of

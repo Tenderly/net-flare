@@ -13,7 +13,7 @@ coreth_version=${CORETH_VERSION:-'v0.12.0-rc.2'}
 
 # Set the PATHS
 GOPATH="$(go env GOPATH)"
-# coreth_path=${CORETH_PATH:-"$GOPATH/pkg/mod/github.com/ava-labs/coreth@$coreth_version"}
+# coreth_path=${CORETH_PATH:-"$GOPATH/pkg/mod/github.com/tenderly/net-flare/coreth@$coreth_version"}
 coreth_path="$AVALANCHE_PATH/../coreth"
 
 # Avalabs docker hub

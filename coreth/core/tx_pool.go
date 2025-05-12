@@ -46,11 +46,6 @@ import (
 	"github.com/ethereum/go-ethereum/common/prque"
 	"github.com/ethereum/go-ethereum/event"
 	"github.com/ethereum/go-ethereum/log"
-	"github.com/tenderly/net-flare/coreth/consensus/dummy"
-	"github.com/tenderly/net-flare/coreth/core/state"
-	"github.com/tenderly/net-flare/coreth/core/types"
-	"github.com/tenderly/net-flare/coreth/metrics"
-	"github.com/tenderly/net-flare/coreth/params"
 )
 
 const (

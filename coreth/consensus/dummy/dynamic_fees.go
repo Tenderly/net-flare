@@ -130,14 +130,14 @@ func CalcBaseFee(config *params.ChainConfig, parent *types.Header, timestamp uin
 		// Compute the new state of the gas rolling window.
 		addedGas, overflow := math.SafeAdd(parent.GasUsed, parentExtraStateGasUsed)
 		if overflow {
-			addedGas = math.MaxUint64
+			addedGas = ^uint64(0)
 		}
 
 		// Only add the [blockGasCost] to the gas used if it isn't AP5
 		if !isApricotPhase5 {
 			addedGas, overflow = math.SafeAdd(addedGas, blockGasCost)
 			if overflow {
-				addedGas = math.MaxUint64
+				addedGas = ^uint64(0)
 			}
 		}
 
@@ -158,7 +158,7 @@ func CalcBaseFee(config *params.ChainConfig, parent *types.Header, timestamp uin
 		gasUsedDelta := new(big.Int).SetUint64(totalGas - parentGasTarget)
 		x := new(big.Int).Mul(parent.BaseFee, gasUsedDelta)
 		y := x.Div(x, parentGasTargetBig)
-		baseFeeDelta := math.BigMax(
+		baseFeeDelta := bigMax(
 			x.Div(y, baseFeeChangeDenominator),
 			common.Big1,
 		)
@@ -169,7 +169,7 @@ func CalcBaseFee(config *params.ChainConfig, parent *types.Header, timestamp uin
 		gasUsedDelta := new(big.Int).SetUint64(parentGasTarget - totalGas)
 		x := new(big.Int).Mul(parent.BaseFee, gasUsedDelta)
 		y := x.Div(x, parentGasTargetBig)
-		baseFeeDelta := math.BigMax(
+		baseFeeDelta := bigMax(
 			x.Div(y, baseFeeChangeDenominator),
 			common.Big1,
 		)
@@ -275,7 +275,7 @@ func sumLongWindow(window []byte, numLongs int) uint64 {
 		// uint64 value immediately.
 		sum, overflow = math.SafeAdd(sum, binary.BigEndian.Uint64(window[wrappers.LongLen*i:]))
 		if overflow {
-			return math.MaxUint64
+			return ^uint64(0)
 		}
 	}
 	return sum
@@ -289,7 +289,7 @@ func updateLongWindow(window []byte, start uint64, gasConsumed uint64) {
 
 	totalGasConsumed, overflow := math.SafeAdd(prevGasConsumed, gasConsumed)
 	if overflow {
-		totalGasConsumed = math.MaxUint64
+		totalGasConsumed = ^uint64(0)
 	}
 	binary.BigEndian.PutUint64(window[start:], totalGasConsumed)
 }
@@ -326,7 +326,7 @@ func calcBlockGasCost(
 
 	blockGasCost = selectBigWithinBounds(minBlockGasCost, blockGasCost, maxBlockGasCost)
 	if !blockGasCost.IsUint64() {
-		blockGasCost = new(big.Int).SetUint64(math.MaxUint64)
+		blockGasCost = new(big.Int).SetUint64(^uint64(0))
 	}
 	return blockGasCost
 }
@@ -364,4 +364,11 @@ func MinRequiredTip(config *params.ChainConfig, header *types.Header) (*big.Int,
 		header.ExtDataGasUsed,
 	)
 	return new(big.Int).Div(requiredBlockFee, blockGasUsage), nil
+}
+
+func bigMax(a, b *big.Int) *big.Int {
+	if a.Cmp(b) > 0 {
+		return a
+	}
+	return b
 }

@@ -30,6 +30,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
+	"log/slog"
 	"math/big"
 	"time"
 
@@ -38,11 +39,9 @@ import (
 	"github.com/ava-labs/coreth/trie"
 	"github.com/ava-labs/coreth/utils"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/rlp"
-	"golang.org/x/exp/slog"
 )
 
 const (
@@ -108,7 +107,7 @@ func (gs *generatorStats) log(level slog.Level, msg string, root common.Hash, ma
 	// Calculate the estimated indexing time based on current stats
 	if len(marker) > 0 {
 		if done := binary.BigEndian.Uint64(marker[:8]) - gs.origin; done > 0 {
-			left := math.MaxUint64 - binary.BigEndian.Uint64(marker[:8])
+			left := (^uint64(0)) - binary.BigEndian.Uint64(marker[:8])
 
 			speed := done/uint64(time.Since(gs.start)/time.Millisecond+1) + 1 // +1s to avoid division by zero
 			ctx = append(ctx, []interface{}{

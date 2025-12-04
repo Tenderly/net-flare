@@ -63,7 +63,19 @@ func (t *table) Get(key []byte) ([]byte, error) {
 // HasAncient is a noop passthrough that just forwards the request to the underlying
 // database.
 func (t *table) HasAncient(kind string, number uint64) (bool, error) {
-	return t.db.HasAncient(kind, number)
+	return false, errNotSupported
+}
+
+func (t *table) SyncKeyValue() error {
+	return errNotSupported
+}
+
+func (t *table) DeleteRange(start, end []byte) error {
+	return errNotSupported
+}
+
+func (t *table) SyncAncient() error {
+	return errNotSupported
 }
 
 // Ancient is a noop passthrough that just forwards the request to the underlying
@@ -120,13 +132,13 @@ func (t *table) TruncateTail(items uint64) (uint64, error) {
 // Sync is a noop passthrough that just forwards the request to the underlying
 // database.
 func (t *table) Sync() error {
-	return t.db.Sync()
+	return errNotSupported
 }
 
 // MigrateTable processes the entries in a given table in sequence
 // converting them to a new format if they're of an old format.
 func (t *table) MigrateTable(kind string, convert convertLegacyFn) error {
-	return t.db.MigrateTable(kind, convert)
+	return errNotSupported
 }
 
 // AncientDatadir returns the ancient datadir of the underlying database.
@@ -158,8 +170,8 @@ func (t *table) NewIterator(prefix []byte, start []byte) ethdb.Iterator {
 }
 
 // Stat returns a particular internal stat of the database.
-func (t *table) Stat(property string) (string, error) {
-	return t.db.Stat(property)
+func (t *table) Stat() (string, error) {
+	return t.db.Stat()
 }
 
 // Compact flattens the underlying data store for the given key range. In essence,
@@ -210,18 +222,15 @@ func (t *table) NewBatchWithSize(size int) ethdb.Batch {
 	return &tableBatch{t.db.NewBatchWithSize(size), t.prefix}
 }
 
-// NewSnapshot creates a database snapshot based on the current state.
-// The created snapshot will not be affected by all following mutations
-// happened on the database.
-func (t *table) NewSnapshot() (ethdb.Snapshot, error) {
-	return t.db.NewSnapshot()
-}
-
 // tableBatch is a wrapper around a database batch that prefixes each key access
 // with a pre-configured string.
 type tableBatch struct {
 	batch  ethdb.Batch
 	prefix string
+}
+
+func (b *tableBatch) DeleteRange(start, end []byte) error {
+	return errNotSupported
 }
 
 // Put inserts the given value into the batch for later committing.

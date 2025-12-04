@@ -47,6 +47,10 @@ type nofreezedb struct {
 	ethdb.KeyValueStore
 }
 
+func (db *nofreezedb) SyncAncient() error {
+	return errNotSupported
+}
+
 // HasAncient returns an error as we don't have a backing chain freezer.
 func (db *nofreezedb) HasAncient(kind string, number uint64) (bool, error) {
 	return false, errNotSupported
@@ -157,7 +161,7 @@ func NewLevelDBDatabase(file string, cache int, handles int, namespace string, r
 // NewPebbleDBDatabase creates a persistent key-value database without a freezer
 // moving immutable chain segments into cold storage.
 func NewPebbleDBDatabase(file string, cache int, handles int, namespace string, readonly, ephemeral bool) (ethdb.Database, error) {
-	db, err := pebble.New(file, cache, handles, namespace, readonly, ephemeral)
+	db, err := pebble.New(file, cache, handles, namespace, readonly)
 	if err != nil {
 		return nil, err
 	}

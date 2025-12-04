@@ -29,8 +29,8 @@ package ethapi
 import (
 	"fmt"
 
-	"github.com/ava-labs/coreth/accounts/abi"
-	"github.com/ava-labs/coreth/vmerrs"
+	"github.com/tenderly/net-flare/coreth/accounts/abi"
+	"github.com/tenderly/net-flare/coreth/vmerrs"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 )
 

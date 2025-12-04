@@ -9,9 +9,9 @@ import (
 
 	"github.com/ava-labs/avalanchego/vms/platformvm/warp"
 	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
-	"github.com/ava-labs/coreth/accounts/abi"
-	"github.com/ava-labs/coreth/precompile/contract"
-	"github.com/ava-labs/coreth/vmerrs"
+	"github.com/tenderly/net-flare/coreth/accounts/abi"
+	"github.com/tenderly/net-flare/coreth/precompile/contract"
+	"github.com/tenderly/net-flare/coreth/vmerrs"
 
 	_ "embed"
 

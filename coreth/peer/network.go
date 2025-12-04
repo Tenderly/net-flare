@@ -23,8 +23,8 @@ import (
 	"github.com/ava-labs/avalanchego/utils/set"
 	"github.com/ava-labs/avalanchego/version"
 
-	"github.com/ava-labs/coreth/peer/stats"
-	"github.com/ava-labs/coreth/plugin/evm/message"
+	"github.com/tenderly/net-flare/coreth/peer/stats"
+	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 )
 
 // Minimum amount of time to handle a request

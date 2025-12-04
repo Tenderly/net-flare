@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/ethclient"
-	"github.com/ava-labs/coreth/interfaces"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/ethclient"
+	"github.com/tenderly/net-flare/coreth/interfaces"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
@@ -193,7 +193,7 @@ func SuggestGasPrice(tc tests.TestContext, ethClient ethclient.Client) *big.Int 
 	require.NoError(tc, err)
 	// Double the suggested gas price to maximize the chances of
 	// acceptance. Maybe this can be revisited pending resolution of
-	// https://github.com/ava-labs/coreth/issues/314.
+	// https://github.com/tenderly/net-flare/coreth/issues/314.
 	gasPrice.Add(gasPrice, gasPrice)
 	return gasPrice
 }

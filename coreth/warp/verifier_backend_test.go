@@ -17,8 +17,8 @@ import (
 	"github.com/ava-labs/avalanchego/utils/crypto/bls"
 	avalancheWarp "github.com/ava-labs/avalanchego/vms/platformvm/warp"
 	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
-	"github.com/ava-labs/coreth/utils"
-	"github.com/ava-labs/coreth/warp/warptest"
+	"github.com/tenderly/net-flare/coreth/utils"
+	"github.com/tenderly/net-flare/coreth/warp/warptest"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/proto"
 )

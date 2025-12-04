@@ -8,7 +8,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/ava-labs/coreth/plugin/evm"
+	"github.com/tenderly/net-flare/coreth/plugin/evm"
 
 	"github.com/ava-labs/avalanchego/genesis"
 	"github.com/ava-labs/avalanchego/ids"

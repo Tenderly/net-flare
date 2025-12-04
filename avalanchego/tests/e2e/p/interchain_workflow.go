@@ -7,7 +7,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ava-labs/coreth/plugin/evm"
+	"github.com/tenderly/net-flare/coreth/plugin/evm"
 	"github.com/onsi/ginkgo/v2"
 	"github.com/spf13/cast"
 	"github.com/stretchr/testify/require"

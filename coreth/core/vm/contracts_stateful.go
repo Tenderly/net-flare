@@ -4,7 +4,7 @@
 package vm
 
 import (
-	"github.com/ava-labs/coreth/precompile/contract"
+	"github.com/tenderly/net-flare/coreth/precompile/contract"
 	"github.com/ethereum/go-ethereum/common"
 )
 

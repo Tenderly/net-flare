@@ -34,12 +34,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ava-labs/coreth/core"
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/core/vm"
-	"github.com/ava-labs/coreth/eth/tracers"
-	"github.com/ava-labs/coreth/tests"
+	"github.com/tenderly/net-flare/coreth/core"
+	"github.com/tenderly/net-flare/coreth/core/rawdb"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/core/vm"
+	"github.com/tenderly/net-flare/coreth/eth/tracers"
+	"github.com/tenderly/net-flare/coreth/tests"
 	"github.com/ethereum/go-ethereum/common"
 )
 

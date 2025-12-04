@@ -11,7 +11,7 @@ import (
 
 	"github.com/ava-labs/avalanchego/snow"
 	avaUpgrade "github.com/ava-labs/avalanchego/upgrade"
-	"github.com/ava-labs/coreth/utils"
+	"github.com/tenderly/net-flare/coreth/utils"
 	"github.com/ethereum/go-ethereum/common"
 )
 

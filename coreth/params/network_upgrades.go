@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/ava-labs/coreth/upgrade"
-	"github.com/ava-labs/coreth/utils"
+	"github.com/tenderly/net-flare/coreth/upgrade"
+	"github.com/tenderly/net-flare/coreth/utils"
 )
 
 type NetworkUpgrades struct {

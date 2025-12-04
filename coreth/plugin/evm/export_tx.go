@@ -10,9 +10,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ava-labs/coreth/accounts"
-	"github.com/ava-labs/coreth/core/state"
-	"github.com/ava-labs/coreth/params"
+	"github.com/tenderly/net-flare/coreth/accounts"
+	"github.com/tenderly/net-flare/coreth/core/state"
+	"github.com/tenderly/net-flare/coreth/params"
 	"github.com/holiman/uint256"
 
 	"github.com/ava-labs/avalanchego/chains/atomic"

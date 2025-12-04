@@ -30,12 +30,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ava-labs/coreth/consensus/dummy"
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/core/vm"
-	"github.com/ava-labs/coreth/params"
-	"github.com/ava-labs/coreth/triedb"
+	"github.com/tenderly/net-flare/coreth/consensus/dummy"
+	"github.com/tenderly/net-flare/coreth/core/rawdb"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/core/vm"
+	"github.com/tenderly/net-flare/coreth/params"
+	"github.com/tenderly/net-flare/coreth/triedb"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 )

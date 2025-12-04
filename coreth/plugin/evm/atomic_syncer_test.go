@@ -16,14 +16,14 @@ import (
 	"github.com/ava-labs/avalanchego/database/memdb"
 	"github.com/ava-labs/avalanchego/database/versiondb"
 
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/plugin/evm/message"
-	syncclient "github.com/ava-labs/coreth/sync/client"
-	"github.com/ava-labs/coreth/sync/handlers"
-	handlerstats "github.com/ava-labs/coreth/sync/handlers/stats"
-	"github.com/ava-labs/coreth/sync/syncutils"
-	"github.com/ava-labs/coreth/trie"
-	"github.com/ava-labs/coreth/triedb"
+	"github.com/tenderly/net-flare/coreth/core/rawdb"
+	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
+	syncclient "github.com/tenderly/net-flare/coreth/sync/client"
+	"github.com/tenderly/net-flare/coreth/sync/handlers"
+	handlerstats "github.com/tenderly/net-flare/coreth/sync/handlers/stats"
+	"github.com/tenderly/net-flare/coreth/sync/syncutils"
+	"github.com/tenderly/net-flare/coreth/trie"
+	"github.com/tenderly/net-flare/coreth/triedb"
 	"github.com/ethereum/go-ethereum/common"
 )
 

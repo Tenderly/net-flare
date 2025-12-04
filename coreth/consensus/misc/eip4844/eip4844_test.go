@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ava-labs/coreth/params"
+	"github.com/tenderly/net-flare/coreth/params"
 )
 
 func TestCalcExcessBlobGas(t *testing.T) {

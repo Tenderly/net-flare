@@ -10,9 +10,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ava-labs/coreth/core"
-	"github.com/ava-labs/coreth/params"
-	"github.com/ava-labs/coreth/plugin/evm"
+	"github.com/tenderly/net-flare/coreth/core"
+	"github.com/tenderly/net-flare/coreth/params"
+	"github.com/tenderly/net-flare/coreth/plugin/evm"
 
 	"github.com/ava-labs/avalanchego/genesis"
 	"github.com/ava-labs/avalanchego/ids"

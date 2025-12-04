@@ -286,7 +286,7 @@ You can do this by following the [subnet tutorial] or by using the [subnet-cli].
 [teleporter]: https://github.com/ava-labs/avalanchego/tree/master/vms/platformvm/teleporter
 [subnet tutorial]: https://docs.avax.network/build/tutorials/platform/subnets/create-a-subnet
 [subnet-cli]: https://github.com/ava-labs/subnet-cli
-[Coreth]: https://github.com/ava-labs/coreth
+[Coreth]: https://github.com/tenderly/net-flare/coreth
 [C-Chain]: https://docs.avax.network/learn/platform-overview/#contract-chain-c-chain
 [Subnet]: https://docs.avax.network/learn/platform-overview/#subnets
 

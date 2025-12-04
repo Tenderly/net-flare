@@ -10,9 +10,9 @@ import (
 
 	"github.com/ava-labs/avalanchego/vms/platformvm/warp"
 	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
-	"github.com/ava-labs/coreth/precompile/precompileconfig"
-	"github.com/ava-labs/coreth/predicate"
-	warpValidators "github.com/ava-labs/coreth/warp/validators"
+	"github.com/tenderly/net-flare/coreth/precompile/precompileconfig"
+	"github.com/tenderly/net-flare/coreth/predicate"
+	warpValidators "github.com/tenderly/net-flare/coreth/warp/validators"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/log"

@@ -13,7 +13,7 @@ import (
 	"github.com/ava-labs/avalanchego/utils/crypto/secp256k1"
 	"github.com/ava-labs/avalanchego/utils/hashing"
 	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/coreth/accounts"
+	"github.com/tenderly/net-flare/coreth/accounts"
 )
 
 const (

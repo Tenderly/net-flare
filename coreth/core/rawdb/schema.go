@@ -32,7 +32,7 @@ import (
 	"encoding/binary"
 
 	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/coreth/metrics"
+	"github.com/tenderly/net-flare/coreth/metrics"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 )

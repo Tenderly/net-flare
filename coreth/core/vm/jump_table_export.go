@@ -17,7 +17,7 @@
 package vm
 
 import (
-	"github.com/ava-labs/coreth/params"
+	"github.com/tenderly/net-flare/coreth/params"
 )
 
 // LookupInstructionSet returns the instruction set for the fork configured by

@@ -30,7 +30,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ava-labs/coreth/metrics"
+	"github.com/tenderly/net-flare/coreth/metrics"
 )
 
 var (

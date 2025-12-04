@@ -10,11 +10,11 @@ import (
 	"testing"
 
 	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/coreth/accounts/keystore"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/trie"
-	"github.com/ava-labs/coreth/trie/trienode"
-	"github.com/ava-labs/coreth/triedb"
+	"github.com/tenderly/net-flare/coreth/accounts/keystore"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/trie"
+	"github.com/tenderly/net-flare/coreth/trie/trienode"
+	"github.com/tenderly/net-flare/coreth/triedb"
 	"github.com/holiman/uint256"
 
 	"github.com/ethereum/go-ethereum/common"

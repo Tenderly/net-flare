@@ -14,8 +14,8 @@ import (
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/holiman/uint256"
 
-	"github.com/ava-labs/coreth/core/vm"
-	"github.com/ava-labs/coreth/params"
+	"github.com/tenderly/net-flare/coreth/core/vm"
+	"github.com/tenderly/net-flare/coreth/params"
 
 	"golang.org/x/exp/slog"
 )

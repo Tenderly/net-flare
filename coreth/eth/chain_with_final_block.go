@@ -2,8 +2,8 @@
 package eth
 
 import (
-	"github.com/ava-labs/coreth/core"
-	"github.com/ava-labs/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/core"
+	"github.com/tenderly/net-flare/coreth/core/types"
 )
 
 const blocksToKeep = 604_800 // Approx. 2 weeks worth of blocks assuming 2s block time

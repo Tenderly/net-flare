@@ -10,7 +10,7 @@ import (
 	"math/big"
 	"sync"
 
-	"github.com/ava-labs/coreth/plugin/evm"
+	"github.com/tenderly/net-flare/coreth/plugin/evm"
 
 	"github.com/ava-labs/avalanchego/database"
 	"github.com/ava-labs/avalanchego/utils/math"

@@ -8,7 +8,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/ava-labs/coreth/plugin/evm"
+	"github.com/tenderly/net-flare/coreth/plugin/evm"
 
 	"github.com/ava-labs/avalanchego/ids"
 	"github.com/ava-labs/avalanchego/utils"

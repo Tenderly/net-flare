@@ -27,13 +27,13 @@
 package tests
 
 import (
-	"github.com/ava-labs/coreth/core/rawdb"
-	"github.com/ava-labs/coreth/core/state"
-	"github.com/ava-labs/coreth/core/state/snapshot"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/triedb"
-	"github.com/ava-labs/coreth/triedb/hashdb"
-	"github.com/ava-labs/coreth/triedb/pathdb"
+	"github.com/tenderly/net-flare/coreth/core/rawdb"
+	"github.com/tenderly/net-flare/coreth/core/state"
+	"github.com/tenderly/net-flare/coreth/core/state/snapshot"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/triedb"
+	"github.com/tenderly/net-flare/coreth/triedb/hashdb"
+	"github.com/tenderly/net-flare/coreth/triedb/pathdb"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethdb"
 	"github.com/holiman/uint256"

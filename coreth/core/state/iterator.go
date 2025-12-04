@@ -31,8 +31,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/trie"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/trie"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/rlp"
 )

@@ -1,4 +1,4 @@
-module github.com/ava-labs/coreth
+module github.com/tenderly/net-flare/coreth
 
 go 1.24.0
 

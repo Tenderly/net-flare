@@ -21,11 +21,11 @@ import (
 	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/holiman/uint256"
 
-	"github.com/ava-labs/coreth/constants"
-	"github.com/ava-labs/coreth/eth/filters"
-	"github.com/ava-labs/coreth/metrics"
-	"github.com/ava-labs/coreth/trie"
-	"github.com/ava-labs/coreth/utils"
+	"github.com/tenderly/net-flare/coreth/constants"
+	"github.com/tenderly/net-flare/coreth/eth/filters"
+	"github.com/tenderly/net-flare/coreth/metrics"
+	"github.com/tenderly/net-flare/coreth/trie"
+	"github.com/tenderly/net-flare/coreth/utils"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -56,15 +56,15 @@ import (
 	"github.com/ava-labs/avalanchego/snow/engine/enginetest"
 	constantsEng "github.com/ava-labs/avalanchego/utils/constants"
 
-	"github.com/ava-labs/coreth/consensus/dummy"
-	"github.com/ava-labs/coreth/core"
-	"github.com/ava-labs/coreth/core/types"
-	"github.com/ava-labs/coreth/eth"
-	"github.com/ava-labs/coreth/params"
-	"github.com/ava-labs/coreth/rpc"
+	"github.com/tenderly/net-flare/coreth/consensus/dummy"
+	"github.com/tenderly/net-flare/coreth/core"
+	"github.com/tenderly/net-flare/coreth/core/types"
+	"github.com/tenderly/net-flare/coreth/eth"
+	"github.com/tenderly/net-flare/coreth/params"
+	"github.com/tenderly/net-flare/coreth/rpc"
 
 	avalancheWarp "github.com/ava-labs/avalanchego/vms/platformvm/warp"
-	accountKeystore "github.com/ava-labs/coreth/accounts/keystore"
+	accountKeystore "github.com/tenderly/net-flare/coreth/accounts/keystore"
 )
 
 var (

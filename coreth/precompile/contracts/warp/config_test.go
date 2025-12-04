@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/ava-labs/coreth/precompile/precompileconfig"
-	"github.com/ava-labs/coreth/precompile/testutils"
-	"github.com/ava-labs/coreth/utils"
+	"github.com/tenderly/net-flare/coreth/precompile/precompileconfig"
+	"github.com/tenderly/net-flare/coreth/precompile/testutils"
+	"github.com/tenderly/net-flare/coreth/utils"
 	"go.uber.org/mock/gomock"
 )
 

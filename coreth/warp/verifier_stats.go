@@ -4,7 +4,7 @@
 package warp
 
 import (
-	"github.com/ava-labs/coreth/metrics"
+	"github.com/tenderly/net-flare/coreth/metrics"
 )
 
 type verifierStats struct {

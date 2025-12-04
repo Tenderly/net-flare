@@ -8,7 +8,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ava-labs/coreth/plugin/evm"
+	"github.com/tenderly/net-flare/coreth/plugin/evm"
 	"github.com/ethereum/go-ethereum/common"
 
 	"github.com/ava-labs/avalanchego/database"

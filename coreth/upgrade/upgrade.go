@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/coreth/constants"
+	"github.com/tenderly/net-flare/coreth/constants"
 )
 
 // Fork times: copied from avalanchego/upgrade/upgrade.go

@@ -35,15 +35,15 @@ import (
 
 	"github.com/ethereum/go-ethereum/log"
 
+	"github.com/ethereum/go-ethereum/common"
+	cmath "github.com/ethereum/go-ethereum/common/math"
+	"github.com/ethereum/go-ethereum/crypto/kzg4844"
+	"github.com/holiman/uint256"
 	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/tenderly/net-flare/coreth/core/vm"
 	"github.com/tenderly/net-flare/coreth/params"
 	"github.com/tenderly/net-flare/coreth/utils"
 	"github.com/tenderly/net-flare/coreth/vmerrs"
-	"github.com/ethereum/go-ethereum/common"
-	cmath "github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/crypto/kzg4844"
-	"github.com/holiman/uint256"
 )
 
 // ExecutionResult includes all output after executing given evm
@@ -251,7 +251,7 @@ func TransactionToMessage(tx *types.Transaction, s types.Signer, baseFee *big.In
 	}
 	// If baseFee provided, set gasPrice to effectiveGasPrice.
 	if baseFee != nil {
-		msg.GasPrice = bigMax(msg.GasPrice.Add(msg.GasTipCap, baseFee), msg.GasFeeCap)
+		msg.GasPrice = bigMin(msg.GasPrice.Add(msg.GasTipCap, baseFee), msg.GasFeeCap)
 	}
 	var err error
 	msg.From, err = types.Sender(s, tx)
@@ -665,8 +665,8 @@ func (st *StateTransition) blobGasUsed() uint64 {
 	return uint64(len(st.msg.BlobHashes) * params.BlobTxBlobGasPerBlob)
 }
 
-func bigMax(a, b *big.Int) *big.Int {
-	if a.Cmp(b) > 0 {
+func bigMin(a, b *big.Int) *big.Int {
+	if a.Cmp(b) == -1 {
 		return a
 	}
 	return b

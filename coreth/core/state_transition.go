@@ -251,7 +251,7 @@ func TransactionToMessage(tx *types.Transaction, s types.Signer, baseFee *big.In
 	}
 	// If baseFee provided, set gasPrice to effectiveGasPrice.
 	if baseFee != nil {
-		msg.GasPrice = cmath.BigMin(msg.GasPrice.Add(msg.GasTipCap, baseFee), msg.GasFeeCap)
+		msg.GasPrice = bigMax(msg.GasPrice.Add(msg.GasTipCap, baseFee), msg.GasFeeCap)
 	}
 	var err error
 	msg.From, err = types.Sender(s, tx)
@@ -663,4 +663,11 @@ func (st *StateTransition) gasUsed() uint64 {
 // blobGasUsed returns the amount of blob gas used by the message.
 func (st *StateTransition) blobGasUsed() uint64 {
 	return uint64(len(st.msg.BlobHashes) * params.BlobTxBlobGasPerBlob)
+}
+
+func bigMax(a, b *big.Int) *big.Int {
+	if a.Cmp(b) > 0 {
+		return a
+	}
+	return b
 }

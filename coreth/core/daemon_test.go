@@ -17,7 +17,7 @@ import (
 	"github.com/tenderly/net-flare/coreth/core/vm"
 	"github.com/tenderly/net-flare/coreth/params"
 
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 // Define a mock structure to spy and mock values for daemon calls
@@ -280,6 +280,10 @@ func (l *LoggerMock) Warn(msg string, ctx ...interface{}) {
 
 func (l *LoggerMock) Enabled(ctx context.Context, level slog.Level) bool {
 	return true
+}
+
+func (l *LoggerMock) Handler() slog.Handler {
+	return nil
 }
 
 func TestAtomicDaemonAndMintLogsError(t *testing.T) {

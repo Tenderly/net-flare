@@ -12,7 +12,7 @@ import (
 
 	"github.com/tenderly/net-flare/coreth/log"
 	gethlog "github.com/ethereum/go-ethereum/log"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 type CorethLogger struct {

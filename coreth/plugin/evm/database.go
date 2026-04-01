@@ -13,14 +13,20 @@ import (
 var (
 	_ ethdb.KeyValueStore = &Database{}
 
-	ErrSnapshotNotSupported = errors.New("snapshot is not supported")
+	ErrNotSupported = errors.New("not supported")
 )
 
 // Database implements ethdb.Database
 type Database struct{ database.Database }
 
-// Stat implements ethdb.Database
-func (db Database) Stat(string) (string, error) { return "", database.ErrNotFound }
+// Stat implements ethdb.KeyValueStater
+func (db Database) Stat() (string, error) { return "", database.ErrNotFound }
+
+// DeleteRange implements ethdb.KeyValueRangeDeleter
+func (db Database) DeleteRange(start, end []byte) error { return ErrNotSupported }
+
+// SyncKeyValue implements ethdb.KeyValueSyncer
+func (db Database) SyncKeyValue() error { return nil }
 
 // NewBatch implements ethdb.Database
 func (db Database) NewBatch() ethdb.Batch { return Batch{db.Database.NewBatch()} }
@@ -28,10 +34,6 @@ func (db Database) NewBatch() ethdb.Batch { return Batch{db.Database.NewBatch()}
 // NewBatchWithSize implements ethdb.Database
 // TODO: propagate size through avalanchego Database interface
 func (db Database) NewBatchWithSize(size int) ethdb.Batch { return Batch{db.Database.NewBatch()} }
-
-func (db Database) NewSnapshot() (ethdb.Snapshot, error) {
-	return nil, ErrSnapshotNotSupported
-}
 
 // NewIterator implements ethdb.Database
 //
@@ -59,6 +61,12 @@ type Batch struct{ database.Batch }
 
 // ValueSize implements ethdb.Batch
 func (batch Batch) ValueSize() int { return batch.Batch.Size() }
+
+// Close implements ethdb.Batch
+func (batch Batch) Close() {}
+
+// DeleteRange implements ethdb.Batch
+func (batch Batch) DeleteRange(start, end []byte) error { return ErrNotSupported }
 
 // Replay implements ethdb.Batch
 func (batch Batch) Replay(w ethdb.KeyValueWriter) error { return batch.Batch.Replay(w) }

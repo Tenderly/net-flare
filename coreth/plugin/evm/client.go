@@ -8,7 +8,7 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum/common"
-	"golang.org/x/exp/slog"
+	"log/slog"
 
 	"github.com/ava-labs/avalanchego/api"
 	"github.com/ava-labs/avalanchego/ids"

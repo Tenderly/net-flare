@@ -61,6 +61,11 @@ func (db *nofreezedb) Ancient(kind string, number uint64) ([]byte, error) {
 	return nil, errNotSupported
 }
 
+// AncientBytes returns an error as we don't have a backing chain freezer.
+func (db *nofreezedb) AncientBytes(kind string, id, offset, length uint64) ([]byte, error) {
+	return nil, errNotSupported
+}
+
 // AncientRange returns an error as we don't have a backing chain freezer.
 func (db *nofreezedb) AncientRange(kind string, start, max, maxByteSize uint64) ([][]byte, error) {
 	return nil, errNotSupported

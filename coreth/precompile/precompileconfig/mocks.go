@@ -40,18 +40,18 @@ func (m *MockPredicater) EXPECT() *MockPredicaterMockRecorder {
 }
 
 // PredicateGas mocks base method.
-func (m *MockPredicater) PredicateGas(arg0 []byte) (uint64, error) {
+func (m *MockPredicater) PredicateGas(arg0 []common.Hash, arg1 Rules) (uint64, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "PredicateGas", arg0)
+	ret := m.ctrl.Call(m, "PredicateGas", arg0, arg1)
 	ret0, _ := ret[0].(uint64)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // PredicateGas indicates an expected call of PredicateGas.
-func (mr *MockPredicaterMockRecorder) PredicateGas(arg0 any) *gomock.Call {
+func (mr *MockPredicaterMockRecorder) PredicateGas(arg0, arg1 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PredicateGas", reflect.TypeOf((*MockPredicater)(nil).PredicateGas), arg0)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PredicateGas", reflect.TypeOf((*MockPredicater)(nil).PredicateGas), arg0, arg1)
 }
 
 // VerifyPredicate mocks base method.

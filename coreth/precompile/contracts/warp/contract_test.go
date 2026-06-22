@@ -386,7 +386,7 @@ func TestGetVerifiedWarpMessage(t *testing.T) {
 			SetupBlockContext: func(mbc *contract.MockBlockContext) {
 				mbc.EXPECT().GetPredicateResults(common.Hash{}, ContractAddress).Return(noFailures)
 			},
-			SuppliedGas: GetVerifiedWarpMessageBaseCost + GasCostPerWarpMessageBytes*uint64(len(warpMessage.Bytes())),
+			SuppliedGas: GetVerifiedWarpMessageBaseCost + GasCostPerWarpMessageBytes*uint64(len(warpMessage.Bytes())/32*32),
 			ReadOnly:    false,
 			ExpectedErr: errInvalidPredicateBytes.Error(),
 		},
@@ -664,7 +664,7 @@ func TestGetVerifiedWarpBlockHash(t *testing.T) {
 			SetupBlockContext: func(mbc *contract.MockBlockContext) {
 				mbc.EXPECT().GetPredicateResults(common.Hash{}, ContractAddress).Return(noFailures)
 			},
-			SuppliedGas: GetVerifiedWarpMessageBaseCost + GasCostPerWarpMessageBytes*uint64(len(warpMessage.Bytes())),
+			SuppliedGas: GetVerifiedWarpMessageBaseCost + GasCostPerWarpMessageBytes*uint64(len(warpMessage.Bytes())/32*32),
 			ReadOnly:    false,
 			ExpectedErr: errInvalidPredicateBytes.Error(),
 		},

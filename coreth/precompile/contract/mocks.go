@@ -130,6 +130,20 @@ func (m *MockAccessibleState) GetChainConfig() precompileconfig.ChainConfig {
 	return ret0
 }
 
+// GetRules mocks base method.
+func (m *MockAccessibleState) GetRules() precompileconfig.Rules {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetRules")
+	ret0, _ := ret[0].(precompileconfig.Rules)
+	return ret0
+}
+
+// GetRules indicates an expected call of GetRules.
+func (mr *MockAccessibleStateMockRecorder) GetRules() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRules", reflect.TypeOf((*MockAccessibleState)(nil).GetRules))
+}
+
 // GetChainConfig indicates an expected call of GetChainConfig.
 func (mr *MockAccessibleStateMockRecorder) GetChainConfig() *gomock.Call {
 	mr.mock.ctrl.T.Helper()

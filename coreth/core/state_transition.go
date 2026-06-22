@@ -42,7 +42,6 @@ import (
 	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/tenderly/net-flare/coreth/core/vm"
 	"github.com/tenderly/net-flare/coreth/params"
-	"github.com/tenderly/net-flare/coreth/utils"
 	"github.com/tenderly/net-flare/coreth/vmerrs"
 )
 
@@ -187,7 +186,7 @@ func accessListGas(rules params.Rules, accessList types.AccessList) (uint64, err
 			}
 			gas = totalGas
 		} else {
-			predicateGas, err := predicaterContract.PredicateGas(utils.HashSliceToBytes(accessTuple.StorageKeys))
+			predicateGas, err := predicaterContract.PredicateGas(accessTuple.StorageKeys, rules)
 			if err != nil {
 				return 0, err
 			}

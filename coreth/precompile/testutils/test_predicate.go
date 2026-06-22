@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/tenderly/net-flare/coreth/precompile/precompileconfig"
+	"github.com/tenderly/net-flare/coreth/utils"
 	"github.com/stretchr/testify/require"
 )
 
@@ -28,7 +29,7 @@ func (test PredicateTest) Run(t testing.TB) {
 	require := require.New(t)
 	predicate := test.Config.(precompileconfig.Predicater)
 
-	predicateGas, predicateGasErr := predicate.PredicateGas(test.PredicateBytes)
+	predicateGas, predicateGasErr := predicate.PredicateGas(utils.BytesToHashSlice(test.PredicateBytes), nil)
 	require.ErrorIs(predicateGasErr, test.GasErr)
 	if test.GasErr != nil {
 		return

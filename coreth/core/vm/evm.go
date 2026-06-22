@@ -736,6 +736,11 @@ func (evm *EVM) ChainConfig() *params.ChainConfig { return evm.chainConfig }
 // GetChainConfig implements AccessibleState
 func (evm *EVM) GetChainConfig() precompileconfig.ChainConfig { return evm.chainConfig }
 
+// GetRules implements AccessibleState
+func (evm *EVM) GetRules() precompileconfig.Rules {
+	return evm.chainConfig.Rules(evm.GetBlockContext().Number(), evm.GetBlockContext().Timestamp())
+}
+
 func (evm *EVM) NativeAssetCall(caller common.Address, input []byte, suppliedGas uint64, gasCost uint64, readOnly bool) (ret []byte, remainingGas uint64, err error) {
 	if suppliedGas < gasCost {
 		return nil, 0, vmerrs.ErrOutOfGas

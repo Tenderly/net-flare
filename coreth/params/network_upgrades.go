@@ -195,6 +195,11 @@ func (n *NetworkUpgrades) IsGranite(time uint64) bool {
 	return isTimestampForked(n.GraniteTimestamp, time)
 }
 
+// IsGraniteActivated is used by the warp precompile to determine which gas costs to use.
+func (a AvalancheRules) IsGraniteActivated() bool {
+	return a.IsGranite
+}
+
 func (n *NetworkUpgrades) Description() string {
 	var banner string
 	banner += fmt.Sprintf(" - Apricot Phase 1 Timestamp:        @%-10v (https://github.com/ava-labs/avalanchego/releases/tag/v1.3.0)\n", ptrToString(n.ApricotPhase1BlockTimestamp))

@@ -75,6 +75,8 @@ type (
 func (evm *EVM) precompile(addr common.Address) (contract.StatefulPrecompiledContract, bool) {
 	var precompiles map[common.Address]contract.StatefulPrecompiledContract
 	switch {
+	case evm.chainRules.IsGranite:
+		precompiles = PrecompiledContractsGranite
 	case evm.chainRules.IsCancun:
 		precompiles = PrecompiledContractsCancun
 	case evm.chainRules.IsBanff:

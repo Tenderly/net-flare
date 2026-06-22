@@ -43,6 +43,9 @@ type NetworkUpgrades struct {
 	// Note: EIP-4844 BlobTxs are not enabled in the mempool and blocks are not
 	// allowed to contain them. For details see https://github.com/avalanche-foundation/ACPs/pull/131
 	EtnaTimestamp *uint64 `json:"etnaTimestamp,omitempty"`
+	// Granite activates the secp256r1 (P256VERIFY) precompile at address 0x100.
+	// (nil = no fork, 0 = already activated)
+	GraniteTimestamp *uint64 `json:"graniteTimestamp,omitempty"`
 }
 
 func (n *NetworkUpgrades) Equal(other *NetworkUpgrades) bool {
@@ -104,6 +107,7 @@ func (n *NetworkUpgrades) forkOrder() []fork {
 		{name: "cortinaBlockTimestamp", timestamp: n.CortinaBlockTimestamp},
 		{name: "durangoBlockTimestamp", timestamp: n.DurangoBlockTimestamp},
 		{name: "etnaTimestamp", timestamp: n.EtnaTimestamp},
+		{name: "graniteTimestamp", timestamp: n.GraniteTimestamp},
 	}
 }
 
@@ -185,6 +189,12 @@ func (n *NetworkUpgrades) IsEtna(time uint64) bool {
 	return isTimestampForked(n.EtnaTimestamp, time)
 }
 
+// IsGranite returns whether [time] represents a block
+// with a timestamp after the Granite upgrade time.
+func (n *NetworkUpgrades) IsGranite(time uint64) bool {
+	return isTimestampForked(n.GraniteTimestamp, time)
+}
+
 func (n *NetworkUpgrades) Description() string {
 	var banner string
 	banner += fmt.Sprintf(" - Apricot Phase 1 Timestamp:        @%-10v (https://github.com/ava-labs/avalanchego/releases/tag/v1.3.0)\n", ptrToString(n.ApricotPhase1BlockTimestamp))
@@ -230,6 +240,7 @@ type AvalancheRules struct {
 	IsCortina                                                                           bool
 	IsDurango                                                                           bool
 	IsEtna                                                                              bool
+	IsGranite                                                                           bool
 }
 
 func (n *NetworkUpgrades) GetAvalancheRules(timestamp uint64) AvalancheRules {
@@ -247,5 +258,6 @@ func (n *NetworkUpgrades) GetAvalancheRules(timestamp uint64) AvalancheRules {
 		IsCortina:            n.IsCortina(timestamp),
 		IsDurango:            n.IsDurango(timestamp),
 		IsEtna:               n.IsEtna(timestamp),
+		IsGranite:            n.IsGranite(timestamp),
 	}
 }

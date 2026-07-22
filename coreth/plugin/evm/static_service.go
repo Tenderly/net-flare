@@ -7,7 +7,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/ava-labs/avalanchego/utils/formatting"
+	"github.com/tenderly/avalanchego/utils/formatting"
 	"github.com/tenderly/net-flare/coreth/core"
 )
 

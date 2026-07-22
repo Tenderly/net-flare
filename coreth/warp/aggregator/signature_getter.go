@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/crypto/bls"
-	avalancheWarp "github.com/ava-labs/avalanchego/vms/platformvm/warp"
-	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
+	"github.com/tenderly/avalanchego/ids"
+	"github.com/tenderly/avalanchego/utils/crypto/bls"
+	avalancheWarp "github.com/tenderly/avalanchego/vms/platformvm/warp"
+	"github.com/tenderly/avalanchego/vms/platformvm/warp/payload"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 )
 

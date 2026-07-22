@@ -9,7 +9,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ava-labs/avalanchego/upgrade"
+	"github.com/tenderly/avalanchego/upgrade"
 	"github.com/tenderly/net-flare/coreth/consensus/dummy"
 	"github.com/tenderly/net-flare/coreth/core/rawdb"
 	"github.com/tenderly/net-flare/coreth/core/state"

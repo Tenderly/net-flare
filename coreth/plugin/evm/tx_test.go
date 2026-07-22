@@ -15,9 +15,9 @@ import (
 
 	"github.com/tenderly/net-flare/coreth/params"
 
-	"github.com/ava-labs/avalanchego/chains/atomic"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
+	"github.com/tenderly/avalanchego/chains/atomic"
+	"github.com/tenderly/avalanchego/ids"
+	"github.com/tenderly/avalanchego/snow"
 )
 
 func TestCalculateDynamicFee(t *testing.T) {

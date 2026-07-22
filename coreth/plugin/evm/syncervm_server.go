@@ -7,8 +7,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/database"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
+	"github.com/tenderly/avalanchego/database"
+	"github.com/tenderly/avalanchego/snow/engine/snowman/block"
 
 	"github.com/tenderly/net-flare/coreth/core"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"

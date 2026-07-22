@@ -7,8 +7,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/vms/platformvm/warp"
-	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
+	"github.com/tenderly/avalanchego/vms/platformvm/warp"
+	"github.com/tenderly/avalanchego/vms/platformvm/warp/payload"
 	"github.com/tenderly/net-flare/coreth/accounts/abi"
 	"github.com/tenderly/net-flare/coreth/precompile/contract"
 	"github.com/tenderly/net-flare/coreth/precompile/precompileconfig"

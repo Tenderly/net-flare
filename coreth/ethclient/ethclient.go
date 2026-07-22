@@ -34,7 +34,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/tenderly/avalanchego/ids"
 	"github.com/tenderly/net-flare/coreth/accounts/abi/bind"
 	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/tenderly/net-flare/coreth/interfaces"

@@ -10,7 +10,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	safemath "github.com/ava-labs/avalanchego/utils/math"
+	safemath "github.com/tenderly/avalanchego/utils/math"
 
 	"github.com/tenderly/net-flare/coreth/constants"
 	"github.com/tenderly/net-flare/coreth/core/types"

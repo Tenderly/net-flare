@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ava-labs/avalanchego/utils/wrappers"
+	"github.com/tenderly/avalanchego/utils/wrappers"
 	"github.com/tenderly/net-flare/coreth/core/rawdb"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 	syncclient "github.com/tenderly/net-flare/coreth/sync/client"

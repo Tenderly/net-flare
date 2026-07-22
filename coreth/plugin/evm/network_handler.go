@@ -6,8 +6,8 @@ package evm
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/tenderly/avalanchego/codec"
+	"github.com/tenderly/avalanchego/ids"
 	"github.com/tenderly/net-flare/coreth/metrics"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 	syncHandlers "github.com/tenderly/net-flare/coreth/sync/handlers"

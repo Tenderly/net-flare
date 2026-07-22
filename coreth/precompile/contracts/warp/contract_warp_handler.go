@@ -6,9 +6,9 @@ package warp
 import (
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/utils/set"
-	"github.com/ava-labs/avalanchego/vms/platformvm/warp"
-	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
+	"github.com/tenderly/avalanchego/utils/set"
+	"github.com/tenderly/avalanchego/vms/platformvm/warp"
+	"github.com/tenderly/avalanchego/vms/platformvm/warp/payload"
 	"github.com/tenderly/net-flare/coreth/precompile/contract"
 	"github.com/tenderly/net-flare/coreth/predicate"
 	"github.com/tenderly/net-flare/coreth/vmerrs"

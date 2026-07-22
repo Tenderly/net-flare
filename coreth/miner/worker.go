@@ -36,8 +36,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ava-labs/avalanchego/utils/timer/mockable"
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/tenderly/avalanchego/utils/timer/mockable"
+	"github.com/tenderly/avalanchego/utils/units"
 	"github.com/tenderly/net-flare/coreth/consensus"
 	"github.com/tenderly/net-flare/coreth/consensus/dummy"
 	"github.com/tenderly/net-flare/coreth/consensus/misc/eip4844"

@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/set"
+	"github.com/tenderly/avalanchego/ids"
+	"github.com/tenderly/avalanchego/utils/set"
 	"github.com/tenderly/net-flare/coreth/core/rawdb"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 	statesyncclient "github.com/tenderly/net-flare/coreth/sync/client"

@@ -8,7 +8,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ava-labs/avalanchego/utils"
+	"github.com/tenderly/avalanchego/utils"
 	"github.com/tenderly/net-flare/coreth/core/rawdb"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 	statesyncclient "github.com/tenderly/net-flare/coreth/sync/client"

@@ -8,9 +8,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/tenderly/avalanchego/codec"
+	"github.com/tenderly/avalanchego/ids"
+	"github.com/tenderly/avalanchego/utils/units"
 
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 	"github.com/tenderly/net-flare/coreth/sync/handlers/stats"

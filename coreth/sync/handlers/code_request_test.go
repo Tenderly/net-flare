@@ -10,7 +10,7 @@ import (
 
 	"github.com/tenderly/net-flare/coreth/params"
 
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/tenderly/avalanchego/ids"
 	"github.com/tenderly/net-flare/coreth/core/rawdb"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 	"github.com/tenderly/net-flare/coreth/sync/handlers/stats"

@@ -31,7 +31,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ava-labs/avalanchego/snow"
+	"github.com/tenderly/avalanchego/snow"
 	"github.com/tenderly/net-flare/coreth/constants"
 	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/tenderly/net-flare/coreth/params"

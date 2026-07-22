@@ -21,9 +21,9 @@ import (
 	"github.com/tenderly/net-flare/coreth/precompile/precompileconfig"
 	"github.com/tenderly/net-flare/coreth/predicate"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow/consensus/snowman"
-	"github.com/ava-labs/avalanchego/snow/engine/snowman/block"
+	"github.com/tenderly/avalanchego/ids"
+	"github.com/tenderly/avalanchego/snow/consensus/snowman"
+	"github.com/tenderly/avalanchego/snow/engine/snowman/block"
 )
 
 var (

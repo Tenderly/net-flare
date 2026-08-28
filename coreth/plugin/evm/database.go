@@ -6,7 +6,7 @@ package evm
 import (
 	"errors"
 
-	"github.com/tenderly/avalanchego/database"
+	"github.com/ava-labs/avalanchego/database"
 	"github.com/ethereum/go-ethereum/ethdb"
 )
 

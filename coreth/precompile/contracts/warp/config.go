@@ -8,8 +8,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tenderly/avalanchego/vms/platformvm/warp"
-	"github.com/tenderly/avalanchego/vms/platformvm/warp/payload"
+	"github.com/ava-labs/avalanchego/vms/platformvm/warp"
+	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
 	"github.com/tenderly/net-flare/coreth/precompile/precompileconfig"
 	"github.com/tenderly/net-flare/coreth/predicate"
 	warpValidators "github.com/tenderly/net-flare/coreth/warp/validators"

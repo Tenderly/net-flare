@@ -7,9 +7,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/tenderly/avalanchego/snow/engine/common"
-	avalancheWarp "github.com/tenderly/avalanchego/vms/platformvm/warp"
-	"github.com/tenderly/avalanchego/vms/platformvm/warp/payload"
+	"github.com/ava-labs/avalanchego/snow/engine/common"
+	avalancheWarp "github.com/ava-labs/avalanchego/vms/platformvm/warp"
+	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
 )
 
 const (

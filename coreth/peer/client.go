@@ -7,9 +7,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/tenderly/avalanchego/ids"
+	"github.com/ava-labs/avalanchego/ids"
 
-	"github.com/tenderly/avalanchego/version"
+	"github.com/ava-labs/avalanchego/version"
 )
 
 var (

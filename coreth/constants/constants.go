@@ -4,7 +4,7 @@
 package constants
 
 import (
-	"github.com/tenderly/avalanchego/utils/set"
+	"github.com/ava-labs/avalanchego/utils/set"
 	"github.com/ethereum/go-ethereum/common"
 )
 

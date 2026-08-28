@@ -9,7 +9,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/tenderly/avalanchego/utils/wrappers"
+	"github.com/ava-labs/avalanchego/utils/wrappers"
 	"github.com/tenderly/net-flare/coreth/accounts/keystore"
 	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/tenderly/net-flare/coreth/trie"

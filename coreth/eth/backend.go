@@ -34,7 +34,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tenderly/avalanchego/utils/timer/mockable"
+	"github.com/ava-labs/avalanchego/utils/timer/mockable"
 	"github.com/tenderly/net-flare/coreth/accounts"
 	"github.com/tenderly/net-flare/coreth/consensus"
 	"github.com/tenderly/net-flare/coreth/core"

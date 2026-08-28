@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tenderly/avalanchego/codec"
-	"github.com/tenderly/avalanchego/ids"
-	"github.com/tenderly/avalanchego/utils/wrappers"
+	"github.com/ava-labs/avalanchego/codec"
+	"github.com/ava-labs/avalanchego/ids"
+	"github.com/ava-labs/avalanchego/utils/wrappers"
 	"github.com/tenderly/net-flare/coreth/core/state/snapshot"
 	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"

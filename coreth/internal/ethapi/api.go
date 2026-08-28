@@ -36,7 +36,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tenderly/avalanchego/ids"
+	"github.com/ava-labs/avalanchego/ids"
 	"github.com/tenderly/net-flare/coreth/accounts"
 	"github.com/tenderly/net-flare/coreth/accounts/keystore"
 	"github.com/tenderly/net-flare/coreth/accounts/scwallet"

@@ -6,7 +6,7 @@ package params
 import (
 	"math/big"
 
-	"github.com/tenderly/avalanchego/utils/units"
+	"github.com/ava-labs/avalanchego/utils/units"
 )
 
 // Minimum Gas Price

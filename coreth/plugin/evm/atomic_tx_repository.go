@@ -11,14 +11,14 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
 
-	"github.com/tenderly/avalanchego/codec"
-	"github.com/tenderly/avalanchego/database"
-	"github.com/tenderly/avalanchego/database/prefixdb"
-	"github.com/tenderly/avalanchego/database/versiondb"
-	"github.com/tenderly/avalanchego/ids"
-	"github.com/tenderly/avalanchego/utils"
-	"github.com/tenderly/avalanchego/utils/units"
-	"github.com/tenderly/avalanchego/utils/wrappers"
+	"github.com/ava-labs/avalanchego/codec"
+	"github.com/ava-labs/avalanchego/database"
+	"github.com/ava-labs/avalanchego/database/prefixdb"
+	"github.com/ava-labs/avalanchego/database/versiondb"
+	"github.com/ava-labs/avalanchego/ids"
+	"github.com/ava-labs/avalanchego/utils"
+	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/ava-labs/avalanchego/utils/wrappers"
 )
 
 const (

@@ -14,14 +14,14 @@ import (
 
 	"github.com/ethereum/go-ethereum/log"
 
-	"github.com/tenderly/avalanchego/codec"
-	"github.com/tenderly/avalanchego/ids"
-	"github.com/tenderly/avalanchego/network/p2p"
-	"github.com/tenderly/avalanchego/snow/engine/common"
-	"github.com/tenderly/avalanchego/snow/validators"
-	"github.com/tenderly/avalanchego/utils"
-	"github.com/tenderly/avalanchego/utils/set"
-	"github.com/tenderly/avalanchego/version"
+	"github.com/ava-labs/avalanchego/codec"
+	"github.com/ava-labs/avalanchego/ids"
+	"github.com/ava-labs/avalanchego/network/p2p"
+	"github.com/ava-labs/avalanchego/snow/engine/common"
+	"github.com/ava-labs/avalanchego/snow/validators"
+	"github.com/ava-labs/avalanchego/utils"
+	"github.com/ava-labs/avalanchego/utils/set"
+	"github.com/ava-labs/avalanchego/version"
 
 	"github.com/tenderly/net-flare/coreth/peer/stats"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"

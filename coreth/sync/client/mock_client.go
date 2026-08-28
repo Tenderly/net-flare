@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/tenderly/avalanchego/codec"
-	"github.com/tenderly/avalanchego/ids"
+	"github.com/ava-labs/avalanchego/codec"
+	"github.com/ava-labs/avalanchego/ids"
 	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/tenderly/net-flare/coreth/plugin/evm/message"
 	"github.com/tenderly/net-flare/coreth/sync/handlers"

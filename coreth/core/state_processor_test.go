@@ -31,7 +31,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/tenderly/avalanchego/upgrade"
+	"github.com/ava-labs/avalanchego/upgrade"
 	"github.com/tenderly/net-flare/coreth/consensus"
 	"github.com/tenderly/net-flare/coreth/consensus/dummy"
 	"github.com/tenderly/net-flare/coreth/consensus/misc/eip4844"

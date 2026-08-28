@@ -8,8 +8,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/tenderly/avalanchego/ids"
-	"github.com/tenderly/avalanchego/utils/units"
+	"github.com/ava-labs/avalanchego/ids"
+	"github.com/ava-labs/avalanchego/utils/units"
 	"github.com/tenderly/net-flare/coreth/consensus/dummy"
 	"github.com/tenderly/net-flare/coreth/core"
 	"github.com/tenderly/net-flare/coreth/core/rawdb"

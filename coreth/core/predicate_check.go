@@ -7,7 +7,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tenderly/avalanchego/utils/set"
+	"github.com/ava-labs/avalanchego/utils/set"
 	"github.com/tenderly/net-flare/coreth/core/types"
 	"github.com/tenderly/net-flare/coreth/params"
 	"github.com/tenderly/net-flare/coreth/precompile/precompileconfig"

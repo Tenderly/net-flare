@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/tenderly/avalanchego/utils/timer/mockable"
+	"github.com/ava-labs/avalanchego/utils/timer/mockable"
 	"github.com/tenderly/net-flare/coreth/consensus/dummy"
 	"github.com/tenderly/net-flare/coreth/constants"
 	"github.com/tenderly/net-flare/coreth/core"

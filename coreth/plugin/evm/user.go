@@ -6,9 +6,9 @@ package evm
 import (
 	"errors"
 
-	"github.com/tenderly/avalanchego/database/encdb"
-	"github.com/tenderly/avalanchego/ids"
-	"github.com/tenderly/avalanchego/utils/crypto/secp256k1"
+	"github.com/ava-labs/avalanchego/database/encdb"
+	"github.com/ava-labs/avalanchego/ids"
+	"github.com/ava-labs/avalanchego/utils/crypto/secp256k1"
 	"github.com/ethereum/go-ethereum/common"
 )
 

@@ -8,11 +8,11 @@ import (
 	"errors"
 	"fmt"
 
+	avaconstants "github.com/ava-labs/avalanchego/utils/constants"
 	"github.com/ava-labs/avalanchego/vms/platformvm/warp"
 	"github.com/ava-labs/avalanchego/vms/platformvm/warp/payload"
 	"github.com/tenderly/net-flare/coreth/precompile/precompileconfig"
 	"github.com/tenderly/net-flare/coreth/predicate"
-	warpValidators "github.com/tenderly/net-flare/coreth/warp/validators"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/log"
@@ -203,19 +203,41 @@ func (c *Config) VerifyPredicate(predicateContext *precompileconfig.PredicateCon
 
 	log.Debug("verifying warp message", "warpMsg", warpMsg, "quorumNum", quorumNumerator, "quorumDenom", WarpQuorumDenominator)
 
-	// Wrap validators.State on the chain snow context to special case the Primary Network
-	state := warpValidators.NewState(
-		predicateContext.SnowCtx.ValidatorState,
-		predicateContext.SnowCtx.SubnetID,
+	sourceSubnetID, err := predicateContext.SnowCtx.ValidatorState.GetSubnetID(
+		context.TODO(),
 		warpMsg.SourceChainID,
-		c.RequirePrimaryNetworkSigners,
 	)
+	if err != nil {
+		log.Debug("failed to retrieve subnetID for chain", "msgID", warpMsg.ID(), "chainID", warpMsg.SourceChainID, "err", err)
+		return fmt.Errorf("%w: %w", errFailedVerification, err)
+	}
+	if sourceSubnetID == avaconstants.PrimaryNetworkID {
+		// Chains can be configured not to require the primary network validators
+		// to have signed the warp message and to use the, likely smaller, local
+		// subnet's validator set; the primary network set is never required for
+		// P-chain messages because the P-chain is always synced.
+		if !c.RequirePrimaryNetworkSigners || warpMsg.SourceChainID == avaconstants.PlatformChainID {
+			sourceSubnetID = predicateContext.SnowCtx.SubnetID
+		}
+	}
+
+	validatorSets, err := predicateContext.SnowCtx.ValidatorState.GetWarpValidatorSets(
+		context.TODO(),
+		predicateContext.ProposerVMBlockCtx.PChainHeight,
+	)
+	if err != nil {
+		log.Debug("failed to retrieve canonical validator sets", "msgID", warpMsg.ID(), "subnetID", sourceSubnetID, "err", err)
+		return fmt.Errorf("%w: %w", errFailedVerification, err)
+	}
+	validatorSet, ok := validatorSets[sourceSubnetID]
+	if !ok {
+		return fmt.Errorf("%w: %#x source subnet not found", errFailedVerification, sourceSubnetID)
+	}
+
 	err = warpMsg.Signature.Verify(
-		context.Background(),
 		&warpMsg.UnsignedMessage,
 		predicateContext.SnowCtx.NetworkID,
-		state,
-		predicateContext.ProposerVMBlockCtx.PChainHeight,
+		validatorSet,
 		quorumNumerator,
 		WarpQuorumDenominator,
 	)

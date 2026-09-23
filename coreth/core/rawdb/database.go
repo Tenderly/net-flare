@@ -77,7 +77,7 @@ func (db *nofreezedb) Ancients() (uint64, error) {
 }
 
 // Tail returns an error as we don't have a backing chain freezer.
-func (db *nofreezedb) Tail() (uint64, error) {
+func (db *nofreezedb) Tail(string) (uint64, error) {
 	return 0, errNotSupported
 }
 
@@ -97,7 +97,7 @@ func (db *nofreezedb) TruncateHead(items uint64) (uint64, error) {
 }
 
 // TruncateTail returns an error as we don't have a backing chain freezer.
-func (db *nofreezedb) TruncateTail(items uint64) (uint64, error) {
+func (db *nofreezedb) TruncateTail(string, uint64) (uint64, error) {
 	return 0, errNotSupported
 }
 

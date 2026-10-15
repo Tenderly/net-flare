@@ -73,6 +73,9 @@ type (
 )
 
 func (evm *EVM) precompile(addr common.Address) (contract.StatefulPrecompiledContract, bool) {
+	if p, override := evm.precompileOverrides[addr]; override {
+		return p, p != nil
+	}
 	var precompiles map[common.Address]contract.StatefulPrecompiledContract
 	switch {
 	case evm.chainRules.IsGranite:
@@ -198,6 +201,22 @@ type EVM struct {
 	// available gas is calculated in gasCall* according to the 63/64 rule and later
 	// applied in opCall*.
 	callGasTemp uint64
+	// precompileOverrides is consulted before the fork's precompiles; see [EVM.OverridePrecompiles].
+	precompileOverrides map[common.Address]contract.StatefulPrecompiledContract
+}
+
+// OverridePrecompiles installs precompiles for this EVM only, taking
+// precedence over the fork's precompiles at the same addresses. A nil
+// contract removes the precompile at its address.
+func (evm *EVM) OverridePrecompiles(precompiles map[common.Address]PrecompiledContract) {
+	evm.precompileOverrides = make(map[common.Address]contract.StatefulPrecompiledContract, len(precompiles))
+	for addr, p := range precompiles {
+		if p == nil {
+			evm.precompileOverrides[addr] = nil
+			continue
+		}
+		evm.precompileOverrides[addr] = newWrappedPrecompiledContract(p)
+	}
 }
 
 // NewEVM returns a new EVM. The returned EVM is not thread safe and should

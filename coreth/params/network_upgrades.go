@@ -46,6 +46,9 @@ type NetworkUpgrades struct {
 	// Granite activates the secp256r1 (P256VERIFY) precompile at address 0x100.
 	// (nil = no fork, 0 = already activated)
 	GraniteTimestamp *uint64 `json:"graniteTimestamp,omitempty"`
+	// Helicon activates ACP-194: a transaction is charged at least half of its
+	// gas limit. (nil = no fork, 0 = already activated)
+	HeliconTimestamp *uint64 `json:"heliconTimestamp,omitempty"`
 }
 
 func (n *NetworkUpgrades) Equal(other *NetworkUpgrades) bool {
@@ -108,6 +111,7 @@ func (n *NetworkUpgrades) forkOrder() []fork {
 		{name: "durangoBlockTimestamp", timestamp: n.DurangoBlockTimestamp},
 		{name: "etnaTimestamp", timestamp: n.EtnaTimestamp},
 		{name: "graniteTimestamp", timestamp: n.GraniteTimestamp},
+		{name: "heliconTimestamp", timestamp: n.HeliconTimestamp},
 	}
 }
 
@@ -195,6 +199,12 @@ func (n *NetworkUpgrades) IsGranite(time uint64) bool {
 	return isTimestampForked(n.GraniteTimestamp, time)
 }
 
+// IsHelicon returns whether [time] represents a block
+// with a timestamp after the Helicon upgrade time.
+func (n *NetworkUpgrades) IsHelicon(time uint64) bool {
+	return isTimestampForked(n.HeliconTimestamp, time)
+}
+
 // IsGraniteActivated is used by the warp precompile to determine which gas costs to use.
 func (a AvalancheRules) IsGraniteActivated() bool {
 	return a.IsGranite
@@ -246,6 +256,7 @@ type AvalancheRules struct {
 	IsDurango                                                                           bool
 	IsEtna                                                                              bool
 	IsGranite                                                                           bool
+	IsHelicon                                                                           bool
 }
 
 func (n *NetworkUpgrades) GetAvalancheRules(timestamp uint64) AvalancheRules {
@@ -264,5 +275,6 @@ func (n *NetworkUpgrades) GetAvalancheRules(timestamp uint64) AvalancheRules {
 		IsDurango:            n.IsDurango(timestamp),
 		IsEtna:               n.IsEtna(timestamp),
 		IsGranite:            n.IsGranite(timestamp),
+		IsHelicon:            n.IsHelicon(timestamp),
 	}
 }

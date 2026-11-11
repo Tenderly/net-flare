@@ -545,7 +545,7 @@ func (st *StateTransition) TransitionDb() (*ExecutionResult, error) {
 	if overflow {
 		return nil, ErrGasUintOverflow
 	}
-	gasRefund := st.refundGas(rules.IsApricotPhase1)
+	gasRefund := st.refundGas(rules.IsApricotPhase1, rules.IsHelicon)
 
 	if vmerr == nil && IsPrioritisedContractCall(chainID, timestamp, msg.To, msg.Data, ret, st.initialGas) {
 		nominalGasUsed := params.TxGas // 21000
@@ -627,7 +627,7 @@ func handleFlareTransitionDbContracts(st *StateTransition, isDurango bool, chain
 	}
 }
 
-func (st *StateTransition) refundGas(apricotPhase1 bool) uint64 {
+func (st *StateTransition) refundGas(apricotPhase1, helicon bool) uint64 {
 	var refund uint64
 	// Inspired by: https://gist.github.com/holiman/460f952716a74eeb9ab358bb1836d821#gistcomment-3642048
 	if !apricotPhase1 {
@@ -637,6 +637,13 @@ func (st *StateTransition) refundGas(apricotPhase1 bool) uint64 {
 			refund = st.state.GetRefund()
 		}
 		st.gasRemaining += refund
+	}
+
+	if helicon {
+		// ACP-194: the sender is charged at least ceil(gasLimit/2), so the fee
+		// settlement and the receipt both see the floored consumption.
+		limit := st.msg.GasLimit
+		st.gasRemaining = min(st.gasRemaining, limit-(limit/2+limit%2))
 	}
 
 	// Return ETH for remaining gas, exchanged at the original rate.

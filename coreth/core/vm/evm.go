@@ -203,6 +203,38 @@ type EVM struct {
 	callGasTemp uint64
 	// precompileOverrides is consulted before the fork's precompiles; see [EVM.OverridePrecompiles].
 	precompileOverrides map[common.Address]contract.StatefulPrecompiledContract
+	// hostContext is the host's value for this execution; see [EVM.SetHostContext].
+	hostContext any
+	// invalidation is the first error given to [EVM.InvalidateExecution].
+	invalidation error
+}
+
+// SetHostContext sets the value that precompiles read with GetHostContext.
+// The EVM itself does not use it.
+func (evm *EVM) SetHostContext(hostContext any) {
+	evm.hostContext = hostContext
+}
+
+// GetHostContext implements AccessibleState.
+func (evm *EVM) GetHostContext() any {
+	return evm.hostContext
+}
+
+// InvalidateExecution implements AccessibleState. The first non-nil error
+// is kept and later errors are ignored, so an invalidated EVM stays invalid.
+func (evm *EVM) InvalidateExecution(err error) {
+	if err == nil || evm.invalidation != nil {
+		return
+	}
+	evm.invalidation = err
+}
+
+// ExecutionInvalidation returns the error given to InvalidateExecution, or
+// nil. The precompile call that invalidates the execution fails only as a VM
+// error, so a caller that uses Call, Create or StaticCall directly must check
+// this before it uses the result.
+func (evm *EVM) ExecutionInvalidation() error {
+	return evm.invalidation
 }
 
 // OverridePrecompiles installs precompiles for this EVM only, taking

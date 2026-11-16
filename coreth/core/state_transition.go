@@ -464,6 +464,9 @@ func (st *StateTransition) TransitionDb() (*ExecutionResult, error) {
 	// 5. there is no overflow when calculating intrinsic gas
 	// 6. caller has enough balance to cover asset transfer for **topmost** call
 
+	// An invalidated execution leaves no state change of this message.
+	snapshot := st.state.Snapshot()
+
 	// Check clauses 1-3, buy gas if everything is correct
 	if err := st.preCheck(); err != nil {
 		return nil, err
@@ -569,6 +572,12 @@ func (st *StateTransition) TransitionDb() (*ExecutionResult, error) {
 	if vmerr == nil && (isSongbird || isFlare) {
 		log := log.Root()
 		atomicDaemonAndMint(st, log)
+	}
+
+	// A precompile invalidated the execution, in the call or in the daemon.
+	if err := st.evm.ExecutionInvalidation(); err != nil {
+		st.state.RevertToSnapshot(snapshot)
+		return nil, err
 	}
 
 	return &ExecutionResult{

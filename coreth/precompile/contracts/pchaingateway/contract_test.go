@@ -78,10 +78,7 @@ func (b *fakeBlockReader) Block() *pchain.Block {
 	return b.blk
 }
 
-func (b *fakeBlockReader) GetInputs(
-	txIndex, from, max uint32,
-	charge pchain.ByteCharger,
-) ([]pchain.Input, uint32, error) {
+func (b *fakeBlockReader) GetInputs(txIndex, from, max uint32, charge pchain.ByteCharger) ([]pchain.Input, uint32, error) {
 	if int(txIndex) >= len(b.blk.Txs) {
 		return nil, 0, pchain.ErrTxIndexOutOfRange
 	}
@@ -695,14 +692,7 @@ func runGatewayTests(t *testing.T, tests []gatewayTest) {
 					Do(func(err error) { invalidated = err }).Times(1)
 			}
 
-			ret, remainingGas, err := Module.Contract.Run(
-				accessibleState,
-				common.Address{},
-				Module.Address,
-				test.InputFn(t),
-				test.SuppliedGas,
-				test.ReadOnly,
-			)
+			ret, remainingGas, err := Module.Contract.Run(accessibleState, common.Address{}, Module.Address, test.InputFn(t), test.SuppliedGas, test.ReadOnly)
 			require.ErrorIs(err, test.ExpectedErr)
 			require.Equal(uint64(0), remainingGas)
 			require.Equal(test.ExpectedRes, ret)
@@ -741,12 +731,7 @@ func expectedTransferTx(t testing.TB, index, maxInputs, maxOutputs uint32) Tx {
 	return fixtureTx(transferBlock, transferInputs, transferOutputs, index, maxInputs, maxOutputs)
 }
 
-func fixtureTx(
-	blk *pchain.Block,
-	inputs map[uint32][]pchain.Input,
-	outputs map[uint32][]pchain.Output,
-	index, maxInputs, maxOutputs uint32,
-) Tx {
+func fixtureTx(blk *pchain.Block, inputs map[uint32][]pchain.Input, outputs map[uint32][]pchain.Output, index, maxInputs, maxOutputs uint32) Tx {
 	ins := inputs[index]
 	if uint32(len(ins)) > maxInputs {
 		ins = ins[:maxInputs]
@@ -931,14 +916,7 @@ func TestGetNativeAssetIdWithoutEnvInvalidates(t *testing.T) {
 		Times(1)
 
 	input := stripSelector(mustPack(t)(PackGetNativeAssetId()))
-	res, remainingGas, err := getNativeAssetId(
-		accessibleState,
-		common.Address{},
-		ContractAddress,
-		input,
-		GetNativeAssetIdGas,
-		true,
-	)
+	res, remainingGas, err := getNativeAssetId(accessibleState, common.Address{}, ContractAddress, input, GetNativeAssetIdGas, true)
 	require.ErrorIs(err, ErrEnvUnavailable)
 	require.ErrorIs(invalidated, ErrEnvUnavailable)
 	require.Nil(res)
@@ -1178,15 +1156,9 @@ func TestGetTransactions(t *testing.T) {
 					MaxInputsPerTx: 8,
 				},
 			),
-			Env: envWithBound(reader, bound),
-			SuppliedGas: GetTransactionsGas(
-				32,
-				8,
-				0,
-				decodedBytes(0, 0, 1)+testInputBytes[2][0]+testInputBytes[3][0]+testInputBytes[5][0],
-				3+1+1+1,
-			), // all inline inputs
-			ReadOnly: true,
+			Env:         envWithBound(reader, bound),
+			SuppliedGas: GetTransactionsGas(32, 8, 0, decodedBytes(0, 0, 1)+testInputBytes[2][0]+testInputBytes[3][0]+testInputBytes[5][0], 3+1+1+1), // all inline inputs
+			ReadOnly:    true,
 			ExpectedRes: mustPack(t)(PackGetTransactionsOutput(GetTransactionsOutput{
 				Txs: []Tx{
 					expectedTx(t, 0, 8, 0),
@@ -1304,14 +1276,8 @@ func TestGetTransactions(t *testing.T) {
 					MaxInputsPerTx: 8,
 				},
 			),
-			Env: envWithBound(reader, bound),
-			SuppliedGas: GetTransactionsGas(
-				1,
-				8,
-				0,
-				decodedBytes(0, 0, 1),
-				0,
-			) - 1, // one byte short of the second input's tx
+			Env:         envWithBound(reader, bound),
+			SuppliedGas: GetTransactionsGas(1, 8, 0, decodedBytes(0, 0, 1), 0) - 1, // one byte short of the second input's tx
 			ReadOnly:    true,
 			ExpectedErr: vmerrs.ErrOutOfGas,
 		},
@@ -1394,15 +1360,9 @@ func TestGetTransactions(t *testing.T) {
 					MaxOutputsPerTx: 8,
 				},
 			),
-			Env: envWithBound(reader, bound),
-			SuppliedGas: GetTransactionsGas(
-				32,
-				0,
-				8,
-				testBlockBytes,
-				2+1+1+2,
-			), // output owner addresses of txs 0, 2, 3, 5
-			ReadOnly: true,
+			Env:         envWithBound(reader, bound),
+			SuppliedGas: GetTransactionsGas(32, 0, 8, testBlockBytes, 2+1+1+2), // output owner addresses of txs 0, 2, 3, 5
+			ReadOnly:    true,
 			ExpectedRes: mustPack(t)(PackGetTransactionsOutput(GetTransactionsOutput{
 				Txs: []Tx{
 					expectedTx(t, 0, 0, 8),
@@ -1449,14 +1409,8 @@ func TestGetTransactions(t *testing.T) {
 			Env: envWithBound(reader, bound),
 			// The imported input has no producing transaction and no owner;
 			// 3 input owners plus 6 output owners are returned.
-			SuppliedGas: GetTransactionsGas(
-				32,
-				8,
-				8,
-				transferDecodedBytes(0, 0, 1)+transferInputBytes[1][0]+transferInputBytes[2][0],
-				3+6,
-			),
-			ReadOnly: true,
+			SuppliedGas: GetTransactionsGas(32, 8, 8, transferDecodedBytes(0, 0, 1)+transferInputBytes[1][0]+transferInputBytes[2][0], 3+6),
+			ReadOnly:    true,
 			ExpectedRes: mustPack(t)(PackGetTransactionsOutput(GetTransactionsOutput{
 				Txs: []Tx{
 					expectedTransferTx(t, 0, 8, 8),
@@ -1541,10 +1495,8 @@ func TestGetTransactionInputs(t *testing.T) {
 	}
 	tests := []gatewayTest{
 		{
-			Name: "all inputs, in canonical order",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 0, MaxInputs: 64},
-			),
+			Name:        "all inputs, in canonical order",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 0, MaxInputs: 64}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(64, decodedBytes(0, 0, 1), 4),
 			ReadOnly:    true,
@@ -1554,10 +1506,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			})),
 		},
 		{
-			Name: "paging",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 1, MaxInputs: 1},
-			),
+			Name:        "paging",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 1, MaxInputs: 1}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(1, decodedBytes(0, 1), 1),
 			ReadOnly:    true,
@@ -1567,10 +1517,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			})),
 		},
 		{
-			Name: "unresolved input is returned as such",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 5, FromInput: 0, MaxInputs: 8},
-			),
+			Name:        "unresolved input is returned as such",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 5, FromInput: 0, MaxInputs: 8}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(8, decodedBytes(5, 0), 0),
 			ReadOnly:    true,
@@ -1596,10 +1544,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "empty page",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 0, MaxInputs: 0},
-			),
+			Name:        "empty page",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 0, MaxInputs: 0}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(0, testBlockBytes, 0),
 			ReadOnly:    true,
@@ -1610,10 +1556,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			),
 		},
 		{
-			Name: "page starting at the input count is empty",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 2, MaxInputs: 5},
-			),
+			Name:        "page starting at the input count is empty",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 2, MaxInputs: 5}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(5, testBlockBytes, 0),
 			ReadOnly:    true,
@@ -1624,10 +1568,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			),
 		},
 		{
-			Name: "ownerless output resolves with no addresses",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 2, FromInput: 0, MaxInputs: 8},
-			),
+			Name:        "ownerless output resolves with no addresses",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 2, FromInput: 0, MaxInputs: 8}),
 			Env:         envWithBound(newOwnerlessReader(), bound),
 			SuppliedGas: GetTransactionInputsGas(8, decodedBytes(2, 0), 0),
 			ReadOnly:    true,
@@ -1637,10 +1579,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			})),
 		},
 		{
-			Name: "unsupported tx reverts",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 1, FromInput: 0, MaxInputs: 1},
-			),
+			Name:        "unsupported tx reverts",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 1, FromInput: 0, MaxInputs: 1}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(1, testBlockBytes, 0),
 			ReadOnly:    true,
@@ -1648,10 +1588,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "tx index out of range reverts",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 6, FromInput: 0, MaxInputs: 1},
-			),
+			Name:        "tx index out of range reverts",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 6, FromInput: 0, MaxInputs: 1}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(1, testBlockBytes, 0),
 			ReadOnly:    true,
@@ -1659,10 +1597,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "input index out of range reverts",
-			InputFn: call(
-				GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 3, MaxInputs: 1},
-			),
+			Name:        "input index out of range reverts",
+			InputFn:     call(GetTransactionInputsInput{Height: blockHeight, TxIndex: 0, FromInput: 3, MaxInputs: 1}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(1, testBlockBytes, 0),
 			ReadOnly:    true,
@@ -1670,10 +1606,8 @@ func TestGetTransactionInputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "imported input is unresolved and charges no producing transaction",
-			InputFn: call(
-				GetTransactionInputsInput{Height: transferHeight, TxIndex: 0, FromInput: 0, MaxInputs: 64},
-			),
+			Name:        "imported input is unresolved and charges no producing transaction",
+			InputFn:     call(GetTransactionInputsInput{Height: transferHeight, TxIndex: 0, FromInput: 0, MaxInputs: 64}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionInputsGas(64, transferDecodedBytes(0, 0), 1),
 			ReadOnly:    true,
@@ -1747,9 +1681,7 @@ func TestGetStakeOwner(t *testing.T) {
 			ExpectedRes: mustPack(
 				t,
 			)(
-				PackGetStakeOwnerOutput(
-					GetStakeOwnerOutput{PChainOwner: addrB, CChainOwner: keyB.EthAddress(), Resolved: true},
-				),
+				PackGetStakeOwnerOutput(GetStakeOwnerOutput{PChainOwner: addrB, CChainOwner: keyB.EthAddress(), Resolved: true}),
 			),
 		},
 		{
@@ -1811,9 +1743,7 @@ func TestGetStakeOwner(t *testing.T) {
 			ExpectedRes: mustPack(
 				t,
 			)(
-				PackGetStakeOwnerOutput(
-					GetStakeOwnerOutput{PChainOwner: addrA, CChainOwner: keyA.EthAddress(), Resolved: true},
-				),
+				PackGetStakeOwnerOutput(GetStakeOwnerOutput{PChainOwner: addrA, CChainOwner: keyA.EthAddress(), Resolved: true}),
 			),
 		},
 		{
@@ -1825,9 +1755,7 @@ func TestGetStakeOwner(t *testing.T) {
 			ExpectedRes: mustPack(
 				t,
 			)(
-				PackGetStakeOwnerOutput(
-					GetStakeOwnerOutput{PChainOwner: addrB, CChainOwner: keyB.EthAddress(), Resolved: true},
-				),
+				PackGetStakeOwnerOutput(GetStakeOwnerOutput{PChainOwner: addrB, CChainOwner: keyB.EthAddress(), Resolved: true}),
 			),
 		},
 		{
@@ -1898,10 +1826,8 @@ func TestGetTransactionOutputs(t *testing.T) {
 
 	tests := []gatewayTest{
 		{
-			Name: "staker: change output then stake output",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 0, MaxOutputs: 64},
-			),
+			Name:        "staker: change output then stake output",
+			InputFn:     call(GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 0, MaxOutputs: 64}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(64, testBlockBytes, 2),
 			ReadOnly:    true,
@@ -1911,10 +1837,8 @@ func TestGetTransactionOutputs(t *testing.T) {
 			})),
 		},
 		{
-			Name: "export: change output then exported output",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: transferHeight, TxIndex: 1, FromOutput: 0, MaxOutputs: 64},
-			),
+			Name:        "export: change output then exported output",
+			InputFn:     call(GetTransactionOutputsInput{Height: transferHeight, TxIndex: 1, FromOutput: 0, MaxOutputs: 64}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(64, transferBlockBytes, 2),
 			ReadOnly:    true,
@@ -1924,10 +1848,8 @@ func TestGetTransactionOutputs(t *testing.T) {
 			})),
 		},
 		{
-			Name: "paging returns the locked change output with both owners",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: transferHeight, TxIndex: 2, FromOutput: 1, MaxOutputs: 1},
-			),
+			Name:        "paging returns the locked change output with both owners",
+			InputFn:     call(GetTransactionOutputsInput{Height: transferHeight, TxIndex: 2, FromOutput: 1, MaxOutputs: 1}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(1, transferBlockBytes, 2),
 			ReadOnly:    true,
@@ -1937,42 +1859,32 @@ func TestGetTransactionOutputs(t *testing.T) {
 			})),
 		},
 		{
-			Name: "empty page",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 2, MaxOutputs: 5},
-			),
+			Name:        "empty page",
+			InputFn:     call(GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 2, MaxOutputs: 5}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(5, testBlockBytes, 0),
 			ReadOnly:    true,
 			ExpectedRes: mustPack(
 				t,
 			)(
-				PackGetTransactionOutputsOutput(
-					GetTransactionOutputsOutput{Outputs: []Output{}, OutputCount: 2},
-				),
+				PackGetTransactionOutputsOutput(GetTransactionOutputsOutput{Outputs: []Output{}, OutputCount: 2}),
 			),
 		},
 		{
-			Name: "reward-validator transaction has no outputs",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: transferHeight, TxIndex: 3, FromOutput: 0, MaxOutputs: 8},
-			),
+			Name:        "reward-validator transaction has no outputs",
+			InputFn:     call(GetTransactionOutputsInput{Height: transferHeight, TxIndex: 3, FromOutput: 0, MaxOutputs: 8}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(8, transferBlockBytes, 0),
 			ReadOnly:    true,
 			ExpectedRes: mustPack(
 				t,
 			)(
-				PackGetTransactionOutputsOutput(
-					GetTransactionOutputsOutput{Outputs: []Output{}, OutputCount: 0},
-				),
+				PackGetTransactionOutputsOutput(GetTransactionOutputsOutput{Outputs: []Output{}, OutputCount: 0}),
 			),
 		},
 		{
-			Name: "output index out of range reverts",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 3, MaxOutputs: 1},
-			),
+			Name:        "output index out of range reverts",
+			InputFn:     call(GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 3, MaxOutputs: 1}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(1, testBlockBytes, 0),
 			ReadOnly:    true,
@@ -1980,10 +1892,8 @@ func TestGetTransactionOutputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "unsupported tx reverts",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: blockHeight, TxIndex: 1, FromOutput: 0, MaxOutputs: 1},
-			),
+			Name:        "unsupported tx reverts",
+			InputFn:     call(GetTransactionOutputsInput{Height: blockHeight, TxIndex: 1, FromOutput: 0, MaxOutputs: 1}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(1, testBlockBytes, 0),
 			ReadOnly:    true,
@@ -1991,10 +1901,8 @@ func TestGetTransactionOutputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "tx index out of range reverts",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: blockHeight, TxIndex: 6, FromOutput: 0, MaxOutputs: 1},
-			),
+			Name:        "tx index out of range reverts",
+			InputFn:     call(GetTransactionOutputsInput{Height: blockHeight, TxIndex: 6, FromOutput: 0, MaxOutputs: 1}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(1, testBlockBytes, 0),
 			ReadOnly:    true,
@@ -2018,10 +1926,8 @@ func TestGetTransactionOutputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "height above bound reverts after charging the page",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: bound + 1, TxIndex: 0, FromOutput: 0, MaxOutputs: 4},
-			),
+			Name:        "height above bound reverts after charging the page",
+			InputFn:     call(GetTransactionOutputsInput{Height: bound + 1, TxIndex: 0, FromOutput: 0, MaxOutputs: 4}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(4, 0, 0),
 			ReadOnly:    true,
@@ -2029,20 +1935,16 @@ func TestGetTransactionOutputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "insufficient gas for the page",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 0, MaxOutputs: 4},
-			),
+			Name:        "insufficient gas for the page",
+			InputFn:     call(GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 0, MaxOutputs: 4}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(4, 0, 0) - 1,
 			ReadOnly:    true,
 			ExpectedErr: vmerrs.ErrOutOfGas,
 		},
 		{
-			Name: "insufficient gas for the addresses",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 0, MaxOutputs: 64},
-			),
+			Name:        "insufficient gas for the addresses",
+			InputFn:     call(GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 0, MaxOutputs: 64}),
 			Env:         envWithBound(reader, bound),
 			SuppliedGas: GetTransactionOutputsGas(64, testBlockBytes, 2) - 1,
 			ReadOnly:    true,
@@ -2060,10 +1962,8 @@ func TestGetTransactionOutputs(t *testing.T) {
 			ExpectedErr: vmerrs.ErrExecutionReverted,
 		},
 		{
-			Name: "reader failure invalidates execution",
-			InputFn: call(
-				GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 0, MaxOutputs: 1},
-			),
+			Name:        "reader failure invalidates execution",
+			InputFn:     call(GetTransactionOutputsInput{Height: blockHeight, TxIndex: 0, FromOutput: 0, MaxOutputs: 1}),
 			Env:         envWithBound(&fakeReader{err: errDatabaseCorrupted}, bound),
 			Invalidates: true,
 			SuppliedGas: GetTransactionOutputsGas(1, 0, 0),

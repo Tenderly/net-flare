@@ -20,11 +20,7 @@ import (
 // readerFailure turns a reader error into an out-of-gas result (the byte
 // charge could not be paid), a revert (caller error) or an execution
 // invalidation (node-local error).
-func readerFailure(
-	accessibleState contract.AccessibleState,
-	remainingGas uint64,
-	err error,
-) ([]byte, uint64, error) {
+func readerFailure(accessibleState contract.AccessibleState, remainingGas uint64, err error) ([]byte, uint64, error) {
 	if errors.Is(err, vmerrs.ErrOutOfGas) {
 		return nil, 0, vmerrs.ErrOutOfGas
 	}
@@ -75,14 +71,7 @@ func countOutputAddresses(outputs []pchain.Output) uint64 {
 // getPChainHeight returns the P-chain height committed in the block header.
 //
 //nolint:revive // General-purpose types lose the meaning of args if unused ones are removed
-func getPChainHeight(
-	accessibleState contract.AccessibleState,
-	caller common.Address,
-	addr common.Address,
-	input []byte,
-	suppliedGas uint64,
-	readOnly bool,
-) ([]byte, uint64, error) {
+func getPChainHeight(accessibleState contract.AccessibleState, caller common.Address, addr common.Address, input []byte, suppliedGas uint64, readOnly bool) ([]byte, uint64, error) {
 	remainingGas, err := contract.DeductGas(suppliedGas, GetPChainHeightGas)
 	if err != nil {
 		return nil, 0, err
@@ -107,14 +96,7 @@ func getPChainHeight(
 // It is a genesis constant, identical on every node.
 //
 //nolint:revive // General-purpose types lose the meaning of args if unused ones are removed
-func getNativeAssetId(
-	accessibleState contract.AccessibleState,
-	caller common.Address,
-	addr common.Address,
-	input []byte,
-	suppliedGas uint64,
-	readOnly bool,
-) ([]byte, uint64, error) {
+func getNativeAssetId(accessibleState contract.AccessibleState, caller common.Address, addr common.Address, input []byte, suppliedGas uint64, readOnly bool) ([]byte, uint64, error) {
 	remainingGas, err := contract.DeductGas(suppliedGas, GetNativeAssetIdGas)
 	if err != nil {
 		return nil, 0, err
@@ -133,14 +115,7 @@ func getNativeAssetId(
 // getBlock returns the accepted P-chain block at the requested height.
 //
 //nolint:revive // General-purpose types lose the meaning of args if unused ones are removed
-func getBlock(
-	accessibleState contract.AccessibleState,
-	caller common.Address,
-	addr common.Address,
-	input []byte,
-	suppliedGas uint64,
-	readOnly bool,
-) ([]byte, uint64, error) {
+func getBlock(accessibleState contract.AccessibleState, caller common.Address, addr common.Address, input []byte, suppliedGas uint64, readOnly bool) ([]byte, uint64, error) {
 	remainingGas, err := contract.DeductGas(suppliedGas, BlockReadGas)
 	if err != nil {
 		return nil, 0, err
@@ -179,14 +154,7 @@ func getBlock(
 // getTransactions returns a page of decoded transactions.
 //
 //nolint:revive // General-purpose types lose the meaning of args if unused ones are removed
-func getTransactions(
-	accessibleState contract.AccessibleState,
-	caller common.Address,
-	addr common.Address,
-	input []byte,
-	suppliedGas uint64,
-	readOnly bool,
-) ([]byte, uint64, error) {
+func getTransactions(accessibleState contract.AccessibleState, caller common.Address, addr common.Address, input []byte, suppliedGas uint64, readOnly bool) ([]byte, uint64, error) {
 	remainingGas, err := contract.DeductGas(suppliedGas, BlockReadGas)
 	if err != nil {
 		return nil, 0, err
@@ -195,8 +163,7 @@ func getTransactions(
 	if err != nil {
 		return revert(remainingGas, reasonInvalidInput)
 	}
-	if in.MaxTxs > MaxTxsPerCall || in.MaxInputsPerTx > MaxInlineInputsPerTx ||
-		in.MaxOutputsPerTx > MaxInlineOutputsPerTx {
+	if in.MaxTxs > MaxTxsPerCall || in.MaxInputsPerTx > MaxInlineInputsPerTx || in.MaxOutputsPerTx > MaxInlineOutputsPerTx {
 		return revert(remainingGas, reasonPageSizeExceedsCap)
 	}
 	// Charge the requested page before any P-chain access (caps make the
@@ -271,14 +238,7 @@ func getTransactions(
 // getTransactionInputs returns a page of the inputs of one transaction.
 //
 //nolint:revive // General-purpose types lose the meaning of args if unused ones are removed
-func getTransactionInputs(
-	accessibleState contract.AccessibleState,
-	caller common.Address,
-	addr common.Address,
-	input []byte,
-	suppliedGas uint64,
-	readOnly bool,
-) ([]byte, uint64, error) {
+func getTransactionInputs(accessibleState contract.AccessibleState, caller common.Address, addr common.Address, input []byte, suppliedGas uint64, readOnly bool) ([]byte, uint64, error) {
 	remainingGas, err := contract.DeductGas(suppliedGas, BlockReadGas)
 	if err != nil {
 		return nil, 0, err
@@ -332,14 +292,7 @@ func getTransactionInputs(
 // getTransactionOutputs returns a page of the outputs of one transaction.
 //
 //nolint:revive // General-purpose types lose the meaning of args if unused ones are removed
-func getTransactionOutputs(
-	accessibleState contract.AccessibleState,
-	caller common.Address,
-	addr common.Address,
-	input []byte,
-	suppliedGas uint64,
-	readOnly bool,
-) ([]byte, uint64, error) {
+func getTransactionOutputs(accessibleState contract.AccessibleState, caller common.Address, addr common.Address, input []byte, suppliedGas uint64, readOnly bool) ([]byte, uint64, error) {
 	remainingGas, err := contract.DeductGas(suppliedGas, BlockReadGas)
 	if err != nil {
 		return nil, 0, err
@@ -400,14 +353,7 @@ func getTransactionOutputs(
 // unresolved inputs have no owner.
 //
 //nolint:revive // General-purpose types lose the meaning of args if unused ones are removed
-func getStakeOwner(
-	accessibleState contract.AccessibleState,
-	caller common.Address,
-	addr common.Address,
-	input []byte,
-	suppliedGas uint64,
-	readOnly bool,
-) ([]byte, uint64, error) {
+func getStakeOwner(accessibleState contract.AccessibleState, caller common.Address, addr common.Address, input []byte, suppliedGas uint64, readOnly bool) ([]byte, uint64, error) {
 	remainingGas, err := contract.DeductGas(suppliedGas, BlockReadGas+InputGas)
 	if err != nil {
 		return nil, 0, err

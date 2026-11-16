@@ -122,12 +122,7 @@ func transferOutput(amount uint64, o secp256k1fx.OutputOwners) *avax.Transferabl
 	}
 }
 
-func transferInput(
-	utxoTxID ids.ID,
-	index uint32,
-	amount uint64,
-	sigIndices ...uint32,
-) *avax.TransferableInput {
+func transferInput(utxoTxID ids.ID, index uint32, amount uint64, sigIndices ...uint32) *avax.TransferableInput {
 	return &avax.TransferableInput{
 		UTXOID: avax.UTXOID{TxID: utxoTxID, OutputIndex: index},
 		Asset:  avax.Asset{ID: avaxAssetID},
@@ -148,11 +143,7 @@ func baseTx(ins []*avax.TransferableInput, outs []*avax.TransferableOutput) txs.
 	}}
 }
 
-func permissionlessValidator(
-	subnetID ids.ID,
-	nodeID ids.NodeID,
-	ins []*avax.TransferableInput,
-) *txs.AddPermissionlessValidatorTx {
+func permissionlessValidator(subnetID ids.ID, nodeID ids.NodeID, ins []*avax.TransferableInput) *txs.AddPermissionlessValidatorTx {
 	return &txs.AddPermissionlessValidatorTx{
 		BaseTx:                baseTx(ins, nil),
 		Validator:             txs.Validator{NodeID: nodeID, Start: 111, End: 222, Wght: 1000},
@@ -165,11 +156,7 @@ func permissionlessValidator(
 	}
 }
 
-func permissionlessDelegator(
-	subnetID ids.ID,
-	nodeID ids.NodeID,
-	ins []*avax.TransferableInput,
-) *txs.AddPermissionlessDelegatorTx {
+func permissionlessDelegator(subnetID ids.ID, nodeID ids.NodeID, ins []*avax.TransferableInput) *txs.AddPermissionlessDelegatorTx {
 	return &txs.AddPermissionlessDelegatorTx{
 		BaseTx:                 baseTx(ins, nil),
 		Validator:              txs.Validator{NodeID: nodeID, Start: 333, End: 444, Wght: 500},
@@ -197,11 +184,7 @@ func autoRenewedValidator(nodeID ids.NodeID, ins []*avax.TransferableInput) *txs
 	}
 }
 
-func importTx(
-	sourceChain ids.ID,
-	ins, imported []*avax.TransferableInput,
-	outs ...*avax.TransferableOutput,
-) *txs.ImportTx {
+func importTx(sourceChain ids.ID, ins, imported []*avax.TransferableInput, outs ...*avax.TransferableOutput) *txs.ImportTx {
 	return &txs.ImportTx{
 		BaseTx:         baseTx(ins, outs),
 		SourceChain:    sourceChain,
@@ -209,11 +192,7 @@ func importTx(
 	}
 }
 
-func exportTx(
-	destinationChain ids.ID,
-	ins []*avax.TransferableInput,
-	outs, exported []*avax.TransferableOutput,
-) *txs.ExportTx {
+func exportTx(destinationChain ids.ID, ins []*avax.TransferableInput, outs, exported []*avax.TransferableOutput) *txs.ExportTx {
 	return &txs.ExportTx{
 		BaseTx:           baseTx(ins, outs),
 		DestinationChain: destinationChain,
@@ -234,13 +213,7 @@ func createSubnetTx(ins []*avax.TransferableInput) *txs.CreateSubnetTx {
 	}
 }
 
-func newBanffStandard(
-	t *testing.T,
-	timestamp int64,
-	parent ids.ID,
-	height uint64,
-	blkTxs ...*txs.Tx,
-) *block.BanffStandardBlock {
+func newBanffStandard(t *testing.T, timestamp int64, parent ids.ID, height uint64, blkTxs ...*txs.Tx) *block.BanffStandardBlock {
 	t.Helper()
 	blk, err := block.NewBanffStandardBlock(time.Unix(timestamp, 0), parent, height, blkTxs)
 	require.NoError(t, err)
@@ -282,24 +255,10 @@ func TestDecodeBanffStandardBlock(t *testing.T) {
 		AutoCompoundRewardShares: 1_000_000,
 		Period:                   0,
 	})
-	unsupportedTx := signedTx(
-		t,
-		createSubnetTx([]*avax.TransferableInput{transferInput(fundingTxID, 6, 1, 0)}),
-	)
+	unsupportedTx := signedTx(t, createSubnetTx([]*avax.TransferableInput{transferInput(fundingTxID, 6, 1, 0)}))
 
 	parent := ids.GenerateTestID()
-	blk := newBanffStandard(
-		t,
-		postDurangoTime,
-		parent,
-		7,
-		validatorTx,
-		delegatorTx,
-		subnetValidatorTx,
-		autoRenewedTx,
-		configTx,
-		unsupportedTx,
-	)
+	blk := newBanffStandard(t, postDurangoTime, parent, 7, validatorTx, delegatorTx, subnetValidatorTx, autoRenewedTx, configTx, unsupportedTx)
 
 	store := newFakeStore()
 	store.accept(blk)
@@ -392,13 +351,7 @@ func TestDecodeProposalAndOptionBlocks(t *testing.T) {
 	rewardTx := signedTx(t, &txs.RewardAutoRenewedValidatorTx{TxID: stakerTxID, Timestamp: postDurangoTime})
 
 	genesisID := ids.GenerateTestID()
-	proposal, err := block.NewBanffProposalBlock(
-		time.Unix(postDurangoTime, 0),
-		genesisID,
-		1,
-		rewardTx,
-		[]*txs.Tx{decisionTx},
-	)
+	proposal, err := block.NewBanffProposalBlock(time.Unix(postDurangoTime, 0), genesisID, 1, rewardTx, []*txs.Tx{decisionTx})
 	require.NoError(err)
 	commit, err := block.NewBanffCommitBlock(time.Unix(postDurangoTime, 0), proposal.ID(), 2)
 	require.NoError(err)
@@ -621,10 +574,7 @@ func newInputFixture(t *testing.T) *inputFixture {
 	// A staker with one BaseTx output and two stake outputs; its reward UTXO
 	// is stored separately, keyed by the staker tx.
 	staker := signedTx(t, &txs.AddPermissionlessValidatorTx{
-		BaseTx: baseTx(
-			[]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 5, 0)},
-			[]*avax.TransferableOutput{transferOutput(1, owners(addrC))},
-		),
+		BaseTx:    baseTx([]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 5, 0)}, []*avax.TransferableOutput{transferOutput(1, owners(addrC))}),
 		Validator: txs.Validator{NodeID: ids.GenerateTestNodeID(), Start: 1, End: 2, Wght: 300},
 		Subnet:    constants.PrimaryNetworkID,
 		Signer:    &signer.Empty{},
@@ -665,10 +615,7 @@ func newInputFixture(t *testing.T) *inputFixture {
 		Asset:  ins[4].Asset,
 		In:     &stakeable.LockIn{Locktime: 99, TransferableIn: ins[4].In},
 	}
-	stakingTx := signedTx(
-		t,
-		permissionlessValidator(constants.PrimaryNetworkID, ids.GenerateTestNodeID(), ins),
-	)
+	stakingTx := signedTx(t, permissionlessValidator(constants.PrimaryNetworkID, ids.GenerateTestNodeID(), ins))
 
 	store := newFakeStore()
 	store.txs[producer.ID()] = producer
@@ -898,10 +845,7 @@ func TestGetInputsChargesProducingTxBytes(t *testing.T) {
 	inputs, _, err := getInputs(f.reader, f.height, 0, 0, 3, c.charge)
 	require.NoError(err)
 	require.Len(inputs, 3)
-	require.Equal(
-		[]uint64{blockSize, uint64(len(producer.Bytes())), uint64(len(producer.Bytes()))},
-		c.charges,
-	)
+	require.Equal([]uint64{blockSize, uint64(len(producer.Bytes())), uint64(len(producer.Bytes()))}, c.charges)
 
 	// Returned stake and reward UTXO both parse the staker transaction.
 	c = &recordingCharger{}
@@ -955,12 +899,7 @@ func getOutputs(r *Reader, height uint64, txIndex, from, max uint32) ([]pchain.O
 // getInputs reads the block at height and then a page of the inputs of its
 // transaction txIndex, charging the block and then the producing transactions
 // through charge, exactly like a single gateway call does.
-func getInputs(
-	r *Reader,
-	height uint64,
-	txIndex, from, max uint32,
-	charge pchain.ByteCharger,
-) ([]pchain.Input, uint32, error) {
+func getInputs(r *Reader, height uint64, txIndex, from, max uint32, charge pchain.ByteCharger) ([]pchain.Input, uint32, error) {
 	br, err := r.GetBlock(height, charge)
 	if err != nil {
 		return nil, 0, err
@@ -1196,13 +1135,7 @@ func TestDecodeRewardValidatorProposal(t *testing.T) {
 	)
 	rewardTx := signedTx(t, &txs.RewardValidatorTx{TxID: stakerTxID})
 
-	proposal, err := block.NewBanffProposalBlock(
-		time.Unix(postDurangoTime, 0),
-		ids.GenerateTestID(),
-		1,
-		rewardTx,
-		[]*txs.Tx{decisionTx},
-	)
+	proposal, err := block.NewBanffProposalBlock(time.Unix(postDurangoTime, 0), ids.GenerateTestID(), 1, rewardTx, []*txs.Tx{decisionTx})
 	require.NoError(err)
 	commit, err := block.NewBanffCommitBlock(time.Unix(postDurangoTime, 0), proposal.ID(), 2)
 	require.NoError(err)
@@ -1365,10 +1298,7 @@ func TestGetOutputs(t *testing.T) {
 	require := require.New(t)
 
 	staker := signedTx(t, &txs.AddPermissionlessValidatorTx{
-		BaseTx: baseTx(
-			[]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 5, 0)},
-			[]*avax.TransferableOutput{transferOutput(1, owners(addrC))},
-		),
+		BaseTx:    baseTx([]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 5, 0)}, []*avax.TransferableOutput{transferOutput(1, owners(addrC))}),
 		Validator: txs.Validator{NodeID: ids.GenerateTestNodeID(), Start: 1, End: 2, Wght: 300},
 		Subnet:    constants.PrimaryNetworkID,
 		Signer:    &signer.Empty{},
@@ -1383,10 +1313,7 @@ func TestGetOutputs(t *testing.T) {
 		[]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 5, 0)},
 		transferOutput(10, secp256k1fx.OutputOwners{Threshold: 0}),
 	))
-	unsupported := signedTx(
-		t,
-		createSubnetTx([]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 1, 0)}),
-	)
+	unsupported := signedTx(t, createSubnetTx([]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 1, 0)}))
 	blk := newBanffStandard(t, postDurangoTime, ids.GenerateTestID(), 1, staker, ownerless, unsupported)
 	store := newFakeStore()
 	store.accept(blk)
@@ -1504,10 +1431,7 @@ func TestAssetIDsFollowInputsAndOutputs(t *testing.T) {
 	// Native funds for fees and the stake.
 	funding := signedTx(t, plainTransfer(
 		[]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 2000, 0)},
-		transferOutput(
-			1,
-			owners(addrA),
-		),
+		transferOutput(1, owners(addrA)),
 		transferOutput(30, owners(addrA)),
 		transferOutput(10, owners(addrA)),
 		transferOutput(1001, owners(addrA)),
@@ -1548,16 +1472,7 @@ func TestAssetIDsFollowInputsAndOutputs(t *testing.T) {
 	staker.Outs = []*avax.TransferableOutput{customOutput(200, owners(addrA))}
 	staked := signedTx(t, staker)
 
-	blk := newBanffStandard(
-		t,
-		postDurangoTime,
-		ids.GenerateTestID(),
-		1,
-		imported,
-		transferred,
-		exported,
-		staked,
-	)
+	blk := newBanffStandard(t, postDurangoTime, ids.GenerateTestID(), 1, imported, transferred, exported, staked)
 	store := newFakeStore()
 	store.txs[funding.ID()] = funding
 	store.accept(blk)
@@ -1584,10 +1499,7 @@ func TestAssetIDsFollowInputsAndOutputs(t *testing.T) {
 	require.True(inputs[0].Resolved) // resolved from the import's custom output
 	outputs, _, err = getOutputs(reader, 1, 1, 0, 10)
 	require.NoError(err)
-	require.Equal(
-		[]assetAmount{{customAssetID, 300}, {avaxAssetID, 29}, {customAssetID, 200}},
-		outputAssets(outputs),
-	)
+	require.Equal([]assetAmount{{customAssetID, 300}, {avaxAssetID, 29}, {customAssetID, 200}}, outputAssets(outputs))
 
 	// Export: native change, then the exported custom output.
 	inputs, _, err = getInputs(reader, 1, 2, 0, 10, nil)
@@ -1618,10 +1530,7 @@ func TestAssetIDsFollowInputsAndOutputs(t *testing.T) {
 func TestDecodeMalformedTxIsUnsupported(t *testing.T) {
 	require := require.New(t)
 
-	malformed := autoRenewedValidator(
-		ids.GenerateTestNodeID(),
-		[]*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 1000, 0)},
-	)
+	malformed := autoRenewedValidator(ids.GenerateTestNodeID(), []*avax.TransferableInput{transferInput(ids.GenerateTestID(), 0, 1000, 0)})
 	malformed.ValidatorNodeID = []byte{1, 2, 3}
 	tx := signedTx(t, malformed)
 	blk := newBanffStandard(t, postDurangoTime, ids.GenerateTestID(), 1, tx)
@@ -1665,11 +1574,7 @@ func TestGetInputsSignatures(t *testing.T) {
 		return tx
 	}
 	// A transfer whose two inputs are signed by k0 and k1, one credential each.
-	transfer := signedBy(
-		plainTransfer(ins(), transferOutput(10, owners(k0.Address()))),
-		[]*secp256k1.PrivateKey{k0},
-		[]*secp256k1.PrivateKey{k1},
-	)
+	transfer := signedBy(plainTransfer(ins(), transferOutput(10, owners(k0.Address()))), []*secp256k1.PrivateKey{k0}, []*secp256k1.PrivateKey{k1})
 	// A config transaction: the credential of its input, then the validator
 	// authority's, which is not an input credential.
 	config := signedBy(&txs.SetAutoRenewedValidatorConfigTx{
@@ -1679,17 +1584,12 @@ func TestGetInputsSignatures(t *testing.T) {
 		Period: 1,
 	}, []*secp256k1.PrivateKey{k0}, []*secp256k1.PrivateKey{authority})
 	// A transfer with fewer credentials than inputs, and one with none.
-	short := signedBy(
-		plainTransfer(ins(), transferOutput(10, owners(k1.Address()))),
-		[]*secp256k1.PrivateKey{k0},
-	)
+	short := signedBy(plainTransfer(ins(), transferOutput(10, owners(k1.Address()))), []*secp256k1.PrivateKey{k0})
 	unsigned := signedTx(t, plainTransfer(ins(), transferOutput(10, owners(k0.Address()))))
 
 	store := newFakeStore()
 	store.txs[producer.ID()] = producer
-	store.accept(
-		newBanffStandard(t, postDurangoTime, ids.GenerateTestID(), 1, transfer, config, short, unsigned),
-	)
+	store.accept(newBanffStandard(t, postDurangoTime, ids.GenerateTestID(), 1, transfer, config, short, unsigned))
 	reader := newTestReader(store)
 
 	blk, err := getBlock(reader, 1, nil)
@@ -1724,10 +1624,7 @@ func TestGetInputsSignatures(t *testing.T) {
 	require.NoError(err)
 	require.Len(inputs, 1)
 	require.Equal(sigsOf(config, 0), inputs[0].Signatures)
-	pk, err := secp256k1.RecoverPublicKeyFromHash(
-		hashing.ComputeHash256(blk.Txs[1].UnsignedBytes),
-		inputs[0].Signatures[0][:],
-	)
+	pk, err := secp256k1.RecoverPublicKeyFromHash(hashing.ComputeHash256(blk.Txs[1].UnsignedBytes), inputs[0].Signatures[0][:])
 	require.NoError(err)
 	require.Equal(k0.Address(), pk.Address())
 

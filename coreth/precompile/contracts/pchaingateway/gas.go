@@ -73,11 +73,7 @@ func GetBlockGas(blockBytes uint64) uint64 {
 // the total stored bytes decoded (the block plus the producing transactions
 // of the inline inputs) and the number of owner addresses returned inline
 // (inputs and outputs). Arguments must be within the caps.
-func GetTransactionsGas(
-	maxTxs, maxInputsPerTx, maxOutputsPerTx uint32,
-	decodedBytes uint64,
-	addresses int,
-) uint64 {
+func GetTransactionsGas(maxTxs, maxInputsPerTx, maxOutputsPerTx uint32, decodedBytes uint64, addresses int) uint64 {
 	return BlockReadGas +
 		uint64(maxTxs)*TxGas +
 		uint64(maxTxs)*uint64(maxInputsPerTx)*InputGas +

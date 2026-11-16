@@ -12,8 +12,11 @@ import (
 
 func (b *blockReader) GetOutputs(txIndex, from, max uint32) ([]pchain.Output, uint32, error) {
 	db := b.db
-	if err := db.checkDecodedTx(txIndex); err != nil {
-		return nil, 0, err
+	if uint64(txIndex) >= uint64(len(db.block.Txs)) {
+		return nil, 0, fmt.Errorf("%w: index %d, block has %d transactions", pchain.ErrTxIndexOutOfRange, txIndex, len(db.block.Txs))
+	}
+	if db.block.Txs[txIndex].Type == pchain.TxUnsupported {
+		return nil, 0, fmt.Errorf("%w: transaction %d", pchain.ErrUnsupportedTx, txIndex)
 	}
 
 	outs := db.outs[txIndex]

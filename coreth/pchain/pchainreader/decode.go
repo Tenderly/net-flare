@@ -4,8 +4,6 @@
 package pchainreader
 
 import (
-	"fmt"
-
 	"github.com/ava-labs/avalanchego/ids"
 	"github.com/ava-labs/avalanchego/utils/constants"
 	"github.com/ava-labs/avalanchego/vms/components/avax"
@@ -110,18 +108,6 @@ func (r *Reader) decode(blk block.Block) *decodedBlock {
 		db.outs[i] = d.outs
 	}
 	return db
-}
-
-// checkDecodedTx returns an error unless txIndex is a decoded
-// (non-[pchain.TxUnsupported]) transaction of the block.
-func (db *decodedBlock) checkDecodedTx(txIndex uint32) error {
-	if uint64(txIndex) >= uint64(len(db.block.Txs)) {
-		return fmt.Errorf("%w: index %d, block has %d transactions", pchain.ErrTxIndexOutOfRange, txIndex, len(db.block.Txs))
-	}
-	if db.block.Txs[txIndex].Type == pchain.TxUnsupported {
-		return fmt.Errorf("%w: transaction %d", pchain.ErrUnsupportedTx, txIndex)
-	}
-	return nil
 }
 
 // inputCredentials returns the secp256k1fx credentials of the first n inputs
@@ -342,14 +328,7 @@ func (d *txDecoder) AddPermissionlessValidatorTx(tx *txs.AddPermissionlessValida
 	if tx.Subnet != constants.PrimaryNetworkID {
 		return nil
 	}
-	d.boundedStaker(
-		pchain.TxAddPermissionlessValidator,
-		tx.Validator,
-		tx.DelegationShares,
-		tx.Ins,
-		tx.Outs,
-		tx.StakeOuts,
-	)
+	d.boundedStaker(pchain.TxAddPermissionlessValidator, tx.Validator, tx.DelegationShares, tx.Ins, tx.Outs, tx.StakeOuts)
 	return nil
 }
 

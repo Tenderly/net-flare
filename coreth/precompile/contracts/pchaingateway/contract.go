@@ -209,14 +209,7 @@ func UnpackGetBlockInput(input []byte) (uint64, error) {
 
 // PackGetBlockOutput packs the getBlock output.
 func PackGetBlockOutput(out GetBlockOutput) ([]byte, error) {
-	return PChainGatewayABI.PackOutput(
-		"getBlock",
-		out.BlockId,
-		out.ParentId,
-		out.Timestamp,
-		out.Kind,
-		out.TxCount,
-	)
+	return PChainGatewayABI.PackOutput("getBlock", out.BlockId, out.ParentId, out.Timestamp, out.Kind, out.TxCount)
 }
 
 // UnpackGetBlockOutput unpacks the getBlock output.
@@ -228,15 +221,7 @@ func UnpackGetBlockOutput(output []byte) (GetBlockOutput, error) {
 
 // PackGetTransactions packs the getTransactions call (selector included).
 func PackGetTransactions(in GetTransactionsInput) ([]byte, error) {
-	return PChainGatewayABI.Pack(
-		"getTransactions",
-		in.Height,
-		in.FromIndex,
-		in.MaxTxs,
-		in.TypeFilter,
-		in.MaxInputsPerTx,
-		in.MaxOutputsPerTx,
-	)
+	return PChainGatewayABI.Pack("getTransactions", in.Height, in.FromIndex, in.MaxTxs, in.TypeFilter, in.MaxInputsPerTx, in.MaxOutputsPerTx)
 }
 
 // UnpackGetTransactionsInput unpacks the getTransactions arguments (selector omitted).
@@ -420,6 +405,7 @@ func createPChainGatewayPrecompile() contract.StatefulPrecompiledContract {
 		}
 		functions = append(functions, contract.NewStatefulPrecompileFunction(method.ID, function))
 	}
+	// Construct the contract with no fallback function.
 	statefulContract, err := contract.NewStatefulPrecompileContract(nil, functions)
 	if err != nil {
 		panic(err)

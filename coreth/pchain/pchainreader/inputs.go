@@ -34,13 +34,13 @@ type ownerEntry struct {
 	txBytes uint64
 }
 
-func (b *blockReader) GetInputs(
-	txIndex, from, max uint32,
-	charge pchain.ByteCharger,
-) ([]pchain.Input, uint32, error) {
+func (b *blockReader) GetInputs(txIndex, from, max uint32, charge pchain.ByteCharger) ([]pchain.Input, uint32, error) {
 	r, db := b.r, b.db
-	if err := db.checkDecodedTx(txIndex); err != nil {
-		return nil, 0, err
+	if uint64(txIndex) >= uint64(len(db.block.Txs)) {
+		return nil, 0, fmt.Errorf("%w: index %d, block has %d transactions", pchain.ErrTxIndexOutOfRange, txIndex, len(db.block.Txs))
+	}
+	if db.block.Txs[txIndex].Type == pchain.TxUnsupported {
+		return nil, 0, fmt.Errorf("%w: transaction %d", pchain.ErrUnsupportedTx, txIndex)
 	}
 
 	ins := db.ins[txIndex]
@@ -55,12 +55,7 @@ func (b *blockReader) GetInputs(
 	inputs := make([]pchain.Input, 0, end-from)
 	importedFrom := int(db.importedFrom[txIndex])
 	for position := int(from); position < int(end); position++ {
-		input, err := r.resolveInput(
-			ins[position],
-			db.creds[txIndex][position],
-			position >= importedFrom,
-			charge,
-		)
+		input, err := r.resolveInput(ins[position], db.creds[txIndex][position], position >= importedFrom, charge)
 		if err != nil {
 			return nil, total, err
 		}
@@ -72,12 +67,7 @@ func (b *blockReader) GetInputs(
 // resolveInput decodes a consumed input together with the signatures of its
 // credential cred (nil when the transaction has none for it) and, unless it
 // is an imported input, resolves the owner of the consumed output.
-func (r *Reader) resolveInput(
-	in *avax.TransferableInput,
-	cred *secp256k1fx.Credential,
-	imported bool,
-	charge pchain.ByteCharger,
-) (pchain.Input, error) {
+func (r *Reader) resolveInput(in *avax.TransferableInput, cred *secp256k1fx.Credential, imported bool, charge pchain.ByteCharger) (pchain.Input, error) {
 	// The asset an accepted input claims is the asset of the output it
 	// consumes (VerifySpendUTXOs checks it, for imported inputs against the
 	// shared-memory UTXO), so it is known without resolving the output.

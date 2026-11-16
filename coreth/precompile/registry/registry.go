@@ -7,5 +7,6 @@ package registry
 // Force imports of each precompile to ensure each precompile's init function runs and registers itself
 // with the registry.
 import (
+	_ "github.com/tenderly/net-flare/coreth/precompile/contracts/pchaingateway"
 	_ "github.com/tenderly/net-flare/coreth/precompile/contracts/warp"
 )

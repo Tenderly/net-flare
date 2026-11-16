@@ -53,6 +53,15 @@ type AccessibleState interface {
 	GetChainConfig() precompileconfig.ChainConfig
 	GetRules() precompileconfig.Rules
 	NativeAssetCall(caller common.Address, input []byte, suppliedGas uint64, gasCost uint64, readOnly bool) (ret []byte, remainingGas uint64, err error)
+	// GetHostContext returns the value that the host set for this execution,
+	// or nil. A precompile that is registered outside this module reads its
+	// per-execution data from it.
+	GetHostContext() any
+	// InvalidateExecution marks the whole execution as invalid because of a
+	// local failure that must not become a result, for example a missing
+	// data source. The first error is kept. ApplyMessage reverts the state
+	// changes of the message and returns the error instead of a result.
+	InvalidateExecution(err error)
 }
 
 // ConfigurationBlockContext defines the interface required to configure a precompile.

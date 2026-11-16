@@ -178,6 +178,32 @@ func (mr *MockAccessibleStateMockRecorder) GetStateDB() *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetStateDB", reflect.TypeOf((*MockAccessibleState)(nil).GetStateDB))
 }
 
+// GetHostContext mocks base method.
+func (m *MockAccessibleState) GetHostContext() any {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetHostContext")
+	ret0, _ := ret[0].(any)
+	return ret0
+}
+
+// GetHostContext indicates an expected call of GetHostContext.
+func (mr *MockAccessibleStateMockRecorder) GetHostContext() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetHostContext", reflect.TypeOf((*MockAccessibleState)(nil).GetHostContext))
+}
+
+// InvalidateExecution mocks base method.
+func (m *MockAccessibleState) InvalidateExecution(arg0 error) {
+	m.ctrl.T.Helper()
+	m.ctrl.Call(m, "InvalidateExecution", arg0)
+}
+
+// InvalidateExecution indicates an expected call of InvalidateExecution.
+func (mr *MockAccessibleStateMockRecorder) InvalidateExecution(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "InvalidateExecution", reflect.TypeOf((*MockAccessibleState)(nil).InvalidateExecution), arg0)
+}
+
 // NativeAssetCall mocks base method.
 func (m *MockAccessibleState) NativeAssetCall(arg0 common.Address, arg1 []byte, arg2, arg3 uint64, arg4 bool) ([]byte, uint64, error) {
 	m.ctrl.T.Helper()

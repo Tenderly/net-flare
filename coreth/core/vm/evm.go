@@ -113,6 +113,21 @@ func (evm *EVM) precompile(addr common.Address) (contract.StatefulPrecompiledCon
 	return nil, false
 }
 
+// moduleRejectsCallType reports whether a DELEGATECALL or CALLCODE to addr
+// reverts. From Granite, a stateful precompile registered as a module cannot
+// be called with either, as in coreth's libevm precompile hooks; the call
+// reverts and uses all of its gas.
+func (evm *EVM) moduleRejectsCallType(addr common.Address) bool {
+	if !evm.chainRules.IsGranite {
+		return false
+	}
+	if _, overridden := evm.precompileOverrides[addr]; overridden {
+		return false
+	}
+	_, isModule := evm.chainRules.ActivePrecompiles[addr]
+	return isModule
+}
+
 // BlockContext provides the EVM with auxiliary information. Once provided
 // it shouldn't be modified.
 type BlockContext struct {
@@ -203,6 +218,38 @@ type EVM struct {
 	callGasTemp uint64
 	// precompileOverrides is consulted before the fork's precompiles; see [EVM.OverridePrecompiles].
 	precompileOverrides map[common.Address]contract.StatefulPrecompiledContract
+	// hostContext is the host's value for this execution; see [EVM.SetHostContext].
+	hostContext any
+	// invalidation is the first error given to [EVM.InvalidateExecution].
+	invalidation error
+}
+
+// SetHostContext sets the value that precompiles read with GetHostContext.
+// The EVM itself does not use it.
+func (evm *EVM) SetHostContext(hostContext any) {
+	evm.hostContext = hostContext
+}
+
+// GetHostContext implements AccessibleState.
+func (evm *EVM) GetHostContext() any {
+	return evm.hostContext
+}
+
+// InvalidateExecution implements AccessibleState. The first non-nil error
+// is kept and later errors are ignored, so an invalidated EVM stays invalid.
+func (evm *EVM) InvalidateExecution(err error) {
+	if err == nil || evm.invalidation != nil {
+		return
+	}
+	evm.invalidation = err
+}
+
+// ExecutionInvalidation returns the error given to InvalidateExecution, or
+// nil. The precompile call that invalidates the execution fails only as a VM
+// error, so a caller that uses Call, Create or StaticCall directly must check
+// this before it uses the result.
+func (evm *EVM) ExecutionInvalidation() error {
+	return evm.invalidation
 }
 
 // OverridePrecompiles installs precompiles for this EVM only, taking
@@ -503,7 +550,11 @@ func (evm *EVM) CallCode(caller ContractRef, addr common.Address, input []byte, 
 
 	// It is allowed to call precompiles, even via delegatecall
 	if p, isPrecompile := evm.precompile(addr); isPrecompile {
-		ret, gas, err = RunStatefulPrecompiledContract(p, evm, caller.Address(), addr, input, gas, evm.interpreter.readOnly)
+		if evm.moduleRejectsCallType(addr) {
+			ret, gas, err = nil, 0, vmerrs.ErrExecutionReverted
+		} else {
+			ret, gas, err = RunStatefulPrecompiledContract(p, evm, caller.Address(), addr, input, gas, evm.interpreter.readOnly)
+		}
 	} else {
 		addrCopy := addr
 		// Initialise a new contract and set the code that is to be used by the EVM.
@@ -548,7 +599,11 @@ func (evm *EVM) DelegateCall(caller ContractRef, addr common.Address, input []by
 
 	// It is allowed to call precompiles, even via delegatecall
 	if p, isPrecompile := evm.precompile(addr); isPrecompile {
-		ret, gas, err = RunStatefulPrecompiledContract(p, evm, caller.Address(), addr, input, gas, evm.interpreter.readOnly)
+		if evm.moduleRejectsCallType(addr) {
+			ret, gas, err = nil, 0, vmerrs.ErrExecutionReverted
+		} else {
+			ret, gas, err = RunStatefulPrecompiledContract(p, evm, caller.Address(), addr, input, gas, evm.interpreter.readOnly)
+		}
 	} else {
 		addrCopy := addr
 		// Initialise a new contract and make initialise the delegate values

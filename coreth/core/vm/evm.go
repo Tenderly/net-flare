@@ -113,6 +113,21 @@ func (evm *EVM) precompile(addr common.Address) (contract.StatefulPrecompiledCon
 	return nil, false
 }
 
+// moduleRejectsCallType reports whether a DELEGATECALL or CALLCODE to addr
+// reverts. From Granite, a stateful precompile registered as a module cannot
+// be called with either, as in coreth's libevm precompile hooks; the call
+// reverts and uses all of its gas.
+func (evm *EVM) moduleRejectsCallType(addr common.Address) bool {
+	if !evm.chainRules.IsGranite {
+		return false
+	}
+	if _, overridden := evm.precompileOverrides[addr]; overridden {
+		return false
+	}
+	_, isModule := evm.chainRules.ActivePrecompiles[addr]
+	return isModule
+}
+
 // BlockContext provides the EVM with auxiliary information. Once provided
 // it shouldn't be modified.
 type BlockContext struct {
@@ -535,7 +550,11 @@ func (evm *EVM) CallCode(caller ContractRef, addr common.Address, input []byte, 
 
 	// It is allowed to call precompiles, even via delegatecall
 	if p, isPrecompile := evm.precompile(addr); isPrecompile {
-		ret, gas, err = RunStatefulPrecompiledContract(p, evm, caller.Address(), addr, input, gas, evm.interpreter.readOnly)
+		if evm.moduleRejectsCallType(addr) {
+			ret, gas, err = nil, 0, vmerrs.ErrExecutionReverted
+		} else {
+			ret, gas, err = RunStatefulPrecompiledContract(p, evm, caller.Address(), addr, input, gas, evm.interpreter.readOnly)
+		}
 	} else {
 		addrCopy := addr
 		// Initialise a new contract and set the code that is to be used by the EVM.
@@ -580,7 +599,11 @@ func (evm *EVM) DelegateCall(caller ContractRef, addr common.Address, input []by
 
 	// It is allowed to call precompiles, even via delegatecall
 	if p, isPrecompile := evm.precompile(addr); isPrecompile {
-		ret, gas, err = RunStatefulPrecompiledContract(p, evm, caller.Address(), addr, input, gas, evm.interpreter.readOnly)
+		if evm.moduleRejectsCallType(addr) {
+			ret, gas, err = nil, 0, vmerrs.ErrExecutionReverted
+		} else {
+			ret, gas, err = RunStatefulPrecompiledContract(p, evm, caller.Address(), addr, input, gas, evm.interpreter.readOnly)
+		}
 	} else {
 		addrCopy := addr
 		// Initialise a new contract and make initialise the delegate values

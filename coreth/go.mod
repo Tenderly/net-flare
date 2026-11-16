@@ -5,6 +5,7 @@ go 1.25.10
 require (
 	github.com/VictoriaMetrics/fastcache v1.13.0
 	github.com/ava-labs/avalanchego v1.15.0-fuji
+	github.com/ava-labs/libevm v1.13.15-0.20260721184559-5557c68d296b
 	github.com/cespare/cp v0.1.0
 	github.com/crate-crypto/go-ipa v0.0.0-20240724233137-53bbb0ceb27a
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
@@ -55,7 +56,6 @@ require (
 	github.com/RaduBerinde/axisds v0.1.0 // indirect
 	github.com/RaduBerinde/btreemap v0.0.0-20250419174037-3d62b7205d54 // indirect
 	github.com/StephenButtolph/canoto v0.18.0 // indirect
-	github.com/ava-labs/libevm v1.13.15-0.20260721184559-5557c68d296b // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bits-and-blooms/bitset v1.20.0 // indirect
 	github.com/btcsuite/btcd/btcec/v2 v2.3.5 // indirect
@@ -135,3 +135,5 @@ require (
 	google.golang.org/grpc v1.83.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/ava-labs/libevm => github.com/tenderly/net-avalanche-libevm v0.0.0-20261014101411-56f57767f69d

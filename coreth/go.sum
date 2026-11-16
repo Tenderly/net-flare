@@ -317,6 +317,8 @@ github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a h1:1ur3QoCqvE5f
 github.com/syndtr/goleveldb v1.0.1-0.20220614013038-64ee5596c38a/go.mod h1:RRCYJbIwD5jmqPI9XoAFR0OcDxqUctll6zUj/+B4S48=
 github.com/tenderly/bls12381 v0.0.0-20250121223820-327dd2558549 h1:7oAGBR1Lafwj17r1tUiU1bznpkt3UqqsucZSQUt93jk=
 github.com/tenderly/bls12381 v0.0.0-20250121223820-327dd2558549/go.mod h1:4IjSN1HLhATMnQ5ov5oAmsnWhLX61nXfUG0siAgfr7I=
+github.com/tenderly/net-avalanche-libevm v0.0.0-20261014101411-56f57767f69d h1:/wwpQyHg9B3pd0cMHj8bQ5pWBYLmbwmPnnaxwejpsxI=
+github.com/tenderly/net-avalanche-libevm v0.0.0-20261014101411-56f57767f69d/go.mod h1:57rzGjDjeJRk8SGwM6iwvM4B5NiF8Fbp+Q/tFUgLTrM=
 github.com/thepudds/fzgen v0.4.3 h1:srUP/34BulQaEwPP/uHZkdjUcUjIzL7Jkf4CBVryiP8=
 github.com/thepudds/fzgen v0.4.3/go.mod h1:BhhwtRhzgvLWAjjcHDJ9pEiLD2Z9hrVIFjBCHJ//zJ4=
 github.com/tklauser/go-sysconf v0.3.15 h1:VE89k0criAymJ/Os65CSn1IXaol+1wrsFHEB8Ol49K4=
